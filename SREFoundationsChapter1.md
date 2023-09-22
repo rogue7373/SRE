@@ -2,9 +2,9 @@
 
 ## Chapter 1 - Intoduction to SRE 
 
-- 1.1 Why SRE? 
+### 1.1 Why SRE? 
 The way operations has been done wasn't yielding the desired results alone. This gap in expected results compared to actual outcome causes deliberation within an organization to imporve the way the product is being used. SRE is an concreate opinionated implementation of the DevOps philosophy. 
-- 1.1.1 ITIL
+### 1.1.1 ITIL
 ITIL describes IT processes, procedures, taks, and checklists. 
 1. Focus on value
 2. Start where you are
@@ -13,7 +13,7 @@ ITIL describes IT processes, procedures, taks, and checklists.
 5. Think and work holistically
 6. Keep it simple and practical
 7. Optimize and automate
-- 1.1.2 COBIT
+### 1.1.2 COBIT
 COBIT is a framework created by ISACA, it defines a set of eneric processes for the management of IT, with each process defined together with process inputs and outputs, key process-activities, process objectives, performance measures and an elementary maturity model. 
 1. Meeting stakeholder needs
 2. Covering the enterprise end-to-end
@@ -36,7 +36,7 @@ Modeling is applied to find threats. Threat modeling is a risk-based approach fo
 Similar to threat modeling in security, modeling as a technique can be applied to find operational vulnerabilities. Your system architecture, implementation, and deployment can be analyzed to find weak spots that would prevent the system from executing well in production.
 Modeling requires constant updates to take into account new features, changes in infrastructure, and learnings from productions outages. 
 Modeling is not broadly used in the industry. 
-- 1.1.4 DevOps
+### 1.1.4 DevOps
 DevOps defines five pillars of success
 1. Reduce organizational silos
 2. Accept failure as normal 
@@ -48,3 +48,12 @@ The DevOps maturity level of an enterprise can be assessed using the CALMS frame
 - CALMS: Culture, Automation, Lean, Measurement, and Sharing coined by Jezz Humble. 
 - Culture DevOps requires a shared responsibility for tearing down silos between Dev and Ops. 
 - Automation in DevOps refers to technical practices around Continuous Delivery (automate all the things, infrasturcture provisioning, deployement, testing, and monitoring)
+- Lean refers to the principles of waste elimination and value stream optimization (nod to ITIL)
+These methods are applied in practice using work-in-progress minimization, batch size limitation, handoff complexity reduction, queue length management, and wait time reduction
+In terms of measurement, a DevOps organization collects data on its processes, builds, deployments, failures, feature usage, etc. This data is used to understand current capabilities and drive measureable improvements. 
+- Sharing in DevOps refers to shared goals, openness, and information sharing among the development and operations teams. 
+CALMS is also sometimes used to communicate and negotiate the differences between DevOps and ITIL. 
+### 1.1.5 SRE 
+Site reliability engineering is a probably the latest methodology for doing operations. It originated within Google in 2014. SRE is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems. The main goals are to create a scalable an highly reliable software system. SRE is what happens when a software egineer is tasked with what used to be called operations. 
+The SRE principles were postulated by Google in the [Site Reliability Workbook](https://sre.google/sre-book/table-of-contents/)
+ 
