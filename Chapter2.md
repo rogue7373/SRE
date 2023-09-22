@@ -60,3 +60,15 @@ The idea of going on call for the developers gives rise to a plethora of questio
 - How do you achieve it? Again, no right answer, find what fits
 - Can developers stay developers if they go on call? Yes. They will become better developers and their skills will be more highly sought after. 
 
+The book will further discuss the above in upcoming chapters, if you have questions I suggest writing them down as they will be answered going forward.
+
+##### Key Insight: Developers must go on call for some percentage of their time. This can range from very little time to nearly full time. (Finding a balance for your personal organization is up to you. What works for some might not work for everyone.)
+
+#### 2.3.2 Product Opertations
+With developers going on call, the product operations team would need to provide support to enable the developers to do operations. 
+
+What kind of support would the developers need? Some developers may have never done operations before, so this may be unfamiliar to them. 
+
+The entire body of knowledge about product operations is with the operations team. The idea of taking product as a "black box" and putting it into thep production environment, activating monitoring of IT resources, and alerting on some threshold violations. This allows developers to learn and understand this. With thier insider knowledge of the produc, they will also be able to find many more scenarios that can be monitored and alerted upon.  The developers’ knowledge about the architecture, implementation, configuration, and deployment of the product is an invaluable resource for improving monitoring of the product in production. But how can they utilize that knowledge to improve product operations?
+How can they bridge the gap between development and operations as suggested by the term
+DevOps?
