@@ -1,5 +1,4 @@
-# Establishing SRE Foundations - 
-## A Step-By-Step Guide to Introducing Site Reliability Engineering in Software Delivery Organizations
+# Establishing SRE Foundations - A Step-By-Step Guide to Introducing Site Reliability Engineering in Software Delivery Organizations
 
 ## Chapter 1 - Intoduction to SRE 
 
@@ -56,5 +55,18 @@ In terms of measurement, a DevOps organization collects data on its processes, b
 CALMS is also sometimes used to communicate and negotiate the differences between DevOps and ITIL. 
 ### 1.1.5 SRE 
 Site reliability engineering is a probably the latest methodology for doing operations. It originated within Google in 2014. SRE is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems. The main goals are to create a scalable an highly reliable software system. SRE is what happens when a software egineer is tasked with what used to be called operations. 
-The SRE principles were postulated by Google in the [Site Reliability Workbook](https://sre.google/sre-book/table-of-contents/)
-
+The SRE principles were postulated by Google in the [Site Reliability Workbook](https://sre.google/sre-book/table-of-contents/) They are described in Table 1.1 in the SRE Foundations Handbook Chapter 1. 
+There are also three additional principles for practicing SRE.
+1. SRE needs SLO with consequences
+2. SREs must have time to make tomorrow better than today
+3. SRE teams have the ability to regulate their workload
+Thus SRE principles are pretty opinionated and often directly prescribe what needs to be done to achieve reliable operations. 
+### 1.1.6 Comparison
+Looking at DevOps, SRE, ITIL, and COBIT, a trend emerges dating back to 2014. DevOps and SRE are the operations methodologies with the highest interst. ITIL and COBIT attract the lowest number of searches. 
+- ITIL and COBIT are governance frameworks for designing IT function of an enterprise. 
+- Modeling is an approach for deriving good operations practices based on an analysis of system artifacts. 
+- SRE is rooted in software engineering and approaches operations specifically from that perspective. 
+- DevOps is an overarching philosophy for doing operations 
+Because the methodologies are so different, they may not be mutally exlusive. They are indeed, addressing different needs. This means that applying of them in combintaion may make sense for a company. 
+For example, it may be useful to have ITIL procedures in palce for regulatory compliance handling of customers complaints. While it may also be useful to have SRE in place for proper engagement of developers and operations engineers in operations. As part of SRE activities, some aspects of modeling might aslo be useful while the system is being initially architected. 
+ 
