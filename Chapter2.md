@@ -29,3 +29,7 @@ Is it product management? For sure it is not. Their focus is the definition of t
 
 ### 2.2 Collective Ownership
 Collective ownership is the ownership of means of production by all members of a group for the benefit of all its members. The definition shows that everyone needs to benefit from the ownership. In the context of product operations, it means that if collective ownership is to be established ina product delivery organization, the ownership needs to benefit all the parties involved. If collective ownership of productions operations is to be established among product operations, product development, and product managmentment, each party needs to benefit from it. 
+
+Product operations team struggle to engaged product development and product management teams in their operations activities. It is preferred that PM and PD take partial ownership of operations. 
+
+PD teams view themselves as feature developers with the goal of getting new features to production quickly
