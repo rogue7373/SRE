@@ -28,4 +28,13 @@ Is it product development? Certainly not. Their focus is the feature backlog. Th
 Is it product management? For sure it is not. Their focus is the definition of the product. Their expectation is that product development implements the product and product operations operates it in production. Despite the word owner in their title, the product owners do not own the product all the way to and including production.
 
 ### 2.2 Collective Ownership
-Collective ownership is the ownership of means of production by all members of a group for the benefit of all its members. The definition shows that everyone needs to benefit from the ownership. In the context of product operations, it means that if collective ownership is to be established ina product delivery organization, the ownership needs to benefit all the parties involved. If collective ownership of productions operations is to be established among product operations, product development, and product managmentment, each party needs to benefit from it. 
+Collective ownership is the ownership of means of production by all members of a group for the benefit of all its members. The definition shows that everyone needs to benefit from the ownership. In the context of product operations, it means that if collective ownership is to be established ina product delivery organization, the ownership needs to benefit all the parties involved. If collective ownership of productions operations is to be established among product operations, product development, and product managmentment, each party needs to benefit from it.
+
+### Ownership Using SRE 
+What does it mean to have parital ownership of production operations using SRE? This question needs to be answered specifically for each party in the product development organization.
+
+#### 2.3.1 Product Developement
+The benefits of partially owning production operations are rooted in the insights of how the system behaves in production under real user, data, and infrastructure load. 
+- We observe in production - this helps to continuously learn about our systems in the real world environment
+- We use on-call rotations, typically handled by product operations, this way production insights don't go directly to production development 
+* The helps to prevent masking of issues 
