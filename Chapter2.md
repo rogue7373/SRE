@@ -37,4 +37,26 @@ What does it mean to have parital ownership of production operations using SRE? 
 The benefits of partially owning production operations are rooted in the insights of how the system behaves in production under real user, data, and infrastructure load. 
 - We observe in production - this helps to continuously learn about our systems in the real world environment
 - We use on-call rotations, typically handled by product operations, this way production insights don't go directly to production development 
-* The helps to prevent masking of issues 
+- The helps to prevent masking of issues
+- Developers with product implementation knowledge conduct product failure investigations
+- The number of steps in the chain between a production issue occurring and a person with
+the best knowledge to fix it can be exactly one. (Only acheivable via active, actionalble alerting)
+- Developers get to experience the quality of the product in the real world by testing it at productions sites. 
+- Developers gain the knowledge necessary to operate and troubleshoot the product. 
+- Developers use the knowledge from product operations in the development of new features.
+- Developers gain a better understanding of the kind of testing and tooling necessary to deliver a product that works well. 
+- Developers have the incentive to implement reliability features and tools for a great product operations experience. This is because if the developers go on call, they actually want to spend as little time as possilbe dealing with production issues. 
+- Developers with experience in product operations are more highly valued in the industry. Going on call directly contributes to learning the skills necessary to command higher wages in the marketplace (Learn Operations before development to earn more $$$)
+
+The idea of going on call for the developers gives rise to a plethora of questions, such as the following: 
+
+- Do the developers always need to go on call for their services? No
+- Could the developers go on call only during business hours? Yes
+- Can the on-call responsibility be shared with product operations? Yes
+- What is the best setup for given organizatinos? No right answer
+- Would a development team setup need to be adapted to enable on call? Yes
+- Can developers in a team perfomr the on-call duties on rotation? Yes
+- Can focused feature development still be done despite going on call? Yes
+- How do you achieve it? Again, no right answer, find what fits
+- Can developers stay developers if they go on call? Yes. They will become better developers and their skills will be more highly sought after. 
+
