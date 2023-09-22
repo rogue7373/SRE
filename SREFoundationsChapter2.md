@@ -9,3 +9,13 @@ Users touch the product in productions, therefore, that touch point needs to be 
 > While the crisis is unfolding, the developers are happily working on new features for the point- of-sale devices. The product owners are happily specifying additional new features to be handed over to the developers after they finish the current work. The operations engineers are reaching out to the developers, who are not sure whether to prioritize the requests by the operations engineers or the fea- tures in development. The developers reach out to the product owners for a prioritization decision. Finally, the operations engineers, developers, and product owners swarm over the problem and decide to fix the product issues with the highest priority.
 
 ### 2.1 Misalignment 
+* See Figure 2.1 which illustrates the preceding example of how a product delivery organization misaligned on operationsal concerns works. 
+
+If productions is where the customers use the product, how on earth can it be less important than anything else? 
+
+This frustration relfects a core issue in product delivery organizations that do not excel at operations. In such organizations, being product and user centric means different things to different parties. From a product operations point of view, it means produciton isses are tackled with the highest priority. From a product development point of view, it means features reqeusted by product owners are develped as quickly as possilbe. From a product management point of view, it means user stories requested by customers are turned into features in production as quicly as possible. This fundamental misalignment of what it means to be product and user centric when approaching product creation is one of the core reasons for difficulties in operating the product in production to the customer's satisfaction. This is where SRSE shines, aligning the parties (Chapter 1, SRE brings together the three parties)
+
+The three parties operate under three different flags 
+1. Product Operations runs under the Ops flag - they man production
+2. Product Development runs under the Dev flag - they develop products new features
+3. Product Management runs under the Product flag - they are all about the product and shape it in a fundamental way
