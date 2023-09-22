@@ -35,7 +35,7 @@ Product operations team struggle to engaged product development and product mana
 PD teams view themselves as feature developers with the goal of getting new features to production quickly
 Collective ownership is the ownership of means of production by all members of a group for the benefit of all its members. The definition shows that everyone needs to benefit from the ownership. In the context of product operations, it means that if collective ownership is to be established ina product delivery organization, the ownership needs to benefit all the parties involved. If collective ownership of productions operations is to be established among product operations, product development, and product managmentment, each party needs to benefit from it.
 
-### Ownership Using SRE 
+### 2.3 Ownership Using SRE 
 What does it mean to have parital ownership of production operations using SRE? This question needs to be answered specifically for each party in the product development organization.
 
 #### 2.3.1 Product Developement
