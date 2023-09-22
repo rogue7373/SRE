@@ -1,4 +1,5 @@
-# Establishing SRE Foundations - A Step-By-Step Guide to Introducing Site Reliability Engineering in Software Delivery Organizations
+# Establishing SRE Foundations - 
+## A Step-By-Step Guide to Introducing Site Reliability Engineering in Software Delivery Organizations
 
 ## Chapter 1 - Intoduction to SRE 
 
@@ -56,4 +57,4 @@ CALMS is also sometimes used to communicate and negotiate the differences betwee
 ### 1.1.5 SRE 
 Site reliability engineering is a probably the latest methodology for doing operations. It originated within Google in 2014. SRE is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems. The main goals are to create a scalable an highly reliable software system. SRE is what happens when a software egineer is tasked with what used to be called operations. 
 The SRE principles were postulated by Google in the [Site Reliability Workbook](https://sre.google/sre-book/table-of-contents/)
- 
+
