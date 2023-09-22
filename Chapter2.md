@@ -28,8 +28,55 @@ Is it product development? Certainly not. Their focus is the feature backlog. Th
 Is it product management? For sure it is not. Their focus is the definition of the product. Their expectation is that product development implements the product and product operations operates it in production. Despite the word owner in their title, the product owners do not own the product all the way to and including production.
 
 ### 2.2 Collective Ownership
+<<<<<<< HEAD
 Collective ownership is the ownership of means of production by all members of a group for the benefit of all its members. The definition shows that everyone needs to benefit from the ownership. In the context of product operations, it means that if collective ownership is to be established ina product delivery organization, the ownership needs to benefit all the parties involved. If collective ownership of productions operations is to be established among product operations, product development, and product managmentment, each party needs to benefit from it. 
 
 Product operations team struggle to engaged product development and product management teams in their operations activities. It is preferred that PM and PD take partial ownership of operations. 
 
 PD teams view themselves as feature developers with the goal of getting new features to production quickly
+=======
+Collective ownership is the ownership of means of production by all members of a group for the benefit of all its members. The definition shows that everyone needs to benefit from the ownership. In the context of product operations, it means that if collective ownership is to be established ina product delivery organization, the ownership needs to benefit all the parties involved. If collective ownership of productions operations is to be established among product operations, product development, and product managmentment, each party needs to benefit from it.
+
+### Ownership Using SRE 
+What does it mean to have parital ownership of production operations using SRE? This question needs to be answered specifically for each party in the product development organization.
+
+#### 2.3.1 Product Developement
+The benefits of partially owning production operations are rooted in the insights of how the system behaves in production under real user, data, and infrastructure load. 
+- We observe in production - this helps to continuously learn about our systems in the real world environment
+- We use on-call rotations, typically handled by product operations, this way production insights don't go directly to production development 
+- The helps to prevent masking of issues
+- Developers with product implementation knowledge conduct product failure investigations
+- The number of steps in the chain between a production issue occurring and a person with
+the best knowledge to fix it can be exactly one. (Only acheivable via active, actionalble alerting)
+- Developers get to experience the quality of the product in the real world by testing it at productions sites. 
+- Developers gain the knowledge necessary to operate and troubleshoot the product. 
+- Developers use the knowledge from product operations in the development of new features.
+- Developers gain a better understanding of the kind of testing and tooling necessary to deliver a product that works well. 
+- Developers have the incentive to implement reliability features and tools for a great product operations experience. This is because if the developers go on call, they actually want to spend as little time as possilbe dealing with production issues. 
+- Developers with experience in product operations are more highly valued in the industry. Going on call directly contributes to learning the skills necessary to command higher wages in the marketplace (Learn Operations before development to earn more $$$)
+
+The idea of going on call for the developers gives rise to a plethora of questions, such as the following: 
+
+- Do the developers always need to go on call for their services? No
+- Could the developers go on call only during business hours? Yes
+- Can the on-call responsibility be shared with product operations? Yes
+- What is the best setup for given organizatinos? No right answer
+- Would a development team setup need to be adapted to enable on call? Yes
+- Can developers in a team perfomr the on-call duties on rotation? Yes
+- Can focused feature development still be done despite going on call? Yes
+- How do you achieve it? Again, no right answer, find what fits
+- Can developers stay developers if they go on call? Yes. They will become better developers and their skills will be more highly sought after. 
+
+The book will further discuss the above in upcoming chapters, if you have questions I suggest writing them down as they will be answered going forward.
+
+##### Key Insight: Developers must go on call for some percentage of their time. This can range from very little time to nearly full time. (Finding a balance for your personal organization is up to you. What works for some might not work for everyone.)
+
+#### 2.3.2 Product Opertations
+With developers going on call, the product operations team would need to provide support to enable the developers to do operations. 
+
+What kind of support would the developers need? Some developers may have never done operations before, so this may be unfamiliar to them. 
+
+The entire body of knowledge about product operations is with the operations team. The idea of taking product as a "black box" and putting it into thep production environment, activating monitoring of IT resources, and alerting on some threshold violations. This allows developers to learn and understand this. With thier insider knowledge of the produc, they will also be able to find many more scenarios that can be monitored and alerted upon.  The developers’ knowledge about the architecture, implementation, configuration, and deployment of the product is an invaluable resource for improving monitoring of the product in production. But how can they utilize that knowledge to improve product operations?
+How can they bridge the gap between development and operations as suggested by the term
+DevOps?
+>>>>>>> 6bc93ea844f389c55733335890709862f74869db
