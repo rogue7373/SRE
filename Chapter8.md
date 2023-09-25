@@ -28,3 +28,23 @@ Example escalation policy:
 
 * Refer to Chapter 8, Figure 8.2 for a escalation policy table. 
 
+### 8.2 Defining an Alert Escalation Policy
+
+An alert escalation policy needs to be defined for each on-call rotation. The escalation policy is the manifestation of the on-call setup agreement between the operations engineers, developers, and product owner in the on-call management tool. Following this, the escalation policy and the schedules the policy is based upon may contain operations engineers, developers, or a mix thereof.
+
+> main on-call schedule → backup on-call schedule → repeat once
+
+The alert acknowledgment expiry times for the main and backup on-call people need to be experimented with. The expiry times can vary greatly, ranging from minutes to hours, based on the organization and the criticality of the product.
+
+* Work with the simplest escalation policy for a short while and report positive feedback about it. 
+
+The goal is to fine-tune the escalation policy so that the majority of alerts are acknowledged by the people on call within the defined time spans. In addition, the goal is to have a safety net of the people off call included in the escalation policy to ensure reaction to alerts even if the people on call are unexpectedly unavailable.
+
+> From the Trenches: Start with the simplest escalation policy along the lines of “main on-call schedule → backup on-call schedule → repeat once”. Experiment with the acknowledgment expiry times for the main and backup on calls. After it is calibrated, think about extending the escalation policy beyond the people on call. Tread care- fully to avoid alert fatigue, and iterate based on feedback. Consider the organization’s culture when deciding whether to include managers and executives in the escalation policy.
+
+### 8.3 Defining Stakeholder Groups
+
+Stakeholder notifications can be trig- gered either manually by the people on call or automatically when certain conditions apply. For the stakeholder notifications to be targeted well, two points matter.
+1. Stakeholder groups need to be defined with targeting in mind.
+2. Stakeholders need to be able to subscribe flexibly to the stakeholder groups of interest.
+
