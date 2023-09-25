@@ -67,7 +67,7 @@ The idea of going on call for the developers gives rise to a plethora of questio
 
 The book will further discuss the above in upcoming chapters, if you have questions I suggest writing them down as they will be answered going forward.
 
-##### Key Insight: Developers must go on call for some percentage of their time. This can range from very little time to nearly full time. (Finding a balance for your personal organization is up to you. What works for some might not work for everyone.)
+> Key Insight: Developers must go on call for some percentage of their time. This can range from very little time to nearly full time. (Finding a balance for your personal organization is up to you. What works for some might not work for everyone.)
 
 #### 2.3.2 Product Opertations
 With developers going on call, the product operations team would need to provide support to enable the developers to do operations. 
@@ -106,5 +106,5 @@ The following unfolds as a challenge in the SRE transformation:
 - Software developers need to learn how to do product operations work by going on-call. 
 - Operations engineers need to learn how to enable software developers to do operations work by developing the SRE infrastructre as a framework.
 
-### 2.3.3 Product Management
+#### 2.3.3 Product Management
 
