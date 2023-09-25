@@ -95,4 +95,54 @@ The people on call set up the automated and semiautomated stakeholder notificati
 
 This is the point where the SRE coaches need to start handing over the responsibility for managing the feedback and stakeholder rings to the operations teams. This requires long-term engagement with people way beyond the product delivery organization within the enterprise. Therefore, it is best done by the people with permanent responsibility for the task.
 
+### 8.6 Defining Effective Stakeholder Notifications 
+
+Effective stakeholder notifications have four common characteristics: 
+1. Relevance - Effective stakeholder notifications are relevant. This means the dimensions of geography and product landscape are properly taken into account for a particular stakeholder.
+2. Timelines - Effective stakeholder notifications are timely. This means the stakeholders are the first to be informed about an issue directly by the stakeholder notification as opposed to indirectly finding out about it later from a customer, partner, executive, or peer. Moreover, the stakeholder notifications arrive in appropriate intervals so that they neither leave the stakeholders wondering what is going on waiting for an update nor overwhelm them with too many updates.
+3. Conciseness - Effective stakeholder notifications are concise. This means the notifications contain all the details necessary to fully inform a particular stakeholder about a particular issue, and only those details. In the majority of cases, the information is sufficient so as not to require the stakeholder to reach out to other people for more details.
+4. Brackets - Effective stakeholder notifications are sent out in brackets. The first message of the bracket is about the announcement of a major outage. The last message of the bracket is about the announcement of the end of the major outage. Messages between the first and last brackets inform recipients about the progress being made on the way to recovery. Each message before the final message specifies roughly when the next stakeholder notification will be broadcast.
+
+To kick off the process of defining stakeholder notifications for a service, the SRE coaches should start with the service’s operations engineers, developers, and product owner. The start- ing point is to look at the defined SLOs and ask the following questions.
+- Which of the defined SLOs, when broken would represent a major service outage
+- Which roles would need to know about the outage
+- Why would the need the information about the outages 
+- What would they do with the information about the outage
+- How do you craft a succint message for the people to communicate the information about the outage in a self-contained and actionable way
+- Are there other scenarious not covered by SLOs that would represent major service outages
+
+Based on the feedback, the initially defined stakeholder notifications can be adapted and extended. This is a great way to ensure that when the stakeholder notifications start arriving, their relevance, timeliness, conciseness, and brackets will make sense to the recipients. The defined notifications need to be put onto the SRE wiki in a new subsection, “Stakeholder notifi- cations.” The corresponding links need to be distributed to the people on call.
+
+### 8.7 Getting Stakeholders Subscribed
+
+Once the stakeholder groups, stakeholder rings, and stakeholder notifications are defined, set up in the on-call management tool, and reflected in runbooks, the SRE coaches need to engage with the respective recipient roles to explain the setup and associated tools. The central question to explore and get answered for the stakeholders at this point is: How do you subscribe to the stake- holder notifications?
+
+1. For the stakeholder rings within the product delivery organization those subscriptions should live in your on-call system. 
+2. The rings residing beyond the product delivery organization but still within the enterprise should be able to use either the on-call management tool, or email/RSS/SMS
+3. For those rings that reside outside of the enterprise, site status page, email, sms, rss feed, etc. 
+
+#### 8.7.1 Subsribing Using the On-Call Management Tool 
+
+The SRE coaches should prepare the operations teams to run onboarding sessions for subscrib- ers to stakeholder notifications in the on-call management tool. The onboarding sessions need to be targeted to nontechnical users. For example, onboarding product management leadership will be different from onboarding operations engineers and developers, which was previously done. If possible and practical, the onboarding sessions need to be conducted without using specific SRE or on-call management tool terminology.
+
+#### 8.7.2 Subsribing Using Other Means
+
+For subscribers using a more common means than the on-call management tool, it needs to be checked whether the tool offers the ability to subscribe to stakeholder notifications without hav- ing to create a user account.
+
+An abstraction layer may be needed or an add-on can be used if there is not an option within the on-call system. 
+
+### 8.8 Broadcast Success 
+
+The following questions can guide the SRE coaches in putting together a concise broadcast on the progress of the SRE transformation.
+
+- How was the information about outages distributed within the enterprise and beyond in the past? 
+- How is the information about outages distributed within the enterprise and beyond with the new alert dispatching? 
+- What are the typical escalation policies for alerts on SLO breaches? 
+- What are the defined stakeholder groups? 
+- What are the defined stakeholder rings? 
+- What is the stakeholder notification escalation logic through the stakeholder rings? 
+- How many stakeholders have subscribed to notifications by the stakeholder group? 
+- What is the feedback on the stakeholder notifications from the stakeholders? 
+
+Having some of the stakeholders be part of the broadcast and telling a good story about how their work was improved with the introduced stakeholder notifications is a great way to build credibility right into the broadcast.
 
