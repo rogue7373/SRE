@@ -48,3 +48,51 @@ Stakeholder notifications can be trig- gered either manually by the people on ca
 1. Stakeholder groups need to be defined with targeting in mind.
 2. Stakeholders need to be able to subscribe flexibly to the stakeholder groups of interest.
 
+
+A stakeholder group needs to be defined in such a way that a certain type of notification can inform the group in an effective manner.
+
+* Refer to Chapter 8, Table 8.2 for details on the above 
+
+The SRE coaches should engage product management, marketing, and sales in defining the stakeholder groups. A few representatives from each department would be needed to create an initial set of groups. The way the marketing, sales, and training departments are organized will determine how best to set up the stakeholder groups. The degree of precision needed to enable good notification targeting will also be determined by how the products are marketed and sold.
+
+### 8.4 Triggering Stakeholder Notifications 
+Stakeholder notifications can be triggered in a manual, semiautomated, or fully automated manner. 
+
+Once the stakeholder groups are selected for notification in an automated or manual way, the stakeholders subscribed to the groups get notified. Each stakeholder gets the notifications via a medium specified in the on-call management tool. Commonly supported media are email, mobile app push notifications, text messages, and phone calls.
+
+### 8.5 Defining Stakeholder Rings 
+
+In addition to defining stakeholder groups, it may be useful to also define stakeholder rings in order to stagger the broadcast of information about major outages throughout the organization and beyond. 
+
+* A good way to think about stakeholder rings is to look at the enterprise’s organizational chart and determine how the information about major outages should radiate from the people on call to applicable enterprise functions, as well as how it should leave the enterprise and flow to partners and customers.
+
+This is where stakeholder rings come in handy. They provide structure to radiate information about major outages within the enterprise and beyond in an orderly manner. That is, both internal and external escalations can be supported using stake holder rings.
+
+#### Stakeholder Rings (Layers)
+1. People On-Call
+2. Stakeholder Ring 1 (Product Management)
+3. Stakeholder Ring 2 (Leadership of the Product Delivery Organization)
+4. Stakeholder Ring 3 (Markting and Sales)
+5. Stakeholder Ring 4 (Partners and Customers) - This is the only stakeholder ring that originates outside of the organization. 
+
+Initially the SREs would drive rings 1-3 and the agreements for putting them into action. 
+
+Overall, the prerequisites for enacting stakeholder notifications by stakeholder rings are as follows.
+1. The initial set of stakeholder rings is defined.
+2. The stakeholder rings are assigned stakeholder groups.
+3. The agreements to enact the stakeholder rings are in place between the product delivery organization and other affected enterprise functions. These might be marketing, sales, communications, regulatory, and legal. It is important to note that the agreements within the product delivery organization are necessary but not sufficient for this purpose!
+4. The guidance for using the stakeholder rings is created for the people on call.
+5. The people on call confirm that the guidance is clear and can be used for sending out stakeholder notifications.
+
+The people on call set up the automated and semiautomated stakeholder notifications, and they send out the manual notifications. The feedback from the stakeholders needs to be fed to the people on call. 
+
+#### Acting on Feedback 
+1. Adapting stakeholder rings
+2. Adapting assignment of stakeholder groups to the stakeholder rings 
+3. Adapting stakeholder groups
+4. Adapting assignment of stakeholders to the stakeholder groups 
+5. Adapting the stakeholder notifications themselves 
+
+This is the point where the SRE coaches need to start handing over the responsibility for managing the feedback and stakeholder rings to the operations teams. This requires long-term engagement with people way beyond the product delivery organization within the enterprise. Therefore, it is best done by the people with permanent responsibility for the task.
+
+
