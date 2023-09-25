@@ -77,3 +77,34 @@ What kind of support would the developers need? Some developers may have never d
 The entire body of knowledge about product operations is with the operations team. The idea of taking product as a "black box" and putting it into thep production environment, activating monitoring of IT resources, and alerting on some threshold violations. This allows developers to learn and understand this. With thier insider knowledge of the produc, they will also be able to find many more scenarios that can be monitored and alerted upon.  The developers’ knowledge about the architecture, implementation, configuration, and deployment of the product is an invaluable resource for improving monitoring of the product in production. But how can they utilize that knowledge to improve product operations?
 How can they bridge the gap between development and operations as suggested by the term
 DevOps?
+
+Developers know how specific routines that contribute to the fulfillment of user requests are implemented. They know the paths the user requests go all the way from the user interface to the deepest service in the service network, and from there to the infrastructure. If the product exposes APIs to customers, the developers also know the paths the API requests take from the API gateway through the network of services all the way down to the infrastructure. Moreover, the developers know which services they imple- mented versus those implemented by the company and third parties. They know which third- party services are difficult to integrate with, where the domain model of the third-party services is overly complicated and cluttered, where the third-party services are slow occasionally, and where there is simply sporadic behavior that can be explained. The developers also know all this for the internal services of the company, which are the services they depend upon.
+
+Their knowledge does not stop there. The developers and architects know the strengths and weaknesses of their architecture. They know where the architecture limitations lead to perfor- mance and scalability issues. They know the circumstances where the performance and scalabil- ity issues are likely to exhibit and probably impact the customer. They know the architectural debt in the system and which part of it is planned to be paid off in the near future. They know of any major architectural refactorings that must take place, which are not planned due to the size of the effort involved.
+
+The developers’ knowledge goes much further. They know about the infrastructure limita- tions the product is running on. They know how each service can impact the others; for exam- ple, they know what will happen if a particular service in the service network eats up the lion’s share of memory in a given area of the infrastructure. They might know some parameters of the container clusters the services are running in and anticipate issues that might occur based on the changing data and user load profiles.
+
+They may know the way the services are deployed: Which infrastructure parameters are set by the deployment infrastructure, and which ones are set in the service at the deployment time, startup time, or runtime. They know which ser- vices are deployed independently, which ones use a shared deployment pipeline, and which ones are deployed manually for the time being. They may know the tests running on the deployment pipelines, the quality of those tests, and whether the test results can be trusted. They may know the test management process for a service, the test levels available, the test infrastructure, and any test gaps that exist.
+
+The developers also likley know security inforation surrounding their domain, whether that be due to architecture or infrastructure. 
+
+This is where operations sees a gap, while the developers may have this wealth of knowledge, the amount of knowledge the developers have is staggering to the operations engineers. How do they take it all in? 
+
+To approach these questions, we need to turn our attention to how developers make known to the outside world what is going on with the system on the inside.
+
+- This is done using logging.
+
+The log entries stored in, for example, log files or other storage systems can then be analyzed to understand what was going on in the system at runtime. This is the basic process of how devel- opers make known to the outside world what is going on inside a system at runtime. The process is sophisticatedly supported by tools providing all sorts of runtime instrumentation out of the box. That is, the developers’ knowledge about the product can be encoded in logs that can be analyzed outside the system.
+
+Once that question has been answered, we can then consider how to log relavant information in a uniform way. Determining log formats, storage locations, etc. 
+
+From there, you determine how to detect "abnormal situations", what is considered "broken". Once you have determined what is "abnormal" you determine how you want to alert on the abnormalcies. The list of questions only grows from there. 
+
+* Key Insight: Operations engineers need to provide frameworks to enable developers to do service opertations. In a SRE context, such a framework can be referred to as SRE infrastructure. 
+
+The following unfolds as a challenge in the SRE transformation: 
+- Software developers need to learn how to do product operations work by going on-call. 
+- Operations engineers need to learn how to enable software developers to do operations work by developing the SRE infrastructre as a framework.
+
+### 2.3.3 Product Management
+
