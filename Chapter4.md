@@ -22,3 +22,23 @@ The analysis might reveal that the responsibility for production operations is n
 
 #### 4.1.2 Organizational Alignment
 Take a look at how the organization is actually getting production operations done today, irrespective of what is prescribed by the formal organizational structure? Production operations might be done in a misaligned fashion with lots of handovers. 
+
+The following questions can guide this analysis: 
+- How does customer support work? 
+- Who is providing the first level of support in the organization, if any? 
+- Who is providing the second level of support in the organization, if any? 
+- Who is providing the third level of support in the organization, if any? 
+- Are there more than three support levels? How many are there? Who is providing support at each level? 
+- What is a typical path for a customer support request through the support levels? 
+- What is the trend of customer support request numbers over the last 12 months? 
+- What is the average customer support request processing time over the last 12 months? 
+- How does the release and rollout process work? 
+- How are the decisions to roll out a feature release made and by whom? 
+- Is regulatory compliance involved in a hotfix or feature release? 
+- Who creates release plans and rollout plans? 
+- What kind of coordination is required to do a produciton rollout? 
+- Are there release managers to coordinate the production rollout? 
+- Is there a team or perosn who typically detects issues in production before the issues make their way throug the customer support levels? 
+
+
+> Key Insight: The art of SRE transformation is to find the degree to which developers need to go on call for their services to maximize learnings and incentives so that they take into account operational concerns during service development. This is going to be different for each organization.
