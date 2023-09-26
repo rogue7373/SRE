@@ -28,6 +28,26 @@ The fresheness and durability SLIs are also applicable to some services, but not
 To reiterate, the SLIs selected to express service reliability need to be chosen from the cus- tomer point of view. The goal is to be able to use the SLIs as proxy measurements of reliability as experienced by customers. The technical experience of the system under strain is not what SLIs are supposed to measure. Rather, the customer experience of the system is what SLIs are supposed to express.
 
 ### 3.2 Service Level Objectives 
+Whereas SLIs are about customer experience/expectations, SLOs are about how those expectations will be met. 
+- SLO is defined as "a target value or range of values for a service level that is measured by an SLI"
+
+Example of Availability: 
+- 98% availability of a particular endpoint within period of four calendar weeks
+- 99.99% availability of another endpoint within a period of four calendar weeks
+
+Example of Latency:
+- 400-millisecond latency for 95% of requests to an endpoint within a period of four calendar weeks
+- 250-millisecond latency for 90% of requests to an endpoint within a period of four calendar weeks 
+
+An SLI is measured; for example, availability or latency. An SLO is the measurement threshold that the service should not break. 
+
+The SLO for an SLI has to be set from the customer perspective. Also, and this is hugely important, in order to set the SLO from the customer perspective, a clear definition of the cus- tomer to optimize for is required. Without a clear definition of the customer, an SLO cannot be optimized to reflect the expectations of that particular customer group. Therefore, the SLO will be just a technical measurement that does not reflect the experience of the customer group.
+
+A broken SLO such as this will not reflect a broken customer experience. As a result, once the SLO breach is reported, it will not be clear whether engineering time should be spent fixing the service to bring it back within the SLO.
+
+### Error Budgets 
+
+
 
 
 
