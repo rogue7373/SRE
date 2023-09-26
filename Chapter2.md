@@ -136,3 +136,15 @@ This is where Product Management starts to come into play.
 1. Product owners would need to contribute user journey knowledge to the incident detection process. Impaired and broken user journeys should be at the core of incident detection. Which user journeys are the most important ones to detect incidents with? What are the most important steps within a given user journey that must work for the user journey to still make sense? Conversely, which steps of a user journey could fail, and how badly, without rendering the entire user journey broken? Overall, the incident detection process is as good as the defined incidents it can detect. To define detectable incidents well, the user journey knowledge of the product owners, the implementation knowledge of the developers, and the operations knowledge of the operations engineers need to be combined.
 
 2. Product owners would need to understand and agree to the importance of setting up a backlog management procedure in which developers can flexibly allocate time to fix pro- duction issues as they are detected by the incident detection process. Traditionally, the product owners prioritize the backlog of user stories, and they want developers to focus on the backlog. To reduce customer escalations, the product owners would want the developers to take immediate action on the issues reported by incident detection.
+
+To reduce customer escalations, the following criteria need to be fullfilled.
+- The incident detection detects broken and impaired user journeys as defined together by the operations engineers, developers, and product owners. 
+- The developers prioritize fixing broken and impaired user journeys as they are detected without having to negotiate with the product owners every time about the engineering time allocation.
+- The developers fix the broken and impaired user journeys in production within a specified time frame before customers get angry and frustrated enough to escalate. 
+
+In the context of SRE, such an incident detection and response process is set up using specific mechanisms and terms, such as service level indicators (SLIs), service level objectives (SLOs), and error budget policies. Soon, an exploration of these concepts will begin. Before this exploration, let us summarize the benefits and costs of the collective production operations ownership using SRE.
+
+#### 2.3.4 Benefits and Costs 
+
+SRE aligns the product delivery organization on operational concerns under its flag. Product development contributes to production operations by going on call to get firsthand experience with how the product meets customer demands in production. This experience is fed into the new feature and infrastructure development. The result is a maximization of feature develop- ment time while ensuring that the product meets customer demands in production.
+
