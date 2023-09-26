@@ -108,3 +108,31 @@ The following unfolds as a challenge in the SRE transformation:
 
 #### 2.3.3 Product Management
 
+What does the product management team need to do to partially own product operations?
+
+Traditionally, product management is pretty far away from product operations. 
+
+How on earth can product management reduce customer escalations if everything the customers escalate about is a technically broken product? Product owners are not technical experts. They neither implemented nor deployed the product.
+
+Prior to a customer escalating to report a bug a series of events must occur. 
+- Example: The customer works with the product and notices something annoying. It might be a sluggish display of data; an inconvenient way of accomplishing a task in too many back-and-forth steps; an action taken, like a button click, that does not result in the action actually performed; or a downright crash with accompanying data loss. Whatever the reason, it is directly linked to the customer having lost so much time or money that they call customer support to release their anger and get help.
+
+In other words, we have already upset the customer by the time the reach out to report an issue, therefore immediately impacting the customer experience. 
+
+Are product development and product operations set up for such incident detection and resolution?
+
+- Here we notice, these are technical issues, how does Product Management handle technical issues and what do technical issues have to do with Product Management?
+
+The operations engi- neers have vast experience with customer escalations. They remember a lot of past escalations by heart. They can cluster them. They know by means of anticipation the weak areas of the product that are going to be escalated about soon because product development has not started fixing them. Overall, this is a good mix of knowledge that is brought to the table by product development and product operations. The product development team brings knowledge of technical implementation while the product operations team brings knowledge of the actual issues from production.
+
+- This collective knowledge can be used to create incident detection, knowing where the common breaks are allows us to create alerting/automation to reduce the number of incidents, and more quickly act when we do experience issues. 
+
+- The goal is higher though, seeking to create an incident response and resolution process for everything existing and new. 
+
+Also, to emphasize, the developers would allocate their time in such a way that they fix detected issues and deploy the fixes to production before the customers get angry enough to escalate. This means the developers would not just work on the feature backlog prioritized by the product owners. The other prioritization driver would be the product reliability issues detected by the incident response process.
+
+This is where Product Management starts to come into play. 
+
+1. Product owners would need to contribute user journey knowledge to the incident detection process. Impaired and broken user journeys should be at the core of incident detection. Which user journeys are the most important ones to detect incidents with? What are the most important steps within a given user journey that must work for the user journey to still make sense? Conversely, which steps of a user journey could fail, and how badly, without rendering the entire user journey broken? Overall, the incident detection process is as good as the defined incidents it can detect. To define detectable incidents well, the user journey knowledge of the product owners, the implementation knowledge of the developers, and the operations knowledge of the operations engineers need to be combined.
+
+2. Product owners would need to understand and agree to the importance of setting up a backlog management procedure in which developers can flexibly allocate time to fix pro- duction issues as they are detected by the incident detection process. Traditionally, the product owners prioritize the backlog of user stories, and they want developers to focus on the backlog. To reduce customer escalations, the product owners would want the developers to take immediate action on the issues reported by incident detection.
