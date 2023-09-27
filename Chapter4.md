@@ -40,5 +40,20 @@ The following questions can guide this analysis:
 - Are there release managers to coordinate the production rollout? 
 - Is there a team or perosn who typically detects issues in production before the issues make their way throug the customer support levels? 
 
+#### 4.1.3 Formal and Informal Leadership 
+Formal leadership is endowed by the organizational structure, informal leadership consists of people who do not wield formal power, but are still great influencers. The benefit of informal leaders is they have to persuade their colleagues using prue logic and emotion. This breeds authenticity. People choose to follow informal leaders, they don't have to. 
+
+- Who is formally in charge of what in the organization
+- Who are the informal influencers in the organization? For which areas? 
+- Who are recognized experts in the organization? For which areas? 
+- Which formal leaders are considered great in the organization? 
+- In general, whom do people follow and not follow in the organization? 
+- Who are the production heroes involved in all production incidents making the impossible possible? 
+
+Knowing the answers to the above will help garner buy-in for the SRE initiative.
+
+### 4.2 Where Are the People
+
+
 
 > Key Insight: The art of SRE transformation is to find the degree to which developers need to go on call for their services to maximize learnings and incentives so that they take into account operational concerns during service development. This is going to be different for each organization.
