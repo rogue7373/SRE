@@ -28,3 +28,10 @@ So far, the SLOs and, consequently, the SLO breaches were not assigned explicit 
 - This will result in cross-domain standardization of incident priorities used by all the teams in the organization. 
 - Alignement on incident priority, this standardization allows for everyone to be able to speak to the priority in the same manner, regardless of the domain they support. 
 
+> See figure 9.1 Organization-wide incident priorities versus team-local SLOs
+
+> See figure 9.2 Mapping team-local SLOs to the organization-wide incident priorities
+
+In terms of tool support, setting incident priorities is supported by all common on-call management tools available on the market. 
+
+#### 9.2.1 SLO Breaches Versus Incidents 
