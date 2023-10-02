@@ -195,9 +195,10 @@ The next step is to get stakeholder feeeback on the priorities and adjust them a
 
 Service provider teams defined the incident priorities based on their understanding of the importance of a given functionality to an average consumer of the service. Because of the plurality of service consumers, each potentially operating in a serpate subdomain, different consumers will have different views on the incident priority for an outage of a given functionality. 
 
-- Sample Views on the Incident Priority of an SLO Breach 
+- Sample Views on the Incident Priority of an SLO Breach
+
 | SLO Breach Use Case | Service Provider's View on the Incident Priority | Service Consumer 1's View on the Incident Priority | Service Consumer 2's View on the Incident Priority |
-|----|----|----|----|----|
+|----|----|----|----|
 |Application cannot notify users | 2 | 1 | 3|
 
 
