@@ -197,7 +197,7 @@ Service provider teams defined the incident priorities based on their understand
 
 - Sample Views on the Incident Priority of an SLO Breach 
 | SLO Breach Use Case | Service Provider's View on the Incident Priority | Service Consumer 1's View on the Incident Priority | Service Consumer 2's View on the Incident Priority |
-|----|----|----|----|
+|----|----|----|----|----|
 |Application cannot notify users | 2 | 1 | 3|
 
 
