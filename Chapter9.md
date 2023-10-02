@@ -123,5 +123,73 @@ In the above example the team decided to not use incident priority 1 for any SLO
 
 The exercise of setting the incident priorities undertaken by the team might give rise to additional requests to the SRE infrastructure. For example, a team might conclude that a use case, when broken once, would warrant a priority 4 incident. However, when broken more than three times within an hour, it would warrant a priority 2 incident. Requests like this should be carefully collected and put onto the SRE infrastructure backlog for the operations teams to prioritize and work on. Additionally, the need to support new SLIs or new wasy to measure existing SLIs can be uncovered while deciding on incident priorities for SLOs. 
 
+The SLOs’ incident priorities set by the teams need to be set in the SRE infrastructure. The
+priorities need to be made public for reference by everyone in the product delivery organization. The reference to the SLO priorities in the SRE infrastructure also needs to be added to the runbooks so that they are readily available for the people on call. 
+
+#### 9.2.5 Mapping Error Budgets to Incident Priorities
+It may be possible to generically map domain use cases in the teams to incident priorities as a function of error budget depletion for a given SLO breach. 
+
+Mapping Error Budget Depletion Thresholds to Incident Priorities
+
+| Incident Priority | Use Case Expressed as Error Budget Depletion Threshold on SLO Breach |
+|----|----|
+| Priority 1 | 20% of the error budget is left within a given time unit, and with the current error budget depetion trend, the error budget will be exhausted prematurely |
+| Priority 2 | 40% of the error budget is left within a give time unit, and with the current error budget depletion trend, the error budget will be exhausted prematurely |
+| Priority 3 | 60% of the error budget is left within a given time unit, and with the current error budget depletion trend, the error budget will be exhausted prematurely |
+| Priority 4 | 80% of the error budget is left within a given time unit, and with the current error budget depletion trend, the error budget will be exhausted prematurely |
+
+Mapping Error Budget Depletion Velocity to Incident Priorities
+| Incident Priority | Use Case Expressed as Error Budget Depletion Velocity on SLO Breach |
+|----|----|
+| Priority 1 | More than 75% of the monthly error budget was depleted within five consecutive minutes |
+| Priority 2 | More than 50% of the montly error budget was depleted within 10 consecutive minutes |
+| Priority 3 | More than 25% of the monthly error budget was depleted within 15 consecutive minutes |
+| Priority 4 | More than 25% of the monthly error budget was depleted within 20 consecutive minutes |
+
+While the above is technically feasible, this seems to be too mechanical to be applied generally and reflect reality weill. However, this kind of logic might be an idea to explore to set incident priorities for the SLO breaches whose SLOs do not have an explicit incidnet priority assigned. 
+
+#### 9.2.6 Mapping Resource-Based Alerts to Incident Priorities 
+When the SRE coaches guide a team through their SLOs to define incident priorities for them,
+only the use cases covered by the SLOs are considered. To broaden the scope of coverage by the
+incident priorities, the SRE coaches should also encourage the teams to go through the resource based alerts they might have and assign incident priorities to them, as well. The assignment works much the same way as with the SLOs
+
+- As the SRE infrastructure matures and starts supporting the use cases currently covered by the resource-based alerts, these alerts should be replaces with proper SLOs. Doing so enables a whole host of improvements out of the box. 
+
+SLI vs Just Alerts 
+
+SLI 
+- Visualizations for error budget-based-decision-making
+- Visualizations for error budget consumption
+- Alerting algorithm
+    - Timelines
+    - Effectiveness
+- SLO Breaches
+
+Just Alerts 
+- Resource-Based alerts 
+
+Big differences seen almost immediately. 
+
+With the switch from resource-based alerts to alerts on SLO breaches, the alerting algorithm
+implemented in the SRE infrastructure is used to send out the alerts. It does not alert immediately on every SLO breach, but rather implements features of timeliness, effectiveness, and others to strike a good balance in order to reduce alert fatigue. Moreover, visualizations of error budget depletions are enabled. Likewise, additional visualizations for error budget–based decision–making are unlocked.
+
+- Make sure the development teams know what options they have within the SRE infrastructure that can be used to switch from resource-based alerts to the SLI/SLO models. 
+
+- The SRE coaches needd to make sure the teams understand the difference between resource-based alerts and SLI/SLO. It needs to be clear. 
+
+#### 9.2.7 Uncovering New Use Cases for Incident Priorities
+In addition to mapping the existing SLOs and resource-based alerts to teh generic incident priorities, the definition of the priorities can be used as a source of inspiration to define new alert use cases that have not yet been covered. 
+
+The SRE coaches should encourage the teams to use the incident priority definitions to uncover new use cases. 
+
+1. Take the definition of generic incident priorities
+2. For each incident priority, think about new use cases in the team's domain not covered by existing monitoring that would warrant actions stipulated by the priority.
+3. For each use cases discovered in this way, think about how it could be monitored:
+    - Could it be monitored by a new SLO of an existing SLI?
+    - Could it be monitored by a new SLO of a new SLI?
+    - Could it be monitored by a new resource-based alert? 
+An analysis like this is going to uncover the need for new SLIs or new ways to meaure existing SLIs to be supported by the SRE infrastructure. These requests should go direclty to the SRE infrastructure backlog for the operations teams. To cover the use cases that are relavant but not yet supported by the current SRE infrastructure, resource-based alerts should be defined and handled as described in the previous sections. 
+
+#### 9.2.8 Adjusting Incident Priorities Based on Stakeholder Feedback
 
 
