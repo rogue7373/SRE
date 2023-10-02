@@ -52,6 +52,8 @@ Formal leadership is endowed by the organizational structure, informal leadershi
 
 Knowing the answers to the above will help garner buy-in for the SRE initiative.
 
+> Key Insight: The art of SRE transformation is to find the degree to which developers need to go on call for their services to maximize learnings and incentives so that they take into account operational concerns during service development. This is going to be different for each organization.
+
 ### 4.2 Where Are the People
 Exploring the knowledge, mindset, and attitude of people in the organization. 
 - This should be explored by role, starting with the operations engineers, developers, and product owners. Architects, managers, and executives are also important to consider. 
@@ -189,7 +191,6 @@ According to the Longman Dictionary, one definition of culture is: “the belief
 These aspects relate very directly to SRE. 
 
 #### 4.4.1 Is There High Cooperation
-
 Notorious in the realm of production operations are the walls between product development and product operations. On one side of the wall is product operations, whose goal is to keep production stable. This goal leads them not to want frequent changes in production, because each change may cause instability (or typically does, based on their experience). On the other side of the wall is product development, whose goal is to implement, deploy, and release to production new features requested by product management as quickly as possible. DevOps is trying to break down that wall. So is SRE as an opinionated implementation of DevOps.
 
 1. High Cooperation: The purpose of SRE is to align the software design organization on operational concerns. This can only be done with high cooperations between product development, product operations, and product management. 
@@ -307,10 +308,10 @@ Different parties in the organization have different views about production oper
 
 > See Chapter 4 Figure 4.3 for additional tables. 
 
-A hypothesis is posed before the product delivery teams start working on a product capabil- ity. It is done in plain English using a three-term expression, <product capability> / <customer outcome> / <measurable signal>, as follows.
+A hypothesis is posed before the product delivery teams start working on a product capabil- ity. It is done in plain English using a three-term expression, "product capability" / "customer outcome" / "measurable signal", as follows.
 
 - We believe this "product capability"
 - Will result in this "customer outcome" 
 - We will know we have succeeded when we see this "measureable signal"
 
-> Key Insight: The art of SRE transformation is to find the degree to which developers need to go on call for their services to maximize learnings and incentives so that they take into account operational concerns during service development. This is going to be different for each organization.
+
