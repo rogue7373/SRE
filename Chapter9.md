@@ -99,7 +99,7 @@ With the generic incident priorities defined, the SRE coaches should bring the t
 
 - This can be done through a regular cadence for SRE coaching sessions. 
 
-> For example see Table 9.3 Sample SLO Use Cases in a Team 
+For example see Table 9.3 Sample SLO Use Cases in a Team 
 
 | # | SLO Use Case | SLI 
 |----|----|----| 
@@ -108,5 +108,20 @@ With the generic incident priorities defined, the SRE coaches should bring the t
 | 3 | Notifications arrive with a delay | Latency |
 | 4 | Notification preferences cannot be set | Availability |
 | 5 | Notifications are sent in the wrong langauge | Correctness |
+
+For each SLO, the team needs to decide what incident priority they think is appropriate when the respective SLO gets broken. For instance, the team might make these decisions using the sample incidnet priorities from the previous section (Table 9.4) 
+
+| # | SLO | Incident Priority |
+|----|----|----| 
+| 1 | Application cannot register with notifications services | 2 |
+| 2 | Application cannot notify its users | 2 |
+| 3 | Notifications arrive with delay | 3 |
+| 4 | Notification preferences cannot be set | None |
+| 5 | Notifications are sent in the wrong language | None |
+
+In the above example the team decided to not use incident priority 1 for any SLOs because the services sending notifications to users are not critical in the product's domain. 
+
+The exercise of setting the incident priorities undertaken by the team might give rise to additional requests to the SRE infrastructure. For example, a team might conclude that a use case, when broken once, would warrant a priority 4 incident. However, when broken more than three times within an hour, it would warrant a priority 2 incident. Requests like this should be carefully collected and put onto the SRE infrastructure backlog for the operations teams to prioritize and work on. Additionally, the need to support new SLIs or new wasy to measure existing SLIs can be uncovered while deciding on incident priorities for SLOs. 
+
 
 
