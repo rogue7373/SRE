@@ -309,8 +309,8 @@ Different parties in the organization have different views about production oper
 
 A hypothesis is posed before the product delivery teams start working on a product capabil- ity. It is done in plain English using a three-term expression, <product capability> / <customer outcome> / <measurable signal>, as follows.
 
-- We believe this "<product capability>"
-- Will result in this <customer outcome> 
-- We will know we have succeeded when we see this <measureable signal>
+- We believe this "product capability"
+- Will result in this "customer outcome" 
+- We will know we have succeeded when we see this "measureable signal"
 
 > Key Insight: The art of SRE transformation is to find the degree to which developers need to go on call for their services to maximize learnings and incentives so that they take into account operational concerns during service development. This is going to be different for each organization.
