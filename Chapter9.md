@@ -201,4 +201,14 @@ Service provider teams defined the incident priorities based on their understand
 |----|----|----|----|
 |Application cannot notify users | 2 | 1 | 3|
 
+In a bigger service network of a microservices architecture or public API used by many third parties, it will not be possible to ask all the stakeholders. It follows that the feedback on the incident priorities will be orientational at most. Still, iterating on the orientational feedback is better than soliciting no feedback at all. 
+
+The final decision about the incident priorty after considering the feedback from teh stakeholders remains with the service provider team. It is their service and service incidents, after all. 
+
+- Strategy Dimensions for Coping with Dependent Service Outages
+
+| Strategy Dimension | Explanation | 
+|----|----|
+| Adaptive capacity | The amount of adaptive capacity between a service consumer and a service provider can be increased if the incident priority from the consumer point of view should be higher than that set by the service provider. This is because the service provider will fix the respective outages with lower priority than the priority wished for by the service consumer. This is going to lead to a longer time to recover from the outages. During that time, the users of the service consumer need to be kept operational with degraded functionality |
+| Stakeholder notifications | If the incident priority from the consumer point of view should be higher than that set by the service provider, the service consumer might wish to implement a stakeholder group to notify their people on call when there is an outage in the service provider. The people on call in the service consumer team will evaluate the outage notification and, if degraded functionality cannot be provided, might decide to notify their own stakeholders about the outage, rephrasing it for thier domain. |
 
