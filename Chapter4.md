@@ -309,7 +309,7 @@ Different parties in the organization have different views about production oper
 
 A hypothesis is posed before the product delivery teams start working on a product capabil- ity. It is done in plain English using a three-term expression, <product capability> / <customer outcome> / <measurable signal>, as follows.
 
-- We believe this <product capability>
+- We believe this "<product capability>"
 - Will result in this <customer outcome> 
 - We will know we have succeeded when we see this <measureable signal>
 
