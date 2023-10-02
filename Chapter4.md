@@ -53,6 +53,131 @@ Formal leadership is endowed by the organizational structure, informal leadershi
 Knowing the answers to the above will help garner buy-in for the SRE initiative.
 
 ### 4.2 Where Are the People
+Exploring the knowledge, mindset, and attitude of people in the organization. 
+- This should be explored by role, starting with the operations engineers, developers, and product owners. Architects, managers, and executives are also important to consider. 
+- Only a small sample of people should be interviewed to get a feel for where people are on each team. 
+- Big / long meetings are discouraged at this stage of the transformation. 
+
+#### Question to Probe With
+For operations engineers and operations managers:
+- What are your daily tasks?
+- What is the general quality of the product?
+- How do you decide which alerts to setup?
+- Do you know whether these alerts report real issues with the user experience?
+- Do you generally go on call? If so, at what times?
+- Is there an on-call rotation in your team?
+- What do you do if you need a hotfix released and rolled out to production?
+- How are developers invovled in production operations? 
+- How are product owners involved in production operations? 
+- Do you provide a means to enable others to do production operations by themselves? 
+- What are teh custoemr support levels in the ogranization? 
+- Who is doing which support level in the organization? 
+- How are crises in production managed?
+- How are customer complaint numbers trending over time?
+
+For developers, architects, and development managers: 
+- How do you measure the reliability of the product? 
+- How do you decide which reliability features to implement in the product? 
+- How do you get the reliability features prioritized? 
+- Who prioritizes the reliability features? 
+- What happens if a hotfix needs to be rolled out? 
+- Does your team do production deployments themselves? 
+- Do you ever go on-call? If so, at what times? 
+- Is there an on-call rotation in your team? 
+
+For product owners and product managers: 
+- What is the vision for your product? 
+- Where is the product currently in fulfilling this vision? 
+- Who are the users of the product? 
+- Who are the customers of the product? 
+- What are the most important user journeys for the users and customers? 
+- How important is reliability of the product to the users and customers? 
+- How are customer complaint numbers trending over time? 
+- How do you backlog prioritization? 
+- How are reliability features prioritized? 
+- Are you involved in production operations? 
+
+For vice presidents and executives:
+- What do the customers report about the reliability of the product? 
+- How does the organization manage production operations? 
+- Is the organization aligned for doing production operations well? 
+- Would it be possible to allocate the teams some time for the SRE transformation? 
+- Is the funding of the product delivery organization appropriate for achieving the required product reliability? 
+- Is there some budget allocated for additional tooling to improve production operations? 
+
+The answers to these questions should provide enough context to understand how people in different roles feel as far as production operations is concerned. This understanding may spark some thinking about the shifts in mindset that would need to take place during the SRE transformation.
+
+### 4.3 Where Is The Tech? 
+In terms of the organization's status quo, the next dimension to assess is the technology. 
+- Product
+- Development
+- Capacity Planning
+- Testing and Release Procedures
+- Postmortem / Root Cause Analysis
+- Incident Response 
+- Monitoring 
+
+The technical aspects of the hierarchy consist of monitoring, testing and release procedures, capacity planning, and development.
+
+Questions to ask:
+
+Logging and monitoring: 
+- Are the services logging? 
+- Is the logging done in a uniform way? 
+- Is the logging done by all services using the same logging infrastructure?
+- Are the services logging into a single instance of the logging infrastructure by production deployment? 
+- What instrumentation does the logging infrastructure provide out of the box (e.g, runtime dependency graphs, call durations, etc)? 
+- Does the logging infrastructure provide a query language to programmatically query the logs and graph the query results? 
+- Is anybody looking at the logs? In which cases? 
+- Are there any metrics over the logs? 
+- How is logging done for asynchronous operations? 
+- How easy is it to analyze asynchronous operations based on the loggs? 
+- Is there distributed tracing? 
+
+Testing Questions: 
+- Are there tests for services? 
+- Which teests are manual? 
+- For automated tests, what are the test levels available for services? 
+- What is the trigger or cadence of automated test execution by test suite? 
+- What is the test execution time by automated test suite? 
+- Which test suite gets executed in which deployment environment? 
+- Which tests get executed before a feature release? 
+- Which tests get executed before a hotfix release// 
+- After a deployment is done, are automated deployment checks running to verify the deployment procedure? 
+- Are automated teests running in production 24/7? 
+- Are the tests and test executions trustworthy? 
+
+Release Questions: 
+- Do development teams own deployment pipelines?
+- What is the scope of a deployment pipeline? How many services are typically deployed using a single deployment pipeline? 
+- Are development teams doing production rollots themselves or are the done by the operations team centrally? 
+- What are the manual steps for doing a productions release? 
+- Which manual steps ensure regulatory compliance of productions release (docment creation, reviews and signatures, approvals, etc.)?
+- How often are prodction releases done on average per team? 
+- Is there a canary release process in place?
+- How long does it take to roll out a service to all production environments, including a canary release? 
+- Are there standard operating procedures (SOPs) describing how standardized work is done in production (e.g., how to manually scale a resource such as memory)?
+
+Capacity Planning Questions:
+- Are services running on servers owned by the organization? Are the infrastructure as a service (IaaS) or platform as a service (PaaS)?
+- Are several services ruunning in a shared infrastructure unit that can only be scaled by the unit as a whole? 
+- Are services running in containers deployed in clusters, such as Kubernetes clusters, so that infrastructure scaling can be done by the container on demand?
+- Is infrastructure scaling done manually, automatically, or semiautomatically?
+
+Development Questions: 
+- Is the use of HTTP return codes appropriate? For instance, does a "500" error code really mean an internal server error? 
+- Does the logging infrastructure provide a log query language? If so, do the developers us the log query language on a regular basis?
+- Are services built on the priniciples of the Twelve-Factor App? Are developers aware of them by and large? 
+- Do services implement any stability patterns for distributed systems from teh book "Release it! Design and Deploy Production-Ready Software"?
+
+Interestingly, the preceding questions are not closely related to the technology used by the teams. Rather, to analyze the state of tech in the teams from an operational standpoint, more conceptual matters are important. For example, it does not matter which logging infrastructure is used. What is important about it is whether any logging infrastructure is used consistently in the teams so that a single SRE infrastructure can be built on top of the logs benefiting all the teams. Also, if teams do not consistently use a logging infrastructure, they will have before the SRE transformation can progress any further.
+
+The same applies to the release, capacity planning, and development questions. It does not matter which release frameworks are used. What does matter, for example, is whether a canary release is done to test the impact of a change in production on a small group of users first. If this is in place, the team’s release process will be mature. In all likelihood, it will not need to be touched during the SRE transformation.
+
+### 4.4 Where Is The Culture
+
+
+
 
 
 
