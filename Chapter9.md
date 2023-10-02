@@ -35,3 +35,77 @@ So far, the SLOs and, consequently, the SLO breaches were not assigned explicit 
 In terms of tool support, setting incident priorities is supported by all common on-call management tools available on the market. 
 
 #### 9.2.1 SLO Breaches Versus Incidents 
+The organization-wide incident priorities need tob e defined in a distinct way without overlap between them.
+- Incident classification should be unique and have no overlap. Overlap adds ambiguity. 
+This is also neccessary to ensure unique assignments of SLOs to the incident priorities. Based on the unique incident priorities assigned to an SLO, all incidents based on the breaches of that SLO should be assigned the incident priority. The people on call can do this either autmatically or manually. 
+
+> See figure 9.3 Incident priority versus SLO breaches. 
+
+An SLO has exactly one incident priority assignment. An SLO can have many SLO breaches. All SLO breaches of an SLOW get the SLOs incident priority assigned when the breach occurred. 
+As the incident unfolds, the people on call may change its priority based on the situational context and thier judgement of the matter. The incident priority may get lowered or elevated as a result. 
+
+> See table 9.1 SLO Breaches versus Incidents
+
+- The SRE coahces need to stage the implementation of that feature in the SRE infrastructure by the operations teams to be done in time for the incident priorities being defined by the teams owning the services. 
+
+#### 9.2.2 Changing Incident Priority During an Incident
+During an incident investigatino, the people on call may change the incident priority based on ongoing learnings, refined context, and new details 
+
+> The above varies from standardized incident response where incident priority is not discussed during an active incident bridge.
+
+> Figure 9.5 Example of incident priority changes while the incident unfolds 
+
+#### 9.2.3 Defining Generic Incident Priorities
+Incident priorities need to be defined so that it is easy for a person on call to dynamically decide on an incident priority as the incident unfolds. 
+
+- Therefore, the set of criteria for an incident priority should be very short
+
+To drive the definition of generic incident priorities, the SRE coaches need to start with the operations teams. There may already be some existing definitions for incident priority when you start this step. 
+
+The SRE coaches with the operations teasms need to propose a small set of incident priorities with a proportionally small set of criteria describing each priority. The incident priorities should provide direction on the following dimensions: 
+
+- Which actions must be taken? 
+- Who has to be informed about the issue and the actions being taken? 
+
+> See Table 9.2 Sample Incident Priorities
+
+Incident priority 1 describes situations that require an immediate hotfix rollout and a later
+postmortem. The product delivery organization’s management team and the stakeholders need
+to be notified about the outage. The teams themselves select the stakeholder groups when assigning priorities to the SLOs. Incidents with a priority of 1 represent outages with severe customer impact. Therefore, these incident status updates need to be broadcast to the stakeholders every two hours.
+
+A generic example of an incident with priority 1 would be when no log-on to any application
+is possible (think: Amazon or Twitter log-on does not work). Concrete examples of priority 1
+incidents will be defined team by team in their respective domains when they go through their
+SLOs to find the ones that, when broken, would correspond to the five criteria in Table 9.2
+
+Next, incident priority 2 describes situations that do not require a hotfix to be rolled out. Likewise, no postmortem is required. However, these situations deserve some attention from management and stakeholders. Therefore, notifications to them are required and need to be sent out every four hours. 
+
+A generic example of a priority 2 incident is when an application experiences a more than
+70% drop in average daily user log-ons in a data center. In this situation, the reasons for the drop in log-ons may be manifold. It might be because a festival being held in the region is taking people away from their work, and therefore they are not using the application because the application only applies to situations in business settings. It might be because internet connectivity in the region was impacted due to a natural disaster. Or it might be because of a network slowdown in the region with the cloud provider of choice, which can be rectified only by the cloud provider itself. In situations like these, the stakeholders and the management team need to be aware of the outage and receive a progress update every four hours. More, however, cannot be done by the product delivery organization if the reasons for the drop in number of log-ons are beyond their control. 
+
+Finally, incident priority 3 describes situations where no hotfix, postmortem, or management notification is required. However, the issue at hand is affecting the work of customers or stakeholders to the point where specifc stakeholder notifications need to be broadcast to make them aware of the issue ahead of time. The issue is not that pressing. Therefore, status updates every eight hours should be sufficient. 
+
+The SRE coaches should ensure that the initial propoasal of generic incident priorities does not contain more than five priorities. Each priority should not be defined using more than five criteria. Simplicity and unambiguity are more important than precision and detailedness here. 
+
+- Have defines SLOs in an iterative manner
+- Have an on-call rotation in place
+- Use the on-call management tool
+- Are looking to streamline their incident response process by prioritizing SLO breaches 
+
+> Key Insight: The final definition of the generic incident priorities, and how to use them, needs to be put onto the SRE wiki. This way teams can easily reference the definition while prioritizing their SLOs. 
+
+#### 9.2.4 Mapping SLOs to Incident Priorities
+With the generic incident priorities defined, the SRE coaches should bring the topic of prioritizating the SLO breaches to the development teams that are ready, in order to streamline the incident response process. 
+
+- This can be done through a regular cadence for SRE coaching sessions. 
+
+> For example see Table 9.3 Sample SLO Use Cases in a Team 
+| # | SLO Use Case | SLI 
+|----|----|----| 
+| 1 | Application cannot register with notification services | Availability |
+| 2 | Application cannot notify its users | Availability |
+| 3 | Notifications arrive with a delay | Latency |
+| 4 | Notification preferences cannot be set | Availability |
+| 5 | Notifications are sent in the wrong langauge | Correctness |
+
+
