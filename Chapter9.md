@@ -191,5 +191,13 @@ The SRE coaches should encourage the teams to use the incident priority definiti
 An analysis like this is going to uncover the need for new SLIs or new ways to meaure existing SLIs to be supported by the SRE infrastructure. These requests should go direclty to the SRE infrastructure backlog for the operations teams. To cover the use cases that are relavant but not yet supported by the current SRE infrastructure, resource-based alerts should be defined and handled as described in the previous sections. 
 
 #### 9.2.8 Adjusting Incident Priorities Based on Stakeholder Feedback
+The next step is to get stakeholder feeeback on the priorities and adjust them as neccessary. The SRE coaches need to organize these feedback sessions. The sessions are neccessary to reconcile the views of service providers and service consumers regarding the incidnet priority of a given outage. 
+
+Service provider teams defined the incident priorities based on their understanding of the importance of a given functionality to an average consumer of the service. Because of the plurality of service consumers, each potentially operating in a serpate subdomain, different consumers will have different views on the incident priority for an outage of a given functionality. 
+
+- Sample Views on the Incident Priority of an SLO Breach 
+| SLO Breach Use Case | Service Provider's View on the Incident Priority | Service Consumer 1's View on the Incident Priority | Service Consumer 2's View on the Incident Priority |
+|----|----|----|----|
+|Application cannot notify users | 2 | 1 | 3|
 
 
