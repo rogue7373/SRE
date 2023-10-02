@@ -100,6 +100,7 @@ With the generic incident priorities defined, the SRE coaches should bring the t
 - This can be done through a regular cadence for SRE coaching sessions. 
 
 > For example see Table 9.3 Sample SLO Use Cases in a Team 
+
 | # | SLO Use Case | SLI 
 |----|----|----| 
 | 1 | Application cannot register with notification services | Availability |
