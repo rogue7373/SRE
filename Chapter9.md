@@ -297,6 +297,15 @@ Depending on the definiation, the incident priority may dictate the actions to b
 | 2 | Incident Severity | How should it be done organizationally |
 
 
-#### 
+#### 9.3.4 Defining Generic Incident Severities 
+Similar to generic incident priority definitinos, inident severities also need to be defined in a generic way. 
+
+| # | Criteria | Incident Severity "Critical | Incident Severity "Error" | Incident Severity "Warning | 
+|----|----|----|----|----|
+| 1 | Users affected | Majority | About 50% | Minority | 
+| 2 | Teams required | > 2 | 2 | 1 |
+| 3 | Team coordinator required | Yes | Yes | No |
+|   | Example | No log-on possible to any application | Sporadic user auto log out of applications | Demo data not available in the showcase deployment |
+
 
 
