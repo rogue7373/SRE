@@ -212,3 +212,91 @@ The final decision about the incident priorty after considering the feedback fro
 | Adaptive capacity | The amount of adaptive capacity between a service consumer and a service provider can be increased if the incident priority from the consumer point of view should be higher than that set by the service provider. This is because the service provider will fix the respective outages with lower priority than the priority wished for by the service consumer. This is going to lead to a longer time to recover from the outages. During that time, the users of the service consumer need to be kept operational with degraded functionality |
 | Stakeholder notifications | If the incident priority from the consumer point of view should be higher than that set by the service provider, the service consumer might wish to implement a stakeholder group to notify their people on call when there is an outage in the service provider. The people on call in the service consumer team will evaluate the outage notification and, if degraded functionality cannot be provided, might decide to notify their own stakeholders about the outage, rephrasing it for thier domain. |
 
+#### 9.2.9 Extending the SLO Definition Process
+In the teams that defined incident priorities for their existing SLOs once, the SLO definition process can be extended in the future. After a new SLO is set, its associated incident priority can be set by the team using the generic incident priority definitions. 
+
+- It needs to be noted, that this is only beneficial for the teams that are further ahead on the SRE transformation journey. 
+- Teams that are only fefining initial SLOs are not yet read for incident priority definition. Trying to define incident priorities in addition to the initial SLOs themselves is a distraction at the moment.
+
+#### 9.2.10 Infrastructure
+Which SLO breach-based alerts and resource-based alerts being the origins for incidents, the entire infrastructure setup is growing a bit more complex. 
+
+#### 9.2.11 Deduplication
+Incidents originate from SLO breaches and resource-based alerts. Both have a characteristic that they may occur many times for the same root causes as teh incident unfolds. 
+
+- Example Settings for a Resource-Based Alert on CPU Consumption
+
+| Setting | Operator | Value |
+|----|----|----|
+| Host | = | ABC |
+| CPU | > | 90% |
+| Aggregation | Average | 15 Minutes |
+| Evaluation Frequency | = | 15 Minutes |
+| Alert | = | 5 Minutes |
+| Name | = | "CPU>90% on host ABC" |
+
+- Example Settings for an Availability SLO Breach 
+
+| Setting | Operator | Value |
+|----|----|----|
+| Endpoint | = | @GET/api/data/{tenant} |
+| SLI | = | Availability | 
+| SLO | = | 99.7% |
+| Error Budget depletion for alert | > | 200% |
+| Error Budget depletion window | = | 60 Minutes |
+| Evaluation Frequency | = | 5 Minutes |
+| Alert Snooze | = | 120 Minutes |
+| Name | = | "Availability of get data API" |
+
+This SLO breach=based alert is for availability of endopoint "@GET/api/data/{tenant}" 
+
+### 9.3 Complex Incident Coordination 
+So far, the incident priorities were defined. They help the people on call prioritize their work when several incidents pile up. Moreover, they help standardize actions taken for all incidents of a given priority across the product delivery organization. The incident priorities, however, typically do not say a lot about the complexity of an incident in terms of, for example, the number of teams required to resolve it. This dimension is explored in this section. 
+
+#### 9.3.1 What Is a Complex Incident
+Whenever an incident cannot be solved in a team where it originated and has to be distributed to other teams for further processing, it can be referred to as complex. That is, a complex incident involves more than one team to be resolved. According to PagerDuty, additional criteria may apply to complex incidents, such as the availability of multiple uncorrelated symptoms, several experts working on the same analysis, and so on. In the majority of cases, complex incidents will be assigned incident priority 1.
+
+#### 9.3.2 Existing Incident Coordination Systems
+In order to drive complex incident coordination, in the past entire systems were developed by
+governments and professional groups such as firefighters, natural disaster rescuers, and medical emergency units. Notably, in the United States, an Incident Command System was developed. According to Wikipedia, “The Incident Command System (ICS) is a standardized approach to the command, control, and coordination of emergency response providing a common hierarchy within which responders from multiple agencies can be effective.” That is, the standardization of command, control, and coordination is at the heart of ICS. In the context of complex software incidents, coordination is especially important to enable efficient team swarming on the problem at hand.
+
+In terms of software operations, Pager Duty defined a similar system with specific roles to coordinate complex incident response. 
+
+- PagerDuty Incident Reponse Roles 
+
+| PagerDuty Role | Purpose |
+|----|----|
+| Incident Commander | Overall driver of the incident toward resolution |
+| Deputy incident commander | Supports the incident commander with detail coordination |
+| Scribe | Ensures the incident is documented on an ongoing basis | 
+| Internal Liason | Ensures internal stakeholders are informed appropriately |
+| Customer Liason | Ensures customers are informed appropriately | 
+| Subject matter expert | Domain expert responsible for a part of the system | 
+
+The SRE coaches need to initate an engagement with the operations teams to study existing incident response systems such as ICS, that from PagerDuty, and any others. Together, they need to assess the complexity of the product delivery organization at hand and work to propose an appropriate process including roles to drive the coordination of coplex incidents. The proposed process needs to cover the following fundamental questions. 
+
+1. When is incident coordination required? 
+2. Who initiates incident coordination? 
+3. Who is making decisions? 
+4. How are the decisions communicated? 
+5. Who is in charge of receiving the communicated decisions? 
+6. Who has to follow the decisions? 
+7. What is the freedom versus responsibility for the teams involved? 
+8. Who is responsible for communication? 
+9. Who is responsible for documenation? 
+10. Who is reponsible for running the incident postmortem? 
+
+Before answering these questions, the SRE coaches should poll the people who have been going on call on how complex incidents have been handled so far. There was no explicitly defined incident response process. So, the complex incidents were resolved in an ad-hoc manner. Knowing how it was done invaluable input to define an incident response process that would have the potential to sustainably improve the status quo. The goal is to define a repeatable and reliable process for handling complex incidents in an efficient and effective manner. 
+
+#### 9.3.3 Incident Classification
+Depending on the definiation, the incident priority may dictate the actions to be taken as part of incident resolution, such as hotfix rollout and management notification. 
+
+| # | Incident Dimension | Example Definition |
+|----|----|----|
+| 1 | Incident Priority | What needs to be done during the incident | 
+| 2 | Incident Severity | How should it be done organizationally |
+
+
+#### 
+
+
