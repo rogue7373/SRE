@@ -307,5 +307,8 @@ Similar to generic incident priority definitinos, inident severities also need t
 | 3 | Team coordinator required | Yes | Yes | No |
 |   | Example | No log-on possible to any application | Sporadic user auto log out of applications | Demo data not available in the showcase deployment |
 
+The incident severithy needs to be set by the people on call in order to invoke a certain incident response process. In the preceeding example, the "critical" incident severity means the majority of users are affected, more than two teams are required to work on the incident, and the teams have to be coordinated by a dedicated team coordinator. 
+
+The "error" incident severity means that about 50% of users are affected. To resolve the incident two teams will be required, and the teams will need to be coordinated by a dedicated coordinator. 
 
 
