@@ -646,3 +646,59 @@ This transparency can be provided using a service status page. The service statu
 > From the Trenches: Development teams might be very used to working in the chat management service resolving issues with their services on request. This workflow might be so entrenched that, initially, the teams might have difficulty understanding why it is actually beneficial to broadcast their service status. 
 After all, they have been working without it for years, helping anyone with a service issue raised in any channel of the chat management service. In other words, sarcastically the teams might be asking: Is it not sufficient to have conversations about service outages spontaneously in 10 Slack channels in parallel? The teams might not realize that the number of requests they get in various channels can be reduced significantly if the service status is broadcast consistently with the single source of truth from the on-call management tool, distributed via the status page. With this in mind, the SRE coaches should take time to explain the reasons for broadcasting the service status. They should not assume that the reasons for having a service status page would be immediately apparent to the development teams.
 The stakeholders, on the other hand, typically understand the need for a status page very well. It is they, after all, who need to chase the teams in the chat management tool asking for service status. Therefore, the stakeholders are usually eager to start using the status page as soon as it goes live.
+
+### 9.8 Documenting the Incident Response Process 
+Documentation of the incident response process needs to take place first and foremost on the SRE wiki. It is important that the following content is crafted well:
+
+- Incident Response purpose: 
+    - Overview
+    - Expected outcomes 
+- Incident Response Roles: 
+    - Responsibilities by role
+    - Skills by role
+- Incident classifiction
+    - Incident priorities
+    - Incident severities
+- How to drive a complex incident response? 
+    - Process dynamics
+    - Team well-being
+- Stakeholder notifications 
+    - Stakeholder groups
+    - Stakeholder rings
+- Incident postmortem process
+    - Responsibilites
+    - Activities before postmortem
+    - Activities during postmortem
+    - Activities after postmortem
+    - Postmortem template
+    - Outcome feedback
+- Service status pages
+    - Mapping of incident classification to service state changes on the status page
+- Tools
+- Continuous process improvement
+
+### 9.9 Broadcast Success
+By now, an entire incident response process for handling complex incidents has been put in place. The organization now has a repeatable and reliable process to uniformly classify incidents by incident priority and severity, as well as respond to the incidents appropriately by classification. What is more, the organization drives improvements of many kinds based on the learnings from the incidents via the incident postmortem process. Finally, it qualitatively assesses the outcomes achieved through application of the postmortem process in regular feedback sessions.
+
+The following questions can guide SRE coaches in preparing a convincing presentation about progress of SRE Transformation: 
+
+- How was complex incident response driven before the introduction of the incident response process?
+- How is complex incident response driven now, explained in a high-level overview from? 
+- What are the defined incident response roles? What are their responsibilities and required skills? 
+- What is the process of taking on a role defined in the incident response process? 
+- What is the incident classification and how does it work?
+- What are the incident priorities and severities? 
+- What is the mapping between the SLO breaches and incidents? 
+- What is a complex incident? 
+- How do you drive a complex incident response? 
+- How do you notify the stakeholders? 
+- What is an incident postmortem? 
+- How do you run an incident postmortem? 
+- What is a service status page? 
+- What are the tolls involved and how are they mashed up? 
+- What are some examples of outages that were handled well using the defined incident postmortem process in the last three months? 
+- What are the current measurments of measurable signals from the SRE transformation hypotheses? 
+
+
+--
+EoF
