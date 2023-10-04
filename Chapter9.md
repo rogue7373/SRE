@@ -313,6 +313,7 @@ An example of an incident with a “critical” severity would be if no log-on i
 
 The "error" incident severity means that about 50% of users are affected. To resolve the incident two teams will be required, and the teams will need to be coordinated by a dedicated coordinator. 
 
+<<<<<<< Updated upstream
 #### 9.3.5 Social Dimension of Incident Classification
 The definitions of incident priority and severity from the previous sections are rule based. The rule suggests that the people on call should assign incident priority and severity by and large irrespective of the wider circumstances or context. 
 
@@ -555,4 +556,8 @@ Review the following:
 
 
 
+=======
+The third incidnet severity is "warning". This severity represents an incident where only a minority of users are affected. The incident be resolved by a single team, so no external team coordination is required. 
+>>>>>>> Stashed changes
 
+It needs to be defined which incident severity should be set in borderline cases where the severity criteria do not correspond to the incident at hand in a very clear way. For example, if three teams need to be involved in an incident but only a minority of users are affected, neither of the severities defined earlier would apply. It can be recommended to set a higher severity in ambiguous cases, to be on the safe side. Following this, the “critical” severity would be set.
