@@ -167,3 +167,54 @@ Generally speaking, an error budget policy is a team-specific document. However,
 In terms of the storage medium, storing the error budget policy in a source-controlled wiki may be a good option. It combines the transparency of a changelog with the ease of editing a wiki. Additionally, if an error budget policy is stored on a wiki page within a larger application lifecycle management system, the work items linked to the wiki page may be displayable on the page automatically along with details such as their state, last update date, and owner. This con- tributes to an additional degree of transparency as to whether the conditions and consequences, which can be expressed as work items, are executed as stated in the policy.
 
 ### 10.10 Enacting the Error Budget Policy
+Once the error budget policy is agreed, the SRE coaches should invite the team for an explicit kick-off to enact it. This is because it is fairly easy for an error budget policy to remain a docu- ment that gets forgotten as the day-to-day work takes over people’s attention.
+
+The team should decide on the date of the enactment. From that date onward, the error budget policy governs decisions about reliability work prioritization in the team. The date should be chosen in such a way that automatic policy checks that are feasible are set up beforehand.
+
+This means that all the conditions and consequences from the error budget policy that lend themselves to automatic processing should be set up to be triggered and executed in an automated fashion. This may include setting up new alerts in the SRE infrastructure and noti- fications in the on-call management tool. Furthermore, it may include setting up automated runbooks in the on-call management tool. As part of the process, new feature requests to the SRE infrastructure may be raised to increase the degree of automation in the future.
+
+The team needs to check the next error budget policy review date and update it as needed. How an error budget policy review can be done is the subject of the next section.
+
+### 10.11 Reviewing the Error Budget Policy
+It is beneficial to run error budget policy reviews in the form of retrospectives. This is because retrospectives provide a structured way to solicit process feedback in a short time frame without lots of preparation. This is exactly what is needed in an error budget policy review. The review is not only about sharpening the defined clauses. To a greater degree the review is about finding out whether the defined error budget policy is effective in that it delivers outcomes in terms of reliability work prioritization.
+
+Running a retrospective well and in a professional manner is the home turf of agile coaches. Therefore, it is great to engage an agile coach to run an error budget policy review as a ret- rospective. The agile coach should invite the people who agreed on the policy and the people who were going on call for the services under the policy since the last retrospective. The invitation should be sent about two weeks before the actual retrospective to accommodate people’s schedules.
+
+In the retrospective, the effectiveness of the error budget policy should be discussed. The following questions may guide the discussion. 
+
+- Does the error budget policy get enacted at all? 
+    - If the error budget policy does not get enacted, what could be the reasons for that? For example, ar the triggers for enacting the policy automated as much as possible? 
+    - If the error budget policy does get enacted, is it transparent? 
+- Are the conditions specified to trigger the error budget policy appropriate? 
+- Are the consequences specified for each condition executed as envisioned? 
+- What are the outcomes of the application of the consequences? 
+    - Does reliablity work prioritization happen as intended? 
+    - If so, does the prioritization lead to reliability improvements? 
+- Do the conditions and consequences need any updates? 
+    - Create new conditions/consequences
+    - Update existing conditions/consequences
+    - Delete existing conditions/consequences
+
+The retrospective should define action items to improve the policy based on the discussion in the meeting. Importantly, it should define who will update the actual error budget policy, how the update will be communicated, and to whom.
+
+### 10.12 Related Concepts 
+There are a number of additional concepts that might be useful in the context of error budget policies. They can be found in the literature and in online articles. In this section, an overview of the concepts is provided to establish a more comprehensive view of the current state of thinking in the area of error budget policies. 
+
+- Additional Concepts in the Context of Error Budget Policies
+
+| Concept | Explanation | 
+|----|----|
+| Code Yellow | At Google, a state of Code Yellow can be declared. It means that everyone affected needs to stop working on features and start working on reliability. Code Yellow is applied during the teams’ business hours. In an error budget policy, declaring Code Yellow can be specified as a consequence for a condition. Specifying Code Yellow in the error budget policy has the advantage that the exit criteria from that working mode are automatically specified by the condition that triggered it. When the condition does not apply anymore, the Code Yellow working mode does not apply either. |
+| Code Red | LinkedIn also has a state of Code Yellow. In addition, it has a state called Code Red. Code Red is Code Yellow applied around the clock. That is, declaring Code Red means that everyone affected needs to stop working on features and start working on reliability around the clock. Code Red can be specified as a consequence in an error budget policy. |
+| Silver Bullet | In Implementing Service Level Objectives, the concept of a silver bullet is introduced. It applies when the error budget policy specifies that new feature releases are prohibited until there is a certain level of error budget available again. In this case, there may be an agreement in the error budget policy to have a certain small number of silver bullets available per year (e.g., three). The business can use the silver bullets to allow a new feature release despite the policy forbidding new feature releases. When the agreed number of silver bullets is used within a year, the business cannot lift the ban on new feature releases. |
+| Thaw tax | Implementing Service Level Objectives2 also introduces the concept of thaw tax. Thaw tax also applies when the error budget policy declares a ban on new feature releases. It works as follows. For every day a new feature release was done despite the fact that the error budget policy declared a ban on new feature releases, a daily thaw tax is added to the day. So, for each day that violated the ban, the number of ban days gets increased by 1 + thaw tax. The thaw tax is defined in the error budget policy and is designed to extend the time when only reliability work is allowed in case of error budget policy violations. For example, imagine the thaw tax is agreed to be half a day. Further, imagine the error budget policy declared a ban on new feature releases as a consequence to a policy condition. The condition gets fulfilled, and the ban on new feature releases gets declared. During the ban, three new feature releases are done on three different days. For each day, the thaw tax of half a day is added. This means that each day now counts as 1 day + 1⁄2 day thaw tax = 1.5 days. Thus, for three days when new feature releases were done despite the ban, 3 x 1.5 = 4.5 days of ban time are added. During these days, only reliability work is allowed. | 
+| Error Budget top-up | Nobl9 applies a concept of error budget top-up to situations in which a team’s error budget depletion is found to be due to the team’s external dependencies. The dependencies can be in another team’s services within the same product delivery organization or in external companies’ services. So, when a team depletes some error budget that is then attributed to its external dependency, the lost error budget is topped up. No further details of the concept are provided by Nobl9. However, the error budget top-up needs to be done within the current error budget period. Otherwise, hoarding of the error budget will take place, which does not reflect the number of errors allowed by the respective SLO. |
+
+The SRE coaches need to assess whether it would be beneficial to introduce and realistic to execute any of these concepts in a given product delivery organization. Code Yellow and Code Red would require an organization-wide agreement. Once declared, it applies to all the affected teams. This means a team’s error budget policy containing a Code Yellow or Code Red consequence may have an influence on other teams. The other teams need to be prepared to work according to the Code Yellow or Code Red working mode based on another team’s error budget policy.
+
+The silver bullet, thaw tax, and error budget top-up concepts can be applied within the context of a team. The silver bullet and thaw tax require some transparent means to keep the current score. Questions like “How many silver bullets are left within a year?” and “How many thaw tax days were added last month?” must be answerable in a self-service manner to cater to full transparency.
+
+The error budget top-up concept requires the corresponding SRE infrastructure to be able to make the top-ups with precision.
+
+--
+EoF
