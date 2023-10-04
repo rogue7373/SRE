@@ -407,7 +407,8 @@ The incident response process proposed by the SRE coaches and operations teams c
 | 5 | Who is in charge of receiving the communicated decisions? | The people on call in the development and operations teams |
 | 6 | Who has to follow the decisions? | The people on call in the development and operations teams |
 | 7 | What is the freedom versus responsibility for the teams involved? | Freedom: Select technical solutions. Responsibility: Receive decisions from the incident coordinator, Execture on the decisions, Report on the execution status |
-| 8 | Who is responsible for communication? | Incident severity "critical": incident coordinator, Incident severity "error": incident communicator |
+| 8 | Who is responsible for communication? | Incident severity "critical": incident coordinator
+Incident severity "error": incident communicator |
 | 9 | Who is responsible for documentation? | The incident communicator |
 | 10 | Who is responsible for running the incident postmortem | The incident coordinator |
 
