@@ -309,6 +309,64 @@ Similar to generic incident priority definitinos, inident severities also need t
 
 The incident severithy needs to be set by the people on call in order to invoke a certain incident response process. In the preceeding example, the "critical" incident severity means the majority of users are affected, more than two teams are required to work on the incident, and the teams have to be coordinated by a dedicated team coordinator. 
 
+An example of an incident with a “critical” severity would be if no log-on is possible to any application. Setting the incident severity level to “critical” invokes the highest level of incident response. All roles to be defined in the incident response process will have to be involved in the resolution of the incident.
+
 The "error" incident severity means that about 50% of users are affected. To resolve the incident two teams will be required, and the teams will need to be coordinated by a dedicated coordinator. 
+
+#### 9.3.5 Social Dimension of Incident Classification
+The definitions of incident priority and severity from the previous sections are rule based. The rule suggests that the people on call should assign incident priority and severity by and large irrespective of the wider circumstances or context. 
+
+Example: The “warning” incident severity from the previous section states that it applies only to incidents that affect a minority of the users. Based on that, it is possible to imagine an incident that affects only one customer due to a failure in a service owned by a single team. So, the incident should be assigned a “warning” severity. However, the single customer affected by the incident could turn out to be a really important customer. Therefore, the people on call might want to be extra cautious and, as an exception, set the severity of the incident to “criti- cal,” causing a full-blown incident response to unfold.
+
+- The definition of customer is important to establish during the building of the incident management lifecycle. 
+- Customer classification is not part of the "incident response process" at all. 
+
+To take the example further, it is possible to imagine that the important customer has a powerful advocate in the product delivery organization. For instance, a senior vice president of product can be in close touch with the customer and be called to immediately fix the issue. Following that, the senior VP may consult the on-call management tool, find the corresponding incident, and join the conference bridge where the incident response is unfolding. On the call, the senior VP may outrank everyone and demand that the most senior engineers join the call.
+
+This breaks the entire incident response process that was carefully set up before. First, the senior VP takes over incident command, overriding the incident coordinator. Second, the senior VP commands people currently not on call to troubleshoot the incident. Third, the senior VP, unaware of the incident response process details, is likely to break the incident stakeholder communication rules.
+
+- The SRE coaches need to think through situations like this in advance and systematically prepare the organization for a structured incidet response in an attempt to minimize the likelihood of such chaotic situations occuring. 
+
+- That is, the social dimension of incident classification will influence the rule-based definitions of incident priority and severity. 
+
+- This is a very important aspect to be aware of. 
+
+- The impact of the social dimension will differ depending on the organizational culture. 
+
+- The most impact will be felt in power-oriented cultures, with the impact in rule-oriented cultures possibly situated in the middle. 
+
+- The SRE coaches need to take this into consideration during the SRE Transformation
+
+> Personal Insight: Plan, prepare, and draw clear delineations to prevent scope creep due to social dimensions during the incident response process
+
+- Finally, the incident classification needs to support the people on call to rapidly figure out what can be successfully ignored and what to focus on immediately.
+
+#### 9.3.6 Incident Priority Versus Incident Severity
+In cases where the incident priority (e.g., what needs to be done) and incident severity (e.g., how to do it organizationally) are defined as separate dimensions, their cross product also needs to be defined. The definition needs to make clear whether every permutation of incident priority and severity should be possible.
+
+> Refer to table in Chapter 9, Table 9.14 Incident Priority Versus Incident Severity
+
+#### 9.3.7 Defining Roles
+With the incident severities defined, the highest severity level will require all roles defined in the incident response to be involved in incident resolution. Role definition is the subject of this selection. 
+
+Roles that are needed to fulfill four areas: 
+1. Coordination
+2. Communication
+3. Documentation
+4. Execution
+
+The SRE coaches need to work with the operations teams to propse a set of roles and associatd responsibilities.
+
+- Example Incident Response Roles, Responsibilities, and Skills
+
+| Role | Responsibilities | Skills | 
+|----|----|----|
+| Incident Coordinator | Decision-Making, Team Coordination, Team Well-being, Running Postmortems | Decision-Making, Emotional intelligence, People motivation, People coordination, Communication |
+| Incident Communicator | Communication toward teams, Communication toward internal stakeholders, Communication toward external stakeholders, Incident Documentation, Postmortem documentation, Postmortem results communication | Communication, Technical writing, Liasing with stakeholders | 
+| Technical expert | Technical Analysis, Solution proposal, Solution implementation, Postmortem participation | Technical expertise, Communication |
+
+It might happen that additional people would be necessary for decision-making. For example, a project manager might be needed because of their knowledge of the impact of changing time- lines on other internal and external stakeholders. Additionally, an operations engineer might be needed because of their knowledge of an incident’s impact on first level support distributed around the world.
+
+
 
 
