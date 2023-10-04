@@ -313,7 +313,6 @@ An example of an incident with a “critical” severity would be if no log-on i
 
 The "error" incident severity means that about 50% of users are affected. To resolve the incident two teams will be required, and the teams will need to be coordinated by a dedicated coordinator. 
 
-<<<<<<< Updated upstream
 #### 9.3.5 Social Dimension of Incident Classification
 The definitions of incident priority and severity from the previous sections are rule based. The rule suggests that the people on call should assign incident priority and severity by and large irrespective of the wider circumstances or context. 
 
@@ -554,10 +553,60 @@ Review the following:
 
 - Generating Action Items: Once the timeline has been refined and reviewed, it is time to generate the action items. A good starting point for action item generation are the corresponding side notes that were made as bullet points during the timeline discussion.
 
+- Checklist to assist generating action items during a postmortem
+    - Incident Response Process
+        - Does any runbook need to be updated? 
+        - Does the on-call training need to be updated? 
+        - Does the on-call rotation setup need to be updated? 
+        - Does the incident classification with priorities and severities need to be updated? 
+        - Does any SLO need to be updated/added/removed? 
+        - Does any SLI need to be updated/added/removed? 
+        - Does any stakeholder notification need to be updated/added/removed
+    - SRE Infrastructure
+        - Does any dashboard need to be udpated/added/removed?
+        - Does the alerting algorithm need to be updated? 
+        - Does the tool chain need to be updated? 
+        - Does the SRE wiki need to be udpated/extended? 
+    - Architecture
+        - Is there a dependency between services that can be loosened? 
+        - Does an aspect of architecture governance need to be updated/introduced? 
+    - Organizational
+        - Does any responsibility need to be made clearer? 
+        - Does the organizational structure need to be updated? 
+        - Does the employee onboarding program need to be updated? 
+        - Does the workload need to be reduced to avoid burnout of some people? 
+    - Collaboration
+        - Are there interpersonal issues to be solved preventing collaboration? 
+        - Do the collaboration practices between departments need to be updated? 
+    - Customer support
+        - Does the interaction between the first level support and the customers need to be updated? 
+    - Hiring
+        - Does the list of skills required for a particular role need to be updated? 
+        - Does the list of technologies required for a particular role need to be updated? 
+    - Procurement
+        - Does the list of supplier selection criteria for custom software development need to be updated? 
+        - Does the list of supplier selection criteria for software components/services need to be updated? 
 
+- Postmortem distribution: One of the final steps in the postmortem meeting is to decide how the postmortem learnings should be distributed and by whom. The incident coordinator, agile coach, and incident participants spent quite some time learning from the incident and identifying improvements across many dimensions to act on the learnings. Now is the time to distribute the learnings throughout the organization in an efficient and effect
 
-=======
-The third incidnet severity is "warning". This severity represents an incident where only a minority of users are affected. The incident be resolved by a single team, so no external team coordination is required. 
->>>>>>> Stashed changes
+#### 9.5.5 After the Postmortem
+Once the postmortem meeting is over, the action items contain a clear path to further action. First, the action items in the work item management tool need to be checked for completeness. In all likelihood, not all the details were spelled out clearly enough during the postmortem meeting for the description to be understood thereafter by people who did not take part in the meet- ing. The action item descriptions in the on-call management tool need to be completed immediately after the meeting, while the conversations and context are fresh in the minds of the action item drivers. The action item drivers should take care of this.
 
-It needs to be defined which incident severity should be set in borderline cases where the severity criteria do not correspond to the incident at hand in a very clear way. For example, if three teams need to be involved in an incident but only a minority of users are affected, neither of the severities defined earlier would apply. It can be recommended to set a higher severity in ambiguous cases, to be on the safe side. Following this, the “critical” severity would be set.
+#### 9.5.6 Analyzing the Postmortem Process
+Running the process takes time and effort. Analyize the effectiveness to get an understanding of the outcomes achieved through the process. Drive postmortems to get improvement. 
+
+- Action Item Lead Time and Cycle Time: Your item management tool, for example; Jira will handle calculations of lead time or this will be discussed during Sprint planning
+
+- Content Consumption Statistics: The content is produced by the postmortem participants to be used by others in the product delivery organization. That is, content consumption indicates whether the usefulness of the postmortem process goes beyond the immediate postmortem participants, their teams, and the teams affected by the postmortem action items. It indicates whether the quality and attractiveness of the postmortem content are high enough for teams not affected by the incident to take notice and start learning from other peoples’ service outages.
+
+- Soliciting Feedback on Outcomes: Another way to analyze the postmortem process is to solicit feedback on whether the postmortem activities yield real outcomes. The feedback can indicate whether some of the outcomes achieved by the teams are materializing through application of the postmortem process; that is, whether the outcomes materialize through processing the postmortem action items in a reasonable time frame and feeding the postmortem learnings into the right processes and groups in the product delivery organization. If not for the postmortem process, the outcomes would probably not materialize or would materialize much later, or it would be much more difficult to bring them about.
+
+#### 9.5.7 Postmortem Template
+See Chapter 9 for template
+
+#### 9.5.8 Facilitating Learning from Postmortems
+The previous sections showed the importance of learning as the central theme for the relevance of postmortems. Who needs to learn what, when, and how should be on top of agile coaches’ minds when attending postmortem meetings. This thought process yields action items for vari- ous teams and groups in the product delivery organization.
+
+In addition to that, the agile coaches can sift through the postmortems and discover patterns. Common themes can be found that come up again and again in different situations, with different teams and services. Tackling the common themes might require some bigger initiative to be started and executed throughout the organization.
+
+Initiatives like that are home turf for agile coaches. They know how to pull the strings in the organization to convince the decision makers, get the ball rolling, and roll out a change in many teams within a reasonable amount of time. Following are some examples of such initiatives.
