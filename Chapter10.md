@@ -82,4 +82,88 @@ The previous section introduced the specification of the error budget depletion 
 | Dependency handling | A certain percentage of the error budget granted for the current error budget period depleted due to failures in a dependent service |
 
 ### 10.5 Error Budget Policy Consequences
+When defining the consequences for conditions governed by an error budget policy, an attempt should be made to define them in an automatable and traceable manner, if possible. Doing so will enable automated checks whether or not the consequences are executed as agreed.
 
+To be sure, error budget policy consequences will contain lots of qualified statements to be interpreted by humans. However, wherever possible, automatable and traceable clauses should be defined to enable automated analysis.
+
+The error budget depletion consequences may be categorized. The following categories might be useful:
+
+- Assigning people
+- Conducting activities
+- Stopping activities
+
+- Example Error Budget Policy Consequences
+
+| Consequence Category | Example Consequences |
+|----|----|
+| Assigning People | <ul><li>Assign a certain percentage of engineers on the team to reliability work until certain conditions apply</li><li>Escalate to a higher-up to influence the assignment of engineers to reliability work</li></ul> |
+| Conducting Activities | <ul><li> Conduct a postmortem</li><li>Create an action item</li><li>Prioritze an action item in a certian way</li><li>Get an action item done within a certain amount of time</li><li>Engage with the owner of a dependent service (internal team or external company)</li><li>Communicate the error budget state to certain parties</li></ul> |
+| Stopping Activities | <ul><li>Stop new feature releases to the staging environment</li><li>Stop new feature releases to the production environment</li></ul> | 
+
+### 10.6 Error Budget Policy Governance 
+The cross-product of policy conditions and consequences yields the overall set of actions governed by the error budget policy. The more data-driven the conditions and consequences can be, the more traceability and transparency can be associated with a given policy. 
+
+The error budget policy consists of conditions and consequences. Further, it has some level of traceability. The conditions can be triggered either automatically or manually. Likewise, the consequences can be executed using either automated or manual runbooks. The resultant traceability will be a combination of automated and manual steps providing transparency.
+
+- Example Error Budget Policy Clause 
+
+| Condition | The error budget for dead letters in the message queue "data_inflow" is exhausted permaturely before the end of the current error budget period. | 
+| Automated Trigger | An alert is sent to the people on call when the error budget is exhausted before the end of the current error budget period. | 
+| Consequence | <ul><li> Raise an action item to be prioritized at the top of the team backlog</li><li>Link the action item to the error budget policy</li><li>Finish the work on the backlog item within a week</li></ul> |
+| Automated Runbook | The consequence is partly coded up in an automated runbook. The action item is created and linked to the error budget policy automatically. The people on call need to get the action item prioritized | 
+| Traceability | <ul><li>Check for work items in the work item management tool linked to the error budget policy</li><li>Check the action item lead time</li></ul> | 
+
+### 10.7 Extending the Error Budget Policy
+The conditions in an error budget policy should ideally be expressed in terms of error budget depletion. However, if a team wants to deviate from that, they should be free to do so. It is more important to have an error budget policy in place that is working effectively based on conditions expressed using means other than functions of error budget depletion than it is to have no error budget policy at all. Even worse is to have an error budget policy that does not get enacted. This is because in that case, the time taken by many people to agree on the policy was fully wasted.
+
+The need for policy conditions to be specified not just as functions of error budget depletion may stem from the fact that the team may have resource-based alerts—for example, “CPU is over 80%” or “Memory is over 90%”—in addition to SLOs. The SRE infrastructure might not yet support all the necessary SLIs or ways to measure existing SLIs to express every reliability concern of every service in the product delivery organization. Therefore, some resource-based alerts might still be there to fill in the gaps.
+
+Following this, the error budget policy might contain conditions that are rooted in resource-based alerts. For example, such conditions might be:
+
+- High CPU consumption over extended time periods
+- Sudden increase in dead letters in dead letter queues
+- Sudden active message count increase in message queues
+- High background job restart numbers
+
+What is more, the teams might specify additional points in an error budget policy that only seem distantly related at first. For example, a team might list phases in the release lifecycle and specify different error budget policies by phase. This might happen when each phase takes a significant amount of time because the team’s production release cadence is rather infrequent. Often in this context, many teams release to production together at the same time
+
+- Example Release Lifecycle Phases and Their Durations 
+
+| Release Lifecylce Phase | Possible Duration | 
+|----|----|
+| Planning | Several days |
+| Development | Several months |
+| Rollout to staging | Several days | 
+| Testing for regulatory compliance | Several days to several weeks |
+| Hotfix rollout to all production environments | Several days |
+| Feature release rollout to all production environments | Several weeks |
+
+For instance, the teams in the product delivery organization might plan releases using so- called Program Increment (PI) plannings as suggested by the Scaled Agile Framework (SAFe3). In this case, the teams might also be organized in so-called Agile Release Trains (ARTs) as suggested by the framework. Given this, a PI planning includes all members of all teams belonging to an ART. The planning is executed like a conference that runs for several days. During that time, all the team members are expected to focus on the planning activities. It follows that the teams might want to specify the policy conditions in their error budget policies that specifically apply during the PI planning.
+
+This might sound counterproductive. The error budget policy should govern the team’s actions to ensure reliability in production regardless of the release lifecycle phase. After all, there is always a previous release running in production whose reliability has to be ensured. Why on earth would any other activity, like PI planning, have an influence on ensuring reliability in pro- duction according to the error budget policy?
+
+### 10.8 Agreeing to the Error Budget Policy 
+The operations engineers, developers, and product owner of a team need to agree on the error budget policy, as do the people who are specified in the escalation policy to break ties in case of disagreements. It is beneficial to drive this agreement in stages to involve the right people at the right time for the appropriate amount of time. Agreement can be staged in the following way.
+
+1. The operations engineers and develops create an error budget policy draft using their technical knowledge. 
+2. The product owner gets involved to review the error budget policy draft from the user and business point of view. 
+3. The people specified in the escalation policy get involved to review the error budget policy from teh clarity, specificity, precision, and data-drive measurements point of view. 
+
+The SRE coaches should initiate and drive process. First, they should invite the operations engineers and developers for the services in the scope of the error budget policy for a discussion rooted in the services’ past incidents and bigger outages. The discussion will be fairly technical. At the beginning of the discussion, the SRE coaches should reiterate the context and motivation and explain how the discussion will be facilitated.
+
+The SRE coaches should pay close attention to the influence on the team exercised by other frameworks and methodologies to learn some specific aspects and use the learnings in error budget policy discussions with other teams. Moreover, these aspects provide a good basis for discussions with agile coaches to drive broader organizational improvements.
+
+The SRE coaches should see the discussion converge by achieving agreement on the error budget policy draft by the operations engineers and developers. Once this agreement has been reached, the SRE coaches should invite the product owner to the discussion of the draft.
+
+At this point, the technical discussions are over, the conditions addressed by the error budget policy are clear, and the corresponding consequences are defined. The product owner can now review the current error budget policy draft from the customer and business point of view. That is, does the error budget policy strike a good balance between the reliability work and the new feature work to provide an optimal user experience and business benefit? Does it dictate that the team should work on reliability when required to ensure a good user experience for existing features? Does it allow the team to work on new features when the reliability of existing features is up to standard? These checks by the product owner also contribute to the error budget policy being written in a way that can be understood by people without deep technical expertise. This is especially required by the people specified in the escalation policy.
+
+### 10.9 Storing the Error Budget Policy
+Generally speaking, an error budget policy is a team-specific document. However, it might be beneficial to store it publicly. For example, a section in the SRE wiki might be a good place to store the error budget policies of all teams in a transparent manner. Storing the policies publicly has several advantages.
+
+- Having an effective error budget policy is an advanced SRE practice. Therefore, it may take a long time for teams to start adopting it. For the same reason, there are not a lot of examples on the web to learn how an effective error budget policy can be created. Being able to learn from other teams in the product delivery organization by analyzing their policies is a great catalyst for other teams to adopt the concept.
+- During postmortems, when several teams are involved in an outage, it is beneficial to enable the postmortem participants to look up the error budget policies of the involved teams in parallel. This might generate new postmortem action items to adapt existing policies. The process might also prompt the creation of a new error budget policy for a team that does not yet have one in place.
+- People specified in the escalation policy approving a team's error budget policy need easy access to it. Furthermore, these stakeholders may need to approve the error budget policies of several teams. For example, a VP of engineering may be on the escalation policy list of several teams’ error budget policies. Such stakeholders would prefer a central location for all the error budget policies from all teams they are involved with.
+
+In terms of the storage medium, storing the error budget policy in a source-controlled wiki may be a good option. It combines the transparency of a changelog with the ease of editing a wiki. Additionally, if an error budget policy is stored on a wiki page within a larger application lifecycle management system, the work items linked to the wiki page may be displayable on the page automatically along with details such as their state, last update date, and owner. This con- tributes to an additional degree of transparency as to whether the conditions and consequences, which can be expressed as work items, are executed as stated in the policy.
+
+### 10.10 Enacting the Error Budget Policy
