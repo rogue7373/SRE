@@ -551,7 +551,7 @@ Review the following:
 - Will the majority of people have access to the queries? 
 - Should this passage go into the external write-up of the postmortem? 
 
-
+- Generating Action Items: Once the timeline has been refined and reviewed, it is time to generate the action items. A good starting point for action item generation are the corresponding side notes that were made as bullet points during the timeline discussion.
 
 
 
