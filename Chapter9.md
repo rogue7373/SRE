@@ -624,3 +624,25 @@ As stated earlier, for an incident postmortem to be effective, its value needs t
 | 4 | The average lead time for postmortem action items is not increasing | If the average lead time for postmortem action items across the organization is not increasing, it is an indication that the organization is learning from postmortems at a relatively constant velocity.| 
 
 #### 9.5.10 Example Postmortems 
+An example postmortem of a 66-minute Shakespeare Search outage at Google can be found in the original Google SRE book Site Reliability Engineering: How Google Runs Production Systems.
+
+The SRE Weekly newsletter contains a section called “Outages” that includes a list of outages that happened during the week with links to their descriptions. Some links go to well-elaborated incident postmortem write-ups. For instance:
+
+- A 47-minute outage of all customer-facing Google services that required Google OAuth access. User request authentications could not be verified. This resulted in serving 5xx errors on virtually all authenticated traffic.
+- A 48-minute Slack outage during which users could not connect to Slack. Interestingly, people are invited to email Slack at feedback@slack.com to request a copy of the root cause analysis report.
+
+### 9.6 Mashing Up the Tools
+The incident response process is greatly supported by a variety of tools discussed in the previous sections. The process can be streamlined a great deal by mashing up the tools in use. Lots of modern tools support integrations with each other. In this section, an exploration of useful tool mashups is done conceptually without referencing concrete tools individually. The exploration will be applicable to different tool landscapes composed of modern tools. Examples of possible tool landscapes are presented at the end of the section.
+Previous chapters showed the central importance of the on-call management tool. This tool is at the heart of SRE practice and incident response. It is the tool used by the entire product delivery organization and stakeholders beyond. It could indeed be referred to as the operation’s central nervous system. If so, then in analogy to the human nervous system, the tools connecting to the on-call management tool could be referred to as the operation’s peripheral nervous system.
+
+#### 9.6.1 Connecting to the On-Call Management Tool
+Refer to section 9.6.1 Figure 9.16 to see how the tools should interact with diagram and explanations of Tool Connections with the on-call Management Tool 
+
+Sections leading up to 9.6.1 - 9.6.4 expalain how individual tools should be used with eachother including mobile integrations 
+
+### 9.7 Service Status Broadcast
+This transparency can be provided using a service status page. The service status page should contain all the services deployed in production by region. For each service, the service status should be displayed. The service status should reflect the availability of incidents with a certain priority and severity that affect the service.
+
+> From the Trenches: Development teams might be very used to working in the chat management service resolving issues with their services on request. This workflow might be so entrenched that, initially, the teams might have difficulty understanding why it is actually beneficial to broadcast their service status. 
+After all, they have been working without it for years, helping anyone with a service issue raised in any channel of the chat management service. In other words, sarcastically the teams might be asking: Is it not sufficient to have conversations about service outages spontaneously in 10 Slack channels in parallel? The teams might not realize that the number of requests they get in various channels can be reduced significantly if the service status is broadcast consistently with the single source of truth from the on-call management tool, distributed via the status page. With this in mind, the SRE coaches should take time to explain the reasons for broadcasting the service status. They should not assume that the reasons for having a service status page would be immediately apparent to the development teams.
+The stakeholders, on the other hand, typically understand the need for a status page very well. It is they, after all, who need to chase the teams in the chat management tool asking for service status. Therefore, the stakeholders are usually eager to start using the status page as soon as it goes live.
