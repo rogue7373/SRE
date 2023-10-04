@@ -367,6 +367,52 @@ The SRE coaches need to work with the operations teams to propse a set of roles 
 
 It might happen that additional people would be necessary for decision-making. For example, a project manager might be needed because of their knowledge of the impact of changing time- lines on other internal and external stakeholders. Additionally, an operations engineer might be needed because of their knowledge of an incident’s impact on first level support distributed around the world.
 
+The SRE coaches and operations engineers need to take these points into account when proposing the roles to be involved in the incident response process. They also need to carefully consider these decisions in light of the existing organizational culture. 
 
+When it comes to naming the roles, the most appropriate role names in the context of a given organization can be freely chosen. The role name “incident coordinator” is chosen in the preced- ing example to deliberately point out the need for coordination tasks within the context of a team of fully responsible people on call. In the industry, the role name “incident commander” is used more often than “incident coordinator.” Having the word “commander” in the role name might suggest to the people on call that they are fully commanded by the incident commander. It might suggest that the incident would be owned by the incident commander and the individual experts are “contracted” by the commander to carry out individual tasks of their incident.
+
+- Pick names for the groups as needed that fit the organizational structure and make sense to the teams they work with. 
+
+#### 9.3.8 Roles Required by Incident Severity
+With the definition of the roles involved in the overall incident response process, role assignment by incident severity needs to take place. For exemplary purposes, such a role assignment by inci- dent severity is shown in the table below. 
+
+| # | Role | Incident Severity "Critical" | Incident Severity "Error" | Incident Severity "Warning" |
+|----|----|----|----|----|
+| 1 | Dedicated incident coordinator | Yes | Yes | No |
+| 2 | Dedicated incident communicator | Yes | No | No |
+| 3 | Dedicated technical expert | Yes | Yes | Yes |
+
+#### 9.3.9 Roles on Call
+With the roles involved in the incident response process defined, an on-call rotation needs to be set up for each role.
+
+- Example Roles on Call 
+
+| | Rotation Period 1 | Rotation Period 2 | Rotation Period 3 | Rotation Period 4 |
+|----|----|----|----|----|
+| Incident Coordinator | Person A | Person A | Person B | Person B | 
+| Incident Communicator | Person C | Person C | Person D | Person D |
+| Team 1 Technical Expert | Person E | Person F | Person G | Person E |
+
+#### 9.3.10 Incident Response Process Evaluation 
+The incident response process proposed by the SRE coaches and operations teams consists of a complex incident definition, roles, responsibilities, incident priorities, and possibly, incident severities.
+
+- Sample Incident Response Process Evaluation 
+
+| # | Incident Response Process Criterion | Sample Fullfillment | 
+|----|----|----|
+| 1 | When is incident coordination required? | For incidents with severity set to "critical" or "error" |
+| 2 | Who initiates the incident coordination | A person on call by setting the incident severity to "critical" |
+| 3 | Who is make decisions? | The incident coordinator but not in a rigid command and control manner |
+| 4 | How are the decisions communicated? | In a dedicated channel created for the incident automatically by the on-call management tool |
+| 5 | Who is in charge of receiving the communicated decisions? | The people on call in the development and operations teams |
+| 6 | Who has to follow the decisions? | The people on call in the development and operations teams |
+| 7 | What is the freedom versus responsibility for the teams involved? | Freedom: Select technical solutions. Responsibility: Receive decisions from the incident coordinator, Execture on the decisions, Report on the execution status |
+| 8 | Who is responsible for communication? | Incident severity "critical": incident coordinator, Incident severity "error": incident communicator |
+| 9 | Who is responsible for documentation? | The incident communicator |
+| 10 | Who is responsible for running the incident postmortem | The incident coordinator |
+
+The proposed incident response process needs to undergo a thorough review. The operations teams need to own the process and should initiate the review. To do so, the process needs to be documented in draft form on the SRE wiki. This way, the reviewers will be able to comment on the process easily. Furthermore, the changes proposed and made by anyone will be fully transparent. The list of reviewers needs to include everyone who has been going on call so far. These are the people who have been coordinating complex incidents in some ad-hoc manner. They are best equipped to assess how much the proposed incident response process would streamline the resolution of complex incidents.
+
+#### 9.3.11 Incident Response Process Dynamics 
 
 
