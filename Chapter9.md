@@ -610,3 +610,17 @@ The previous sections showed the importance of learning as the central theme for
 In addition to that, the agile coaches can sift through the postmortems and discover patterns. Common themes can be found that come up again and again in different situations, with different teams and services. Tackling the common themes might require some bigger initiative to be started and executed throughout the organization.
 
 Initiatives like that are home turf for agile coaches. They know how to pull the strings in the organization to convince the decision makers, get the ball rolling, and roll out a change in many teams within a reasonable amount of time. Following are some examples of such initiatives.
+
+#### 9.5.9 Successful Postmortem Practice
+As stated earlier, for an incident postmortem to be effective, its value needs to be greater than the time investment to conduct it. The time investment of the people on call and the agile coaches in conducting the postmortems, preparing the records using different media, and driving the action items needs to have a positive ratio to the outcomes achieved.
+
+- Postmortem Practice Measurements
+
+| # | Measurement | Explanation | 
+|----|----|----| 
+| 1 | The trend of repeatedly occuring incidents for the same root causes is on decline | Althought this outcome cannot be fully attributed to the postmortem activities, it is a reasonable indicator of postmortem effectiveness |
+| 2 | Feedback on postmortem effectiveness from the people on call is generally positive | Quick feedback using red, yellow, and green circles at the end of a postmortem meetings indicates that the meetings themselves make sense. Next periodic feedback on postmortem outcomes by category indicates that the teams achieve satisfactorily good outcomes through the postmortem process | 
+| 3 | The trend of postmortem content consumption is on the rise | A growing number of people attending postmortem presentations is an indication that the culture of learning is developing. People find it valuable to spend time learning from other teams’ service outages. A growing number of postmortem write-up page views, video recording watches, and audio recordings listens is an indication that the postmortem content is useful and engaging for the people. |
+| 4 | The average lead time for postmortem action items is not increasing | If the average lead time for postmortem action items across the organization is not increasing, it is an indication that the organization is learning from postmortems at a relatively constant velocity.| 
+
+#### 9.5.10 Example Postmortems 
