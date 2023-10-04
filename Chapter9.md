@@ -407,13 +407,152 @@ The incident response process proposed by the SRE coaches and operations teams c
 | 5 | Who is in charge of receiving the communicated decisions? | The people on call in the development and operations teams |
 | 6 | Who has to follow the decisions? | The people on call in the development and operations teams |
 | 7 | What is the freedom versus responsibility for the teams involved? | Freedom: Select technical solutions. Responsibility: Receive decisions from the incident coordinator, Execture on the decisions, Report on the execution status |
-| 8 | Who is responsible for communication? | Incident severity "critical": incident coordinator
-Incident severity "error": incident communicator |
+| 8 | Who is responsible for communication? | Incident severity "critical": incident coordinator Incident severity "error": incident communicator |
 | 9 | Who is responsible for documentation? | The incident communicator |
 | 10 | Who is responsible for running the incident postmortem | The incident coordinator |
 
 The proposed incident response process needs to undergo a thorough review. The operations teams need to own the process and should initiate the review. To do so, the process needs to be documented in draft form on the SRE wiki. This way, the reviewers will be able to comment on the process easily. Furthermore, the changes proposed and made by anyone will be fully transparent. The list of reviewers needs to include everyone who has been going on call so far. These are the people who have been coordinating complex incidents in some ad-hoc manner. They are best equipped to assess how much the proposed incident response process would streamline the resolution of complex incidents.
 
 #### 9.3.11 Incident Response Process Dynamics 
+Using the incident response process should be easy. Keep your processes simple. For additional information see Figure 9.11 in Chapter 9. 
+
+#### 9.3.12 Incident Response Team Well-Being
+This responsibility deserves special consideration. It is rarely described in the literature but has a great impact on the success of an organization’s incident response.
+
+When an incident unfolds, a team of the people on call is dynamically assembled. Over time, a complex incident might involve a dozen or more people. It is the incident coordinator’s responsibility to not only coordinate the people but also ensure their well-being as individuals and as a team.
+
+Fullfilling this responsibility isn't always a straightforward task. For instance: 
+
+- The incident coordinator may not personally know all the people on call who have been assigned to the incident. 
+- These people may have never worked together as a team
+- Some of them may be working beyond normal business hours after having spent an exhausting day at work. 
+
+To top it all off, if the incident severity is “critical,” the entire team is, by definition, working in a high-pressure environment. The financial consequences of every second of the outage may increase the pressure.
+
+To ensure the team’s well-being under such circumstances, a structured preparation is required. This may involve the following aspects:
+
+- Social
+- Etiquette
+- Emotional 
+- Equality 
+- Source of truth 
+- Blame handling
+
+See Chapter 9, extremely large Table 9.19 Aspects to Ensure the Well-Being of Incident Response Teams 
+
+In fact, coordinating complex incidents every time with a new, dynamically allocated team is a dynamic reteaming exercise of sorts that incident coordinators need to master. 
+
+Incident response teams are the opposite. By definition, they are dynamic and short- lived. The differences between development and incident response teams are summarized in the table below: 
+
+| Characteristic | Development Teams | Incident Response Teams |
+|----|----|----|
+| Working Hours | Business Hours | 24/7 |
+| Regular daily number of working hours | 8 | Defined? |
+| Teams dynamically formed for a short-lived mission | No | Yes |
+| Teams disband afer fullfilling a short-lived mission | No | Yes |
+
+### 9.4 Incident Postmortems 
+For an incident postmortem to be effective, its value needs to be greater than the time investment to conduct it. Although this ratio is difficult to calculate quantitatively, a qualitative assessment may be possible.
+
+- According to PagerDuty, “A postmortem (or post-mortem) is a process intended to help you learn from past incidents. It typically involves an analysis or discussion soon after an event has taken place.”
+
+- According to OpsGenie, “A postmortem is a written record of an incident that contains information such as incident impact, mitigation steps, root cause, and follow-up actions. The goal of a postmortem is to understand all root causes, document the incident for future reference, discover patterns, and enact effective preventative actions to reduce the impact or likelihood of recurrence.”
+
+- The original Google SRE book Site Reliability Engineering: How Google Runs Production Systems states, “A postmortem is a written record of an incident, its impact, the actions taken to mitigate or resolve it, the root cause(s), and the follow-up actions to prevent the incident from recurring.”
+
+#### 9.5 Effective Postmortem Criteria 
+Refer to full Table 9.21 Effective Postmortem Criteria
+
+- Summary of table: 
+
+| Criterion | Explanation |
+|----|----|
+| Learning | The value of an incident postmortem is in the learning it generates. The learning can take different flavors. On the one hand, direct action items to fix immediate issues represent one-time learning episodes. On the other hand, there are a number of additional opportunities beyond the immediate action items to inject learnings into the product delivery organization. |
+| Record | A written record of a postmortem is required for future reference to enable learning for people who did not take part in the postmortem meeting. Clear technical writing is essential to motivate the people to read and learn from a postmortem that was conducted by others. Opaque and unstructured postmortems will not be read and learned from, which devalues the process to nearly zero. |
+| Actions | Clearly defined action items are an essential part of incident postmortems. Each action item needs to have a driver. Being a driver may mean to work on the action item directly or it may mean to orchestrate the work of others on different parts of the action item. Moreover, each action item needs to have a review date. On that date the driver of the action item, the incident coordinator, and, if necessary, an agile coach should review the progress achieved so far. If the action item is not yet done, they should set a new review date. |
+
+#### 9.5.1 Initiating a Postmortem
+Postmortems need to be initiated by a role in the incident response process that has the respective responsibility.
+
+The incident communicator only takes part in incidents with severity “critical.” If no incident communicator was part of the incident, the incident coordinator needs to either take care of the postmortem record or ask someone to do so. For instance, an agile coach may support the incident coordinator in this regard.
+
+Generally, the availability of an agile coach in the postmortem is beneficial for several reasons. An agile coach can help
+
+- Create the incident record using different media (writing, video, audio)
+- Bridge what happened during the incident with overall organizational processes and practices
+- Ensure proper handling of the postmortem action items in the work item management tool
+- Follow up on the postmortem action items 
+- Identify common themes across postmortems 
+
+The incident coordinator needs to clarify the repsonsibilites of an agile coach when inviting them to the incident postmortem. 
+
+Initiating a postmortem is not necessary for every incident. The incident response process needs to clearly define incidents that require an incident postmortem to be conducted.
+
+#### 9.5.2 Postmortem Lifecycle
+After the decision to initiate a postmortem is made, the postmortem lifecyle begins. 
+
+Postmortem Lifecycle Activities 
+
+- Before Postmortem 
+    - Invite participants
+    - Clarify responsibilities
+    - Construct the timeline 
+    - Run automated incident conversation analysis
+    - Create an initial postmortem write-up
+    - Clarify people issues 
+
+- During Postmortem 
+    - Establish the Prime Directive
+    - Clarify responsibilities
+    - Refine the timeline 
+    - Review the timeline 
+    - Derive immediate action items 
+    - Derivce action items for improvements in broader processes and practices 
+    - Prioritize action items
+    - Assign action items
+    - Agree on review dates for action items
+    - Agree on forums where the postmortem needs to be presented and by whom
+    - Solicit quick feedback on postmortem effectiveness  
+- After Postmortem
+    - Create or complete work items for action items in the work item management tool
+    - Follow up on action items line with agreed review dates
+    - Present the postmortem
+    - Finish the postmortem write-up
+    - Upload the postmortem video recording, if any
+    - Upload the postmortem audio recording, if any
+    - Distribute the postmortem content
+    - Solicit periodic feedback on the outcoumes achieved through the postmortem 
+
+#### 9.5.3 Before the Postmortem
+The first activity before the postmortem begins is to invite the necessary participants to the post- mortem meeting in a timely fashion for a suitable time frame. Once they are invited, the incident coordinator needs to clarify responsibilities by postmortem phase so that each participant knows in advance what to do before, during, and after the meeting.
+
+- Reconstructing the Timeline: One of the major activities before the meeting is the reconstruction of the postmortem timeline. This can initially be done by the incident participants working individually on a shared timeline. Later the reconstructed timeline will be refined and discussed jointly in the postmortem meeting. The incident coordinator needs to request the incident participants to work on the timeline reconstruction before the meeting.
+
+- Having Conversations Analyzed: Timeline reconstruction can also be supported by having the human conversations in the chat management tool, by email, and in the online video conferencing tool analyzed automatically.
+
+- Drafting the Postmortem Write-Up: Before the postmortem, the incident coordinator needs to ask the person responsible for the postmortem write-up to draft itinitially. The draft needs to be started at the agreed postmortem location (e.g., on-call management tool, SRE wiki, source control repository, etc.).
+
+- Taking Care of People Issues: Interpersonal issues that surfaced during the incident need to be handled with the utmost of care. It is critical that these issues are taken care of before the postmortem meeting. This is so important that an already planned postmortem meeting should be delayed if known interpersonal issues have not been clarified yet. This is because making angry people with grudges against each other talk about what happened publicly in front of other people might escalate, become very emotional, and even derail the entire postmortem meeting.
+
+#### 9.5.4 During the Postmortem 
+
+Once the pre-postmortem activities are finished, the postmortem meeting can begin in a well- prepared manner. If possible, the meeting should be recorded in full. The incident coordinator should open the meeting with a greeting and a heartfelt thank-you to everyone for detecting, tackling, and resolving the incident. Right after that, the incident coordinator should explain the agenda points of the meeting to put everyone on the same page about what the team will be doing in the course of the meeting.
+
+- Prime Directive: The first point on the agenda needs to be to put the participants in the right mindset. The right mindset needs to be blameless at the core. “We are not here to blame each other” is the message the incident coordinator must convey.
+
+- Reviewing the Timeline: The next big point on the agenda declared by the incident coordinator is to refine and review the timeline, ensuring that it reflects everyone’s views on what happened and in which order. Before starting, the incident coordinator needs to reiterate the responsibilities that were distributed before.
+
+Review the following: 
+- Do you think the incident priority was set to the correct value? 
+- Do you think the incident severity was set to the correct value? 
+- Is this the best visualization of the data to illustrate the point? 
+- Can the visualization be understood by people who did not take part in the incident? 
+- Are the log queries for the visualizations shown stored and linked from the write-up? 
+- Will the majority of people have access to the queries? 
+- Should this passage go into the external write-up of the postmortem? 
+
+
+
+
 
 
