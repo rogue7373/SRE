@@ -84,3 +84,128 @@ The highest error budget depletion speed per error budget period is determined u
 
 | Error Budget Period | Incident | Percentage of Error Budget Depleted | Time Span of Depletion in Hours | Error Budget Depletion Speed | 
 |----|----|----|----|----|
+| 1 | 1 | 70 | 52 | 70/52 = 1.3% per hour |
+| 1 | 2 | 50 | 26 | 50/26 = 1.9% per hour |
+| 1 | 3 | 25 | 70 | 25/70 = 0.4% per hour |
+
+This makes the error budget periods comparable based on the average error budget depletion speed. The same way financial quarters can be good or bad depending on quarterly financial results, error budget periods can be successful or unsuccessful depending on premature error budget exhaustion or average error budget depletion speed. 
+
+A high error budget depletion speed, such as in incident 2 in Table 11.3, gives evidence of the outage’s large blast radius. A large blast radius gives evidence of the lack of adaptive capacity in the system. With the presence of adaptive capacity, a system can be robust: A fault, error, or failure in one part of the system does not propagate rapidly to other parts of the system; rather, the damage is contained and the partial functionality is preserved, preventing complete failures.
+
+Adaptive capacity can be introduced in the system using so-called stability patterns for distributed systems.
+
+- Fast Versus Slow Error Budget Depletion over Time
+
+| Incident | Percentage of Error Budget Depleted | Time Span of Depletion in Hours | Error Budget Depletion Speed |
+|----|----|----|----|
+| A | 80 | 2 | 80 / 2 = 40% per hour |
+| B | 80 | 336 | 80 / 336 = 0.2% per hour |
+
+Incident A depleted 80% of the error budget within two hours. Incident B also depleted 80% of the error budget but within 336 hours, which corresponds to two weeks or half of a four-week error budget period. Incident A’s error budget depletion speed is 40% per hour. By contrast, incident B’s error budget depletion speed is only 0.2% per hour.
+
+Just by comparing the error budget depletion speeds, it can be said that incident 1 presumably tapped into a system area with a greater lack of adaptive capacity. If the adaptive capacity were there, 80% of the error budget would probably not be depleted within two hours.
+
+#### 11.2.5 Premature SLO Error Budget Exhaustion Indicator
+Premature SLO error budget exhaustion is an important indicator of unreliability. The core of SRE decision-making can be done based on knowledge of services and endpoints exhausting SLO error budgets prematurely across error budget periods. It is about data-driven decisions to determine where reliability investments are immediately required and where new feature investments can be made because service reliability is satisfactory. Two types of information visualiza- tion are useful here: a graph for exploratory purposes and a table for focused decision-making. In the next sections, a premature SLO error budget exhaustion graph and a corresponding table are explored.
+
+#### 11.2.6 - 11.2.13
+This is all based on a graph provided in the book. You will need to review this portion of the chapter. 
+
+To summarize: 
+
+- 11.2.6 covers "SLAs by Service" Indicators
+- 11.2.7 covers SLA Error Budget Depletion Inidcators 
+- 11.2.8 covers SLA Adherence Indicators
+- 11.2.9 covers Customer Support Ticket Trend Indicator 
+- 11.2.10 "On-Call Rotations by Team" Indicators
+- 11.2.11 Incident Time to Recover Trend Indicators
+- 11.2.12 Least Available Service Endpoints Indicators
+- 11.2.13 Slowest Service Endpoints Indicators 
+
+### 11.3 Process Indicators, Not People KPIs 
+The SRE indicators need to be treated as the indicators of the reliability engineering process being executed in the organization. They should not be used as key performance indicators (KPIs) for evaluating people. 
+
+> This is important because if they are used to evaluate people, the people are likely to be inclined to tweak the SRE indicator data to be evaluated in favorable terms.
+
+The SRE coaches need to ensure that the leadership team and people managers are aware of this important aspect. Following this, they must make it clear to the entire product delivery organization that the SRE indicators will not be used for people evaluation purposes. Consequently, no one in the product delivery organization should fear that the SRE indicators may be used for performance appraisals. 
+
+Skewing the data shown by the SRE indicators is actually not that difficult. For example: 
+
+- The number of customer tickets per service is subject to the way the tickets are created. 
+- The number of SLO breaches is subject to the way the SLOs are set. 
+- The time to recovery from incidents is subject to the way the recovery is determined. 
+
+Therefore, like every other process indicator, the SRE indicators are subject to Goodhart’s law: “Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes.” The law was later generalized by Marilyn Strathern: “When a measure becomes a target, it ceases to be a good measure.” This happens because people anticipate the adverse consequence of missing the target. Following this, they might be inclined to take action, altering the measures in order to hit the target.
+
+In order to ensure that the people in the product delivery organization do not spend valuable engineering time trying to alter the data, it should be clear to everyone that the SRE indicators do not influence individual careers. In fact, services are owned by teams. Therefore, the SRE indicators need to be owned by the teams. 
+
+Following this, the SRE indicators are a great topic for discussion in team meetings. If the indicators show improvement potential, which will be the case virtually every time they are looked at, ist is the team's job as a whole to discuss, define, and implement the improvements. Finally, it is alos the team's job to use the SRE indicators after the improvements have been implemented to measure whether the envisioned outcomes were indeed acheived. 
+
+### 11.4 Decisions Versus Indicators
+A large number of decisions can be supported by error budget-based decision-making using the SRE indicators from the previous chapters. 
+
+> See table 11.5 to illustrate Decisions Supported by the SRE Indicators
+
+### 11.5 Decision-Making Workflows
+SRE indicators will be used to demonstrate how error budget–based decision–making can be practiced to support the most important and frequent reliability decisions, such as the following:
+
+- Decision to consume an API
+- Decision to tighten a dependent service's SLO
+- Decision to invest in new features versus reliability
+- Decision to set an SLO
+- Decision to set an SLA 
+- Decisions to allocate SRE capacity to a team
+- Decisions to select a hypothesis for chaos engineering
+
+#### 11.5.1 API Consumption Decision Workflow
+A decision to consume an API can be supported by a three-step workflow. The workflow is rooted in three questions.
+
+- Which SLOs are defined for a service
+- What is the adherence to the SLOs? 
+- What is the SLO error budget depletion trend? 
+
+- Three-Step Workflow Supporting an API Consumption Decision
+
+| Step | SRE Indicator | Explanation | 
+|----|----|----|
+| 1 | "SLOs by Service" indicator | Shows the SLOs defined for a service whose APIs are considered to be consumed |
+| 2 | SLO adherence indicator | Shows the adherence to the defined SLOs over time | 
+| 3 | SLO errer budget depletion | Shows the error budget depletion trend that can be used for exploration purposes |
+
+When considering consuming an API exposed by a service, the first thing to find out is whether there are any SLOs defined for the API. This can conveniently be done using the “SLOs by service” indicator. The table settings enable the user to easily find the right service, select the target deployment of interest, and explore the SLOs by SLI.
+
+If there is no SLO defined for the API considered for consumption, the workflow cannot be executed. The team considering API consumption needs to get in touch with the team owning the service and ask them to set SLOs for the API. This is a great opportunity to define the SLOs together, discussing the customer use cases intended to be fulfilled.
+
+If there are SLOs defined for the relevant API, they can be analyzed for their suitability to fulfill the intended customer use cases. In the next step, SLO adherence by the service over time can be viewed by clicking on the link in the SLO adherence column of the “SLOs by service” indicator table.
+
+Using the three-step workflow and looping through the steps as required, the user can learn a great deal about the historical reliability of the API considered for consumption. The following questions become clarified.
+
+- What are the SLOs defined for the API? 
+- What is the historical adherence to the defined SLOs in the intended target environments? 
+- What was the error budget depletion trend in the error budget periods where the SLO was fulfilled? 
+- What was the error budget depletion trend in the error budget periods where the SLO was broken? 
+- How does the error budget depletion trend correlate with the service deployments? 
+- How quickly is the error budget depletion stopped on average? 
+
+This wealth of reliability knowledge about the service considered for consumption enables a very conscious decision-making process. 
+
+#### 11.5.2 Tightening a Dependency's SLO Decision Workflow 
+After a team has looked at an SLO definition of another team’s APIs that they are considering consuming, adherence to the SLO in the target environment, and SLO error budget depletion, they might conclude that the SLO needs to be tightened. 
+
+> From the Trenches: The new conversations between the teams do not happen just because of the availability of SRE indicators. To get the new conversations going, they need to be facilitated by the SRE coaches. Initially, this means going team by team as part of the regular SRE coaching meetings.
+In the meetings, the SRE coaches need to inquire about the plans to consume APIs owned by other teams. Based on the plans, the coaches need to facilitate the decisions to consume the APIs using the SRE indicators. They need to demon- strate the new decision-making workflows, such as the API consumption decision workflow (Section 11.5.1) and tightening a dependency’s SLO decision workflow (Section 11.5.2).
+This will need to be repeated a couple of times by each team. Depending on the ease of use of the SRE indicators and the effectiveness of the conversations between the teams, the new way of considering API consumption will start mak- ing its way into ongoing practice.
+
+#### 11.5.3 Features Versus Reliability Prioritization Workflow 
+Decisions regarding investing in new features versus reliability for a given period of time in the future are at the heart of SRE. These decisions constitute the core prioritization workflow exercised regularly by the product owners. The SRE indicators provide a great deal of support in making these decisions in a data-driven manner.
+
+A decision to invest in features versus reliability can be supported by a five-step workflow. The workflow is rooted in the following five questions:
+
+1. Which service endpoints break the error budget in most error budget periods? 
+2. Which service endpoints have the least time to error budget exhaustion and the least error budget available? 
+3. Which service endpoints have the highest error budget depletion speed? 
+4. Which service endpoints are the least available? 
+5. Which service endpoints are the slowest? 
+
+
+
