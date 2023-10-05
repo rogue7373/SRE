@@ -207,5 +207,12 @@ A decision to invest in features versus reliability can be supported by a five-s
 4. Which service endpoints are the least available? 
 5. Which service endpoints are the slowest? 
 
+- Five-Step Workflow Supporting a Decision to Invest in Features Versus Reliability 
+
+| Step | SRE Indicator | Explanation |
+|----|----|----|
+| 1 | SLO Adherence indicator | Shows the adherence to the defined SLOs over time by error budget |
+| 2 | Premature SLO error budget exhaustion indicator | Shows service endpoints that exhaust the SLO error budgets prematurely, as well as the time to error budget exhaustion and the error budget shortage at the end of each error budget period |
+| 3 | SLO error budget depletion indicator | Shows the error budget depletion speed by service endpoint |
 
 
