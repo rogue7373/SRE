@@ -215,4 +215,176 @@ A decision to invest in features versus reliability can be supported by a five-s
 | 2 | Premature SLO error budget exhaustion indicator | Shows service endpoints that exhaust the SLO error budgets prematurely, as well as the time to error budget exhaustion and the error budget shortage at the end of each error budget period |
 | 3 | SLO error budget depletion indicator | Shows the error budget depletion speed by service endpoint |
 
+Each indicator returns a set of service endpoints. In order to limit the returned results, it is advisable to take a certain number of services (e.g., three) from the top of each indicator’s result list. This will yield a manageable number of the most critical service endpoints to be taken for reliability improvements.
 
+- Characteristics of Service Endpoints in Most Need of Reliability Improvements
+
+| Workflow Step | Indicator | Depends on SLO | View Across Error Budget Periods | Characteristics |
+|----|----|----|----|----|
+| 1 | SLO Adherence indicator | Yes | Yes | Long-term error budget breakers |
+| 2 | Premature SLO error budget exhaustion indicator | Yes | No | Short-term fastest error budget exhausters, short-term biggest error budget shortage by error budget period | 
+| 3 | SLO error budget depletion indicator | Yes | No | Short-term fastest error budget depletors |
+| 4 | Least available service endpoints indicator | No | No | Short-term least available endpoints |
+| 5 | Slowest service endpoints indicator | No | No | Short-term slowest endpoints |
+
+#### 11.5.4 Setting an SLO Decision Workflow
+An SLO needs to have a number of characteristics to be good. Most importantly, a good SLO needs to reflect well on the user experience of a specific step in a specific user journey and, when broken, lead to a fast and clear understanding of how the user experience is impacted. That is, setting an SLO needs to be rooted in user experience.
+
+Another dimension to think about is that the dependent services might become unavailable either at the same time or at different times. These temporal effects may impact the service level that can be offered to users. 
+
+Digging deeper, some dependent services might have SLOs or SLAs published. Others might not. Furthermore, some dependent services might have the historical adherence to the SLOs or SLAs published. Others might not.
+
+This discussion shows that setting an SLO is not a fully straightforward process. The aim is to set the SLO in such a way that it reflects the user experience well. This can be done empirically by setting an initial SLO to a seemingly appropriate value and iterating quickly based on SLO breaches. While iterating on SLO breaches is an inherent part of achieving a good SLO, setting an initial SLO can be supported well by data.
+
+In a service network, the SLOs and SLAs of dependent services owned by the product deliv- ery organization should be public information, as should the historical adherence to the SLOs and SLAs. This data can be used to estimate the impact of the dependent services’ reliability on the service whose SLOs are being set.
+
+As to the dependent services not owned by the product delivery organization, some of them may have SLAs exposed. Historical adherence to the SLAs might be exposed as well. That is, the process of setting an SLO for a service can be supported by analyzing the available data on and the historical adherence to the SLOs and SLAs of internal and external dependent services.
+
+If a service has SLOs and SLAs defined, it is worth looking at both of them and their adherence. SLOs are typically set at a higher service level than SLAs. This is done in order for the SLOs to be higher internal targets than contractually agreed SLAs. 
+
+A decision to set an SLO for a service can be supported by a four-step workflow to be exe- cuted for each dependent service. The workflow is rooted in the following four questions.
+
+1. Does the dependent service have SLAs? What are they? 
+2. Are the SLAs fulfilled over time? 
+3. Does the dependent service have SLOs? What are they? 
+4. Are the SLOs fulfilled over time? 
+
+Answering the questions is directly supported by four SRE indicators:
+
+- Four-Step Workflow Supporting a Decision to Set an SLO
+
+| Step | SRE Inidcator | Explanation |
+|----|----|----|
+| 1 | "SLAs by service" indicator | Shows the SLAs defined for a service, if any |
+| 2 | SLA adherence indicator | Shows the adherence to the defined SLAs over time by error budget period |
+| 3 | "SLOs by service" indicator | Shows the SLOs defined for a service, if any |
+| 4 | SLO adherence indicator | Shows the adherence to the defined SLOs over time by error budget period |
+
+Using the indicators, it may be possible to find out the highest service level offered by a dependent service. The service levels could be categorized as follows:
+
+- Undefined: if neither SLOs nor SLAs are set for the service
+- Low: if SLAs and SLOs are defined but broken 
+- Medium: if SLAs are defined and fulfilled 
+- High: if SLOs are defined and fulfilled 
+
+#### 11.5.5 Setting an SLA Decision Workflow
+Setting an SLA involved two parts: technical and contractua. Technically, if a service has a well-defined SLO already, it can and should be used as a basis for the technical SLA definition. In this case, the SLA will be a relaxed version of the SLO. 
+
+The contractual part of setting an SLA will involve negotiations with customers and part- ners. The negotiations can be supported by data provided by the SRE indicators. What is important in the negotiations is knowledge of the risk that can be accepted by the product delivery organization. Specifically, it is about the risk of the following:
+
+- Tightening an SLA in the contract 
+- Contractual penalties of breaking the SLA
+
+The workflow consists of three steps. It is rooted in the following three questions: 
+
+1. What is the incident time to recovery trend? 
+2. If the incident recovery time trend is declining, what is the SLA adherence trend? 
+3. If the historical SLA adherence is acceptable, what is the typically remianing SLA error budget by error budget-period? 
+
+- Three-Step Workflow Supporting a Contractual Decision to Tighten an SLA
+
+| Step | SRE Indicator | Explanation |
+|----|----|----|
+| 1 | Incident time to recovery trend | Shows the historical incident recovery time trend |
+| 2 | SLA adherence indicator | Shows the historical SLA adherence |
+| 3 | SLA error budget depletion indicator | Shows the historical SLA error budget depletion |
+
+In workflow step 1, the incident time to recovery trend is determined for the teams and services involved in the SLA negotiations. The incident time to recovery trend is an indicator of whether a team might be overburdened if their SLAs were to be tightened. The trend shows the recovery time from the incidents based on the current SLAs. If the SLAs were to be tightened, more incidents need to be assumed, to be on the safe side for negotiation purposes. If the current incident time to recovery is trending upward, the assumption for negotiation purposes needs to be that more incidents in the teams would lead to even longer times to recovery. 
+
+If, however, the current incident time to recovery trend is steadily declining, it might be an indication that more incidents, assumed to happen due to the tightened SLAs, could be handled by the team. In order to explore this question, in workflow step 2, the SLA adherence trend can be seen. If the historical adherence to the SLAs is appropriate in that the SLAs were successfully defended in most of the error budget periods of the selected time window, it might be another indication that the team might be able to defend the tightened SLAs.
+
+In order to test this hypothesis, in workflow step 3, the remaining SLA error budget at the end of the error budget periods can be looked at. If the error budget remaining at the end of the selected error budget periods is significant (e.g., over 25%), there is a reason to believe that tightening the SLAs will not overburden the team. Indeed, three indicators hint at that.
+
+1. The team's incident time to recovery is trending downward.
+2. The adherence to the current SLAs is sufficient. 
+3. The remaining SLA error budget by error budget period is significant. 
+
+#### 11.5.6 Allocating SRE Capacity to a Team Decision Workflow
+Personnel decisions regarding SRE capacity allocation to a team are subject to a number of con- straints. Budget availability constraints, budget distribution difficulties, situations that are difficult to untangle due to ambiguous statements by different people claiming the budget and head count, high-stakes conversations including blame, and other constraints might stand in the way of transparent decision-making. SRE indicators provide good assistance in making SRE capac- ity allocation decisions in a data-driven manner.
+
+A decision to allocate SRE capacity to a team can be supported by a four-step workflow. The workflow is rooted in the following four questions.
+
+1. What is the SLO adherence by error budget period by the services owned by the team? 
+2. How many people are involved in the on-call rotation, if any? 
+3. What is the customer support ticket trend for the services owned by the team? 
+4. What is the incident time to recovery trend in the team? 
+
+
+- Four-Step Workflow to Support a Decision to Allocate SRE Capacity
+
+| Step | SRE Indicator | Explanation |
+|----|----|----|
+| 1 | SLO adherence indicator | Shows the adherence to the defined SLOs over time by error budget period |
+| 2 | "On-call rotations" by team indicator | Shows the number of people involved in on-call rotations by team |
+| 3 | Customer support ticket trend | Shows the customer support ticket growth trend for services owned by a team |
+| 4 | Incident time to recovery trend | Shows the incident time to recovery trend for a team |
+
+Signs that a team needs more SRE capacity allocated in order to adequately support the services they own in production are:
+
+- The SLO adherence by error budget period is low.
+- The on-call rotations by the team are not adequately manned. 
+- The customer support ticket trend for the services owned by a team is growing. 
+- The incident time to recovery trend is growing
+
+
+Using the data from the four SRE indicators, the signs can be read and used in decision-making conversations. To be sure, the SRE indicators data can only assist in these conversations. The data alone should not determine personnel and budget allocation decisions directly! Once the decisions are made, SRE capacity allocation can be executed in different ways depending on the SRE setup in the product delivery organization.
+
+If developers perform the SRE work in the teams, a decision to add a developer to the team might be made. Alternatively, a decision to reallocate the ownership of services might be made in order to provide each team with enough capacity for doing the SRE work. If the operations engineers also perform the SRE work for product services, a decision might be made to allocate an operations engineer to a team.
+
+#### 11.5.7 Chaos Engineering Hypothesis Selection Workflow
+Chaos engineering is a software discipline formed at the end of the 2010s with the purpose of increasing system resilience. It is defined by Principles of Chaos Engineering as “the discipline of experimenting on a system in order to build confidence in the system’s capability to with- stand turbulent conditions in production.” “Hope is not a strategy” is a traditional SRE saying that aligns well with chaos engineering’s philosophy of experimentation.
+
+- Chaos Enginering Experiment Structure 
+
+| Step | Description | Explanation |
+|----|----|----|
+| 1 | Define a steady state of the system | This can be defined using relevant business metrics measured in real time showing that hte system is healthily working as expected from teh user point of view |
+| 2 | For a hypothesis | A hypothesis about the steady state remaining grossly unchanged when some harm is inflicted to the system.
+The hypothesis can be specified using, for example, the "capability" / "outcome" / "measurable signal" triple (see Section 4.7, Posing Hypotheses). The capability in this case is the planned harm to the system. The expected outcome is the maintenance of the steady state. The measurable signal specifies how the steady state will be measured during the experiment. |
+| 3 | Simulate real-world events | This is the phase of inflicting the harm to the system planned in the hypothesess. It can include all kinds of adversary technical actions. For instance, shutting down a data center region, multiplying the network latency in a network, and random shutdown of services are typical examples of how real-world events are simulated. |
+| 4 || Test the hypothesis | In this phase, the actual system state during the harm infliction is compared to the steady state defined in the first step. If the steady state is maintained despite the harm, the hypothesisis proved. The learning is that the system is as reliable as hypothesized before. If the steady state is not maintained, the hypothesis is disproved. The learning is in the new system weaknesses that got uncovered. These need to be prioritized to improve the system reliability. |
+
+That is, a steady state of the system can be defined using SLOs. A hypothesis to test can also be defined using the SLOs. Testing the hypothesis can be done using SRE indicators. In addition, the search for hypotheses to test using chaos engineering experiments can be supported by the SRE indicators as well.
+
+A decision to select a hypothesis can be supported by a three-step workflow. The workflow is rooted in the following three questions.
+
+1. Which SLOs are defined for which services?
+2. What is the adherence to the SLOs on different time scales? 
+3. Are there any unusual error budget depletion patterns for successfully defended SLOs? 
+
+The goal is to find services that consistently defend their SLOs successfully and try to break them using chaos experiments; and, on an exploratory basis, to investigate the error budget depletion patterns aiming to find cases where the error budget defense is strong but the reasons for that are either unknown or opaque.
+
+- Three-Step Workflow to Support a Chaos Engineering Hypothesis Selection Decision
+
+| Step | SRE Inidcator | Explanation |
+|----|----|----|
+| 1 | "SLOs by serice" indicator | Shows the SLOs defined for a service, if any |
+| 2 | SLO adherence indicator | Shows the adherence to the defined SLOs over time by error budget period |
+| 3 | SLO error budget depletion indicator | SHows the error budget depletion trend that can be used for exploration purposes | 
+
+At the end of a chaos experiment, if a hypothesis is proven wrong, the steady state of the system is significantly changed. This provides the teams owning the respective services with valuable data to improve service reliability. Additionally, the data might give rise to the creation of new or the adaptation of existing SLOs.
+
+- Structuring Choas Engineering Experiments 
+
+| | Known | Unknown | 
+|----|----|----|
+| Known | Testing for "Known Knowns" <ul><li>Awareness: exists</li><li>Understanding: exists</li></ul> | Experimenting for "Known Unknowns" <ul><li>Awareness: exists</li><li>Understanding: does not exist</li></ul> |
+| Unknown | Checking "Unknown Knowns" <ul><li>Awareness: does not exist</li><li>Understanding: exists</li></ul> | Looking at "Unknown Unknowns" <ul><li>Awareness: does not exist</li><li>Understanding: does not exist</li></ul> |
+
+An example of a “Known Known” is a cloud service auto-restart on service shutdown with the auto-restart setting switched on. When switching on the setting, there is an understanding that a service restart can happen. The reason to switch on the auto-restart setting provides awareness of the situations where the restart is necessary.
+
+An example of a “Known Unknown” can be the time frame for a cloud service auto-restart on service shutdown with the auto-restart setting switched on. The time frame might be significant for the reliability of important use cases. There is awareness that the service auto-restart will happen. However, there is no understanding of how long it would take due to, for example, the cloud provider not publishing an SLA for the auto-restart duration.
+
+An example of an “Unknown Known” is when a cloud service is deployed in a shared service plan with many other services sharing resources such as memory, storage, and so on. The cloud provider may have a recommendation for the maximum number of services in the plan to optimize resource consumption and avoid resource starvation by the deployed services. However, there might be no native way to enforce the recommended limit. In this case, after a service auto-restart, it is unknown whether the service will get enough resources allocated by the service plan. In fact, resource starvation might be the reason for the service auto-restart in the first place. The understanding of the situation is there but it is beyond perception what would actually happen in terms of resource allocation after the service auto-restart.
+
+An example of an “Unknown Unknown” is when there is no experience with a cloud service auto-restart in case of a simultaneous failure in the cloud provider’s compute service. The failure could be small scale or encompass an entire data center region. According to the cloud provider’s SLAs, this can happen. However, it was not experienced in the past. There is no understanding and very little awareness of what would happen in this case.
+
+In “Chaos Engineering: the history, principles, and practice,”9 the Failure as a Service company Gremlin argues that chaos experiments should be performed in the following order:
+
+1. Known Knowns
+2. Known Unknowns 
+3. Unknown Knowns
+4. Unknown Unknowns 
+
+--
+EoF
