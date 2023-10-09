@@ -608,5 +608,78 @@ Now, if an SRE transformation has been executed in its pure sense in a given pro
 | Site reliability platform engineer (Platform SRE) | In a larger product delivery organization, an explicit domain platform may be developed. People working on the domain platform may face unique operational challenges. Therefore, SREs working on the platform development teams may deserve an explicit role name.| 
 | Site reliability application engineer (Application SRE) | In a larger product delivery organization, an explicit domain platform may be available that is used by cusotmer-facing applications. People doing SRE on the applicaitons development teams may be given a dedicated role name due to unique SRE challenges with the applicaitons.|
 
+It is worth noting that there are other established role names in operations, such as production support engineer, production systems engineer, technical support engineer, IT administrator, IT support administrator, and IT systems administrator. These roles typically do not practice SRE. Therefore, they should not be taken into consideration when brainstorming potential SRE role names.
+
+#### 12.9.4 Role Assignment 
+It is notorious in the industry that if SRE is followed as a cult, occasionally IT administrators might get a different job title and a small pay raise. Otherwise, nothing would change.
+
+To counter this kind of situation, assignment of the SRE role to a person should be done using a properly defined procedure. For existing employees in the product delivery organization transitioning to SRE from another discipline, including IT administration, there needs to be a transition path. These employees need to begin practicing SRE before they are assigned the SRE role. This way, it can be evaluated whether the person can indeed follow the SRE principles and practices. SRE role assignment becomes a culmination in recognition that the person has demonstrated the ability to practice SRE appropriately.
+
+> <b>Insight:</b> This does not mean the person needs to master the SRE practice perfectly and stand the test of time before being assigned the SRE role. 
+
+What it does mean, though, is that the person needs to show aptitude for becoming a good SRE by applying the SRE principles and practices on real products in real life for an appropriately short amount of time.
+
+#### 12.9.5 Role Fulfillment
+There are different ways to fulfill the SRE role. They usually fall into three categories: 
+
+1. Dedicated SRE for services (full time)
+2. SRE on rotation for services (full time when on call, off-duty when not on call)
+3. Dedicated SRE For SRE infrastructure (full time)
+
+- SRE Role Fulfillment Options 
+
+| Organizations | You build it, you run it | You build it, you and SRE run it | You build it, SRE run it |
+|----|----|----|----|
+| Development Organization Reporting Line for SREs | <ul><li>SRE role on rotation</li><li>Dedicated SRE Role</li><li>SRE role on rotation + Dedicated SRE role</li></ul>| SRE role on rotation + Dedicated SRE role | Dedicated SRE role | 
+| Operations Organization Reporting Line for SREs | Dedicated SRE role (SRE infrastructure) | SRE role on rotation + Dedicated SRE Role | Dedicated SRE role|
+| SRE Organization Reporitng Line for SREs | - | SRE Role on rotation + Dedicated SRE role | Dedicated SRE role | 
+
+The nature of the SRE role on rotation is that developers perform the SRE activities full time when on call and are off-duty when not on call. Overall, this setup caters to the developers practicing on call in a part-time manner. Interestingly, when developers apply the SRE principles when they are not on call developing code, they implicitly still practice SRE.
+
+The compensation can be monetary, additional time off, or a combination thereof. The following compensation building blocks could be considered:
+
+- Higher base salaries for the people on call outisde of business hours 
+- Payment for being on standby outside of business hours 
+- Payments for working on incidents outside of business hours 
+- Time off following an on-call shift on standby outside of business hours 
+- Time off following an on-call shift resolving incidents outside of business hours 
+- Payment for keeping the services within error budgets
+
+> <b>Insight:</b> When a product delivery organization is in the process of intro- ducing out-of-hours on call for the first time, there may be a lengthy gray period during which the out-of-hours on-call work is required but not yet properly compensated. While discussions about the compensation are ongoing, the actual out-of-hours on-call work is required to keep the SLAs. In this context, it is common in larger product delivery organizations to find longterm SREs who are willing to be on call outside of business hours without a clearly agreed and enacted compensation model. The managers of the SREs may have legal and other difficulties compensating the effort with monetary payments. However, compensating the effort with additional time off in lieu of additional payments typically can be enabled immediately. Doing so is highly recommended. Leaving the SREs to resolve incidents outside of business hours without any extra compensation will snowball into burnout, resentfulness, and attempts to find another job elsewhere.
+
+### 12.10 SRE Career Path
+With the introduction of SRE as a new role in the product delivery organization, an entirely new career path is introduced. The career path needs to be designed as a series of progressive steps. An SRE can take these steps to grow the following aspects of their career:
+
+- Scope of work
+- Responsibility 
+- Influence 
+- Accountability
+- Compensation
+
+For additional scope of SRE Career Pathing please see table 12.27 for details broken down by experience 
+
+- Junior SRE 
+- Senior SRE
+- Principal SRE 
+
+<b>Junior SRE:</b> A junior SRE is responsible for the reliability of services owned by a single development team. They drive the agreements on SLIs, SLOs, and the error budget policy for the team with all the necessary stakeholders. Further, a junior SRE sets up monitoring and alerting and goes on call for the services owned by the team. They implement reliability improvements in the services themselves and the tools in use. A junior SRE is held accountable for the services staying within their SLO and SLA error budgets by error budget period. They are remunerated with a base SRE salary and agreed on-call compensation. To be considered for a junior SRE position, the person needs to have at least one year of relevant work experience. The relevant work experience might be in software engineering, automation, or operations.
+
+<b>Senior SRE:</b> A senior SRE has more responsibility. They are responsible for the reliability of services in an entire domain. A domain typically corresponds to an organizational unit within the product delivery organization. For instance, all the applications implementing food dispatching services in a food delivery organization would represent a food dispatching domain a senior SRE can be responsible for. A senior SRE has all the responsibilities of a junior SRE plus additional work scope. The additional scope consists of driving the SRE community of practice (CoP); reviewing the architecture, design, and implementation of services within the domain; shaping the techni- cal road map; supporting user testing activities from design thinking; and hiring junior SREs.
+
+A senior SRE is held accountable for the services from the domain staying within their SLO and SLA error budgets. To be considered for a senior SRE position at least three years of relevant work experience may be required. The experience should be in a variety of domains, such as software engineering, operations, and SRE.
+
+<b>Principal SRE:</b> A principal SRE is responsible for the reliability of services in an entire business line. A business line is an organizational unit with its own profit and loss (P&L) statement. In other words, it is an own business within an enterprise or the entire business in the case of a smaller company. Like the junior and senior SREs, the principal SRE agrees to SLIs, SLOs, and error budget policies as well as goes on call for some services in the business line. Apart from that, there are distinct new responsibilitiies for the principal SRE.
+
+These responsibilities include negotiating SLAs with customers and partners, driving SRE hiring, and driving new practices such as chaos engineering, disaster recovery drills, and AI ops. Furthermore, a principal SRE is expected to explore new revenue potential with SRE services, such as SRE consulting, advisory, and transformation. These can be offered both internally and externally.
+Moreover, the principal SRE is expected to mentor and coach other SREs in the company across all existing product delivery organizations. Mentoring SREs means sharing knowledge and experience. Coaching SREs means guiding them on their way to defined professional goals.
+
+The principal SRE represents reliability as a discipline within and across the business lines. Active participation in relevant internal and external events and conferences and maintain- ing a professional network of peers in different companies is expected from a principal SRE. Leveraging the network of peers, the principal SRE is expected to evolve SRE as a discipline, devising and incubating novel concepts and their implementation.
+
+The principal SRE is held accountable for keeping the SLA error budgets for all services owned by the business line. Moreover, the accountability extends to participation in the SRE consulting and advisory projects that explore new revenue potential. To be considered for a principal SRE position, at least five years of relevant work experience is required. The relevant work experience in this case is in SRE, software engineering, automation, operations, team management, engineering management, technical consulting, advisory, and innovation management.
+
+In terms of remuneration of the on-call duty for all the three SRE roles, an aspect of social justice needs to be taken into account in an appropriate way. For instance, single parents agreeing to be on call outside of business hours may be compensated differently than others. Likewise, people with several children of preschool age might be compensated differently than others.
+
+
+
 
 
