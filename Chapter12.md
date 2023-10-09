@@ -280,3 +280,309 @@ In “Aim for Operability, not SRE as a Cult,” Steve Smith says: “In 2020, I
 | SRE Team Placement in the Product Delivery Organizaiton | SRE team placement in the product delivery organization | SRE team within development organization | SRE team within operations organization | SRE Team in a dedicated SRE organization |
 | SRE Team Head Count and Budget | SRE team head count and budget | Budget increase to fully/partially cover cost or no budget increase for the development organization | Budget increase to fully/partially cover cost or no budget increase for the product delivery organization |
 
+In terms of head count allowance, the head count is generally dictated by the budget. However, there may be cases in which financial controls impose a head count limit in addition to the budget limit. This might be motivated by the organizational KPIs that measure ratios such as revenue versus head count and profit versus head count.
+
+If a head count limit exists for an organization, it may reduce the maneuvering room for hiring people. For instance, an organization might not be able to hire two junior people fresh out of university instead of a senior person, not because doing so would break the budget limit, but rather because it would break the head count limit. Moreover, even if a senior person leaves a team, it might not be possible to replace them with two junior people even if it could be done in a budget-neutral manner.
+
+#### 12.4.7 SRE Team Cost Accounting 
+SRE team cost accounting depends on where the team is located within the product delivery organization. If the SRE team is within the development organization, the cost accounting happens with the development organization itself. The development organization has a cost center within the product delivery organization. The SRE team cost is attributed to that cost center like every other team within the development organization.
+
+The development and operations organizations may have agreed to attribute the cost of SREs to the development organization. That is, organizationally the SREs are within the operations organization, and their salaries are paid by the operations organization. However, the time the SREs spend supporting the development teams (nearly all their work time) is charged to the development organization based on a negotiated transfer price. This is paid by the development organization’s cost center to the operations organization’s cost center, which means there is cross-organizational cost accounting within the product delivery organization.
+
+The development organization contains development teams and the operations organization contains the SRE team. The operations organization negotiates a transfer price for SRE support with the development organization. Typically, the price would be a flat hourly rate for an SRE supporting a development team. The rate would be flat regardless of the actual hourly salary of a given SRE. It would cover an average hourly rate of an SRE and possibly some contribution to the SRE infrastructure cost.
+
+Based on the negotiated transfer price, the operations organization charges the development organization for the hours during which the SREs from the SRE team supported the development teams each month. Thus, the development organization’s cost center contains the costs for the development teams and the SRE support. The operations team’s cost center contains the SRE team and SRE infrastructure costs.
+
+Finally, if the SRE team is within a dedicated SRE organization, there are two ways to do cost accounting. First, the SRE team cost may just be accounted for within the SRE organization. Alternatively, the SRE organization may negotiate a transfer price for SRE support with the development organization and charge accordingly on a monthly basis.
+
+Additionally, the SRE organization may offer many services beyond pure on-call support as part of the “you build it, you and SRE run it” model. These services may be priced and accounted for in different ways.
+
+- Price Models for Different SRE Services 
+
+| Service | Possible Price Model Within The Company |
+|----|----|
+| SRE advisory | Project price |
+| SRE Consulting | Project price |
+| Services co-design | Transfer price based on negotiated rates |
+| SRE Transformation | Project price or transfer price based on negotiated rates |
+| Shared on call | Transfer price based on negotiated rates |
+| Dedicated on call | Price based on services supported |
+| SRE Infrastructure | Software as a service recurring pricing |
+
+
+#### 12.4.8 SRE Team KPIs
+The SRE team KPIs will be influenced greatly depending on the organization the team is in. For the SRE team in the operations organization, the KPIs may be rooted in incidents. For the SRE team in the SRE organization, the KPIs may be rooted in reliability user experience.
+
+- Exampel SRE Team KPIs
+
+| SRE Team Placement in the Product Delivery Organization | SRE Team Within the Developement Organizaiton | SRE Team Within the Operations Organization | SRE Team in a Dedicated SRE Organization |
+|----|----|----|----|
+| SRE team KPIs | Rooted in products under development | Rooted in incidents | Rooted in reliability user experience |
+| Example KPI 1 | 97% of customer complaints about product A are not related to reliability | Mean time between failures (MTBF) less than two weeks | 90% of supported services are within error budget |
+| Example KPI 2 | NPS score of at least 75 for product B | Mean time to recovery (MTTR) from an incident is less than a day | 95% of incidents with supported services consume less than 30% of the monthly error budget |
+| Example KPI 3 | Reliability engineering implemented in new product C from the ouset | Number of incidents is on a decline quarterly | 95% of customer complaints for supported services are not related to reliability |
+
+The example KPIs for the SRE team within the operations organization are undergoing criticism in the industry. According to Implementing Service Level Objectives,10 counting incidents is not useful because many incidents with a small user experience impact might be less impactful than a single incident with a severe user experience impact. So, having a small number of incidents is not always better than having a large number of incidents!
+
+The example KPIs for the SRE team within the operations organization are undergoing criticism in the industry. According to Implementing Service Level Objectives, counting incidents is not useful because many incidents with a small user experience impact might be less impactful than a single incident with a severe user experience impact. So, having a small number of incidents is not always better than having a large number of incidents!
+
+Classifying the incidents is very difficult because incidents in complex systems are very often unique. There are multiple and different causes for incidents in complex systems each time they fail. The root causes can be technical and people-related. Thus, counting the incidents by classification is difficult too.
+
+Measuring MTTR can hide the user experience in terms of reliability. While MTTR might be short and get shorter over time, the reliability user experience might not improve. This is counterintuitive but can be demonstrated well using an example (based on a similar example provided in Implementing Service Level Objectives). Imagine six incidents occurring in period 1. Each incident is recovered from within 30 minutes. The MTTR for the six incidents in period 1 is 30 minutes. The downtime in period 1 is 6 incidents x 30 minutes = 180 minutes.
+
+Now imagine period 2. In that period, there is only one incident. The incident was recovered from within 120 minutes. The MTTR for period 2 is 120 minutes. The downtime in period 2 is 120 minutes.
+
+- MTTR Versus Reliability User Experience 
+
+| Criterion | MTTR | Downtime | Reliability User Experience |
+| Period 1 | 30 minutes | 180 minutes | Worse than in period 2 |
+| Period 2 | 120 minutes | 120 minutes | Better than period 1 |
+
+Period 1 has the lowest MTTR but the longest downtime. Period 2 has the highest MTTR but the shortest downtime. Following this, the reliability user experience in period 2 is better than that in period 1.
+
+### 12.5 You Build It, SRE Run It
+A distinguishing characteristic of the “you build it, SRE run it” model is the existence of an SRE team that runs services on their own. That is, in this model the SRE team is fully responsible for running services that were developed by the development teams.
+
+With this comes another distinguishing characteristic of the "you build it, you and SRE run it" model. It is an agreement between the SRE team and the development team whose services are run in production about the minimum reliability to be exhibited by the services for the SRE team to run them. With that, the SRE team only runs services of sufficiently high reliability. If the services do no meetin the reliability criteria from teh agreement, they are not taken into operation by the SRE Team. Likewise, if the services stop meeitng the reliability criteria from teh agreement after being taken into operation by the SRE team, the SRE team can return the services to the development team to operate and improve reliability. 
+
+The agreement between the SRE team and the development team hsoudl be based on the error budget policy. It is the right place to specify and sign off on actions to be taken in cases of permature error budget depletions. 
+
+#### 12.5.1 SRE Team Within a Development Organization 
+The SRE team only operates services that stay within defined limits of error budget depletion. The limits are laid down in the error budget policies. There is an error budget policy for development team 1. Likewise, there is another error budget policy for development team 2. It contains agreements between the teams about the kinds of error budget depletion that are acceptable for the SRE team to operate the respective services.
+
+If the services are within the error budget depletion limits specified in the error budget policy, the SRE team keeps operating the services. Otherwise, the SRE team hands over the service operation responsibility to the development team. In this case, the service operation model is switched from “you build it, SRE run it” to “you build it, you run it.”
+
+#### 12.5.2 SRE Team Within an Operations Organization
+The SRE infrastructure team is responsible for building and running the SRE infrastructure. The SRE team is responsible for running the services developed by the development teams. The error budget policies regulate the relationship between the SRE team and the development teams in terms of error budget depletion. Consistent premature error budget depletion can lead to the SRE team handing over the service operations responsibility to the respective development team until reliability is improved.
+
+#### 12.5.3 SRE Team in a Dedicated SRE Organization
+"You build it, SRE run it" can also be implemented in an organizational structure with a didicated SRE organization. 
+
+The SRE organization in the lower part of the figure runs the services and owns the SRE infrastructure. The infrastructure is built and run by the SRE infrastructure team. It is staffed by SREs with infrastructure knowledge.
+
+The actual operation of product services is done by the SRE team. It is staffed by SREs with the knowledge necessary to go on call for the product services developed by the development teams. To keep the knowledge up-to-date, regular cross-team knowledge sharing between the SRE team and development teams is carried out.
+
+The error budget policies are used to regulate the levels of service reliability necessary to be fulfilled by the services to be operated by the SRE team. Otherwise, the SRE team can hand over the service operations responsibility to the respective development team.
+
+### 12.6 Cost Optimization
+Further, the comparison showed that “you build it, you run it,” “you build it, you and SRE run it,” and “you build it, SRE run it” are all high-cost models. They score well on important criteria such as involvement of the development teams in the on-call work, knowledge synchronization between teams, incident resolution times, service handover for operations, and availability targets.
+
+The availability targets offer leeway for cost optimization for the high-cost models. In Imple- menting You Build It You Run It at scale, a notion of team on-call rotations versus domain on-call rotations is explored. For services with high availability targets, a team on-call rotation is recommended. Such a rotation can be implemented with the “you build it, you run it” and “you build it, you and SRE run it” models. The cost of a team on-call rotation is high. It is justified by the high availability targets the rotation is tasked to protect.
+
+For services with medium availability targets, a cost optimization is suggested. It is achieved by setting up a domain rotation instead of a team on-call rotation. A domain rotation supports several services from different teams that share a logical knowledge domain. That is, a person on call from a domain rotation needs to react to the SLO breaches of services owned by several teams. That can only work effectively if the person has solid knowledge of services from the domain regardless of the team owning a particular service.
+
+Thus, the cost optimization with the domain on-call rotations comes from putting fewer people on call per set of teams within a domain. It is justified by the medium availability targets the domain on-call rotation is tasked to protect. With lower availability targets, the error budgets are bigger. The bigger the error budgets, the longer the time to recover from incidents that can be had without depleting the error budgets prematurely.This means the people on-call on a domain rotation would generally have a bit more time to recover from incidents than their counterparts on team rotations protecting high availability targets.
+
+The people from the thin layer are tasked with receiving the SLO breaches from all the teams. Once received, the SLO breaches are triaged. Some SLO breaches can be reacted to by the thin layer using runbooks. The remaining breaches, which cannot be reacted to by the thin layer due to lack of knowledge or capacity, are forwarded to the respective team on-call rotations. The team on-call rotations are typically not available 24/7, but rather on an 8/5 (eight-hour week- days) or 8/7 (eight-hour weekdays and weekends) basis.
+
+### 12.7 Team Topologies 
+The team topoligies explored in the previous sections can be summarized as an intersection of the models from teh "who builds it, who runs it?" spectrum and the relevant departments within the product delivery organization. 
+
+- Team Topologies 
+
+| Organization | You build it, you run it | You build it, you and SRE run it | You build it, SRE run it |
+|----|----|----|----|
+| Developement Organization | <ul><li>Option 1: No dedicated SRE role. SRE is a responsibility borne by all developers on rotation.</li><li>Option 2: Dedicated SRE role in the team.</li><li>Option 3: Dedicated SRE role in the team and a dedicated developer on rotation.</li></ul> | Option 1: SRE Team in the development organization. SRE Infrastructure team in the operations organization. No SRE organization | Option 1: SRE Team in the development organization. SRE infrastructure team in the operations organizaiton. No SRE organizations |
+| Operations Organization | SRE infrastructure team | Option 2: SRE Team and SRE infrastructure team in the operations organization. No SRE organization | Option 2: SRE team and SRE infrastructure team in the operations organization. No SRE organization |
+| SRE Organization | N/A | Option 3: SRE Team and SRE infrastructure team in the SRE organization. SRE Tool chain procumrent and administration in the operations organization | Option 3: SRE team and SRE infrastructure team in the SRE organizaiton. SRE tool chain procurement and administration in the operations organization |
+
+#### 12.7.1 Reporting Lines 
+Following the team topologies, the reporting lines of the developers, SRE infrastructure engineers, and SREs can be determined. 
+
+- Reporting Lines 
+
+| Organization | You build it, run it | You build it, you and SRE run it | You build it, SRE run it | 
+|----|----|----|----|
+| Development Organization Reporting line | <ul><li>Developers (Option 1)</li><li>SREs (option 2, 3)</li></ul> | <ul><li>Developers</li><li>SREs (option 1)</li></ul> | 
+|Operations Organizaiton Reporting Line | SRE Infrastructure engineers | <ul><li>SREs (option 2)</li><li> SRE infrastructure engineers (option 1, 2)</li></ul> | <ul><li>SREs (option 2)</li><li>SRE infrastructure engineers (option 1, 2)</li></ul> |
+| SRE organization Reporting Line | N/A | <ul><li>SREs (option 3)</li><li>SRE infrastructure (option 3)</li></ul> | <ul><li>SREs (option 3)</li><li>SRE infrastructure (option 3)</li></ul> | 
+
+The reporting lines are important, as they determine the organizational goals, incentives, and KPIs for the teams and people. For example, in an organizational setup with no dedicated SREs where developers fulfill the SRE responsibilities on rotation (option 1 in the “you build it, you run it” model), all the people working in a team have the same product goals, incentives, and KPIs. These need to reflect all the product aspects, including reliability. Ensuring product reliability becomes everybody’s goal.
+
+In another organizational setup, inserting a reporting line, or organizational boundary, between the developers and SREs might be done deliberately to incentivize development and SRE teams on different aspects. Development teams can be focused on product functionality, and SRE teams can be focused on product reliability.
+
+In this setup, developers and SREs working together are forced to find a good balance and appropriate activities to satisfy one another’s goals. Depending on the goals, the balance might be beneficial for the overall product or it might not be. The usefulness of the balance will be determined by how well the goals of the development and SRE teams interlock. This, in turn, will be determined by how well the development and SRE organizations work together in the goal-setting process. Moreover, the usefulness of the balance will be determined by how deeply rooted the SRE culture is in the product delivery organization.
+
+#### 12.7.2 SRE Identity Triangle
+The question of the SREs’ identity plays a big role. Should the SREs have a more product-centric identity, incident-centric identity, or reliability user experience–centric identity? In combination, the SREs should have identity that encompasses the product, incidents, and reliability user experience.
+
+The focus of SREs within the SRE identity triangle will be influenced by the organization they are in. Let us explore the SRE identity triangle in the context of the development, operations, and SRE organizations.
+
+The focus of the identity is product-centric. The reliability user experience and incidents are also an important part of the identity, but within the scope of the product the SREs are working on. The product itself is very important to SREs here. Within the product, the reliability user experience and incidents are the second most important product aspects. Note that the triangle may turn out to be somewhat different, but the defining characteristic of the product-centric identity is that it has the highest score on the product axis.
+
+#### 12.7.3 Holacracy: No Reporting Lines 
+When drawing reporting lines for SREs, a new method of organizing enterprises deserves special attention: holacracy. Wikipedia defines it as follows: “Holacracy is a method of decentralized management and organizational governance, which claims to distribute authority and decision-making through a holarchy of self-organizing teams rather than being vested in a management hierarchy.”
+
+A holacracy enterprise does not have bosses or traditional management levels. Rather, it is managed by agile self-organizing networks. Holacracy.org is a good resource to learn how this could be achieved.
+
+The radical enterprises consist of thousands of micro-enterprises. Each micro-enterprise is fully autonomous, self-organized, self-managed, self-allocating, and self-linking to other micro-enterprises.
+
+A radical enterprise is based on radical collaboration. Radical collaboration is achieved through freely given commitments of intrinsically motivated peers. That is, it is always voluntary. In A Radical Enterprise, four imperatives of radical collaboration:
+
+1. Team autonomy in terms of practice, allocation or role, and schedule 
+2. Managerial develution or decentrailization of power in terms of governance, complensation, and so on
+3. Deficiency gratification in terms of human deficiency needs such as the need for predictability, choice, equity, and positive self-image, and the need for others to believe in us
+4. Candid vulnerability as the opposite of defensive reasoning
+
+Radical enterprises succeed through the fusion of the four imperatives. THat said, at the time of writing, it is unclear how SRE could be introduced in a radical enterprise or holacracy. What can be said with certainty is that it will take a new approach to be explored through experimentation. 
+
+Because no industry experience with introducing SRE in a holacracy is known, this topic is not touched upon in subsequent sections. 
+
+### 12.8 Choosing a Model 
+The process of choosing a model from the “who builds it, who runs it?” spectrum can be influ- enced by several factors. For one, if SRE is introduced in a greenfield product initiative, there is no existing organizational setup to consider or transit from. 
+
+If, on the other hand, there is an existing organization for operations, it is the transition from the current setup to a new one that is in focus. The model comparison is still useful. However, it only compares the models from the “who builds it, who runs it?” spectrum without considering the transformation aspects and costs of a given transition.
+
+#### 12.8.1 Model Transformation Options 
+The current organizational setup for operations may range from unorganized to any of the four models from the “who builds it, who runs it?” spectrum. 
+
+- Model Transition Options Within the "Who Builds It, Who Runs It?" Spectrum
+
+| Transition FROM | Unorganizaed | You build it, Ops runs it | You build it, SRE run it | You build it, you and SRE run it | You built it, you run it | 
+|----|----|----|----|----|----|
+| Unorganized | - | Possible | Possible | Possible | Possible |
+| You build it, ops runs it | No reason | - | Possible | Possible | Possible |
+| You build it, SRE run it | No reason | Unlikely | - | Possible | Possible |
+| You built it, you and SRE run it | No reason | Unlikely | Possible | - | Possible |
+| You built it, you run it | No reason | Unlikley | Possible | Possible | - | 
+
+Moreover, the transition to the “you build it, ops run it” model is unlikely to be done from “you build it, SRE run it,” “you build it, you and SRE run it,” or “you build it, you run it.” 
+
+- Involvement of the development teams in the on-call work 
+- Knowledge synchronization between teams 
+- Incidnet resolution times 
+- Service handover for operations 
+- Availability targets 
+- Product demand 
+
+All the other transitions in the “you build it, SRE run it,” “you build it, you and SRE run it,” and “you build it, you run it” columns are possible. In fact, the choice between these models could be made on a service basis. It does not necessarily have to be the model for all services in the product delivery organization.
+
+#### 12.8.2 Decision Dimensions 
+When choosing a model from the “who builds it, who runs it?” spectrum, one consideration is that the decision is two-dimensional. One dimension is “who runs it?”: “you build it, you run it,” “you build it, you and SRE run it,” “you build it, SRE run it,” or some hybrid thereof. 
+
+Indeed, a service may initially be operated by the development team (“you build it, you run it”). Later, the development team may team up with the SRE team to operate the service jointly using shared on call (“you build it, you and SRE run it”). At some point, the same service may be operated fully by the SRE team supported by the reliability agreement anchored in the error budget policy (“you build it, SRE run it”).
+
+The other dimension of choosing a model from the “who builds it, who runs it?” spectrum is organizational. The decision is weighty. It is made for the entire product delivery organization, and it entails drawing reporting lines for SREs. Therefore, this decision is difficult to change later.
+
+While the “who runs it?” dimension of the decision is important to get right from the beginning, should it turn out to be wrong it can be corrected easily later. The organizational dimension of the decision is more important to get right from the beginning, because should it turn out to be wrong, it cannot be corrected easily later.
+
+- New Director or VP for a New SRE Organization 
+
+| Organization | You build it, you run it | You build it, you and SRE run it | You build it, SRE run it | 
+|----|----|----|----|
+| Development Organization Reporting Line for SREs | - | - | - |
+| Operations Organization Reporting Line for SREs | - | - | - |
+| SRE Organization Reporting Line for SREs | - | New director or VP | New director or VP |
+
+With a new director or VP role for SRE created within the product delivery organization, the question is to whom the newly created role should be reporting. Should the new role be reporting to a CTO, CIO, head of the product delivery organization, or head of the product area? What would be the implications of choosing one over the others? Let us consider possible options.
+
+#### 12.8.3 Reporitng Options 
+Discussed C-Level leadership in detail, please refer to overly complex, poorly built table that I was not going to spend time trying to put here. Page 436 on the PDF page header, Table 12.19 Reporting Opitons 
+
+#### 12.8.4 Positioning the SRE Organization
+Inspired by four types of IT organizations, four types of SRE organizations can be defined in a similar vein: SRE as a cost center, SRE as an asset, SRE as a partner, and SRE as an enabler. 
+
+- Four Types of SRE Organizations
+
+| Criterion | SRE as a Cost Center | SRE as an Asset | SRE as a Partner | SRE as an Enabler |
+|----|----|----|----|----|
+| Focus on | Cost Reduction | Reliability asset | Reliability business value | Enabling business through reliability |
+| Strategy | Reduce cost | Optimize the asset | Exploit revenue | Nurture |
+
+If SRE is viewed as a cost center, the focus will be on reducing the cost incurred by the SRE organization. There might be pressure to cut costs on a yearly basis by innovating within the organization. Other measures, such as cutting the positions once people have left the SRE organization and thus reducing the head count, might be employed as well. In this context, it will be nearly impossible to get an additional budget beyond the initial allocation. This is a difficult position for the SRE director or VP to be in. They should attempt to reposition the organization differently. Any other option - SRE as an asset, partner, or enabler, is a better alternative. 
+
+> If SRE is viewed as an asset, the investments in SRE will be made in pursuit of economies of scale.
+
+This means the SRE infrastructure and SRE coaching will be packaged as products from the beginning. The products will be geared to be sold to different product delivery organizations within the enterprise. The self-service features of the products will be of central importance. This is because these features will drive revenue without adding cost. Self-service onboarding onto the SRE infrastructure, self-service use of the infrastructure features, self-service paved roads for stepwise SRE adoption in teams, and so on will be prioritized. Product management’s goal in this case will be to create infrastructure that is applicable to the bulk of operability use cases that users can fulfill in a self-service manner. Implementing bespoke feature requests to fulfill special corner cases, offering bespoke consulting services, and so on will not be in focus, because they do not contribute to the strategy of asset optimization.
+
+> If SRE is viewed as a partner of business creation, the inception of new revenue streams using SRE will be in focus.
+
+In addition to the generic SRE infrastructure that can be sold as a product, bespoke consultancy services will be on the agenda as well. For instance, SRE advisory, SRE consulting, services co-design, SRE transformation, shared on-call services, and dedicated on- call services will be offered to diversify the SRE revenue streams. That is, the SRE organization will be shaped into a full-fledged business that provides the SRE infrastructure as a core offering and a number of bespoke consultancy services complementing it. It will be an attractive value proposition because it can satisfy nearly any demand for SRE from a single source. The various services on offer can be attractively packaged and rendered in a variety of ways to fit and grow the market.
+
+#### 12.8.5 Conveying the Value to Executives 
+The SRE director or VP needs to be aware of the organizational dynamics described in the previ- ous section that arise based on the way SRE is viewed in the product delivery organization. They should work to move the SRE organization toward being viewed as a partner or a business enabler. In order to achieve this, steady engagement with the higher-ups is essential. Depending on the organizational setup, the head of the product delivery organization, head of the product area, CTO, or CIO needs to be engaged. The CEO needs to be engaged as well.
+
+The SRE director or VP needs to be well-prepared for a conversation with a higher-up. They need to have data demonstrating the value delivered through SRE activities. The value can be expressed through the incidents detected and fixed internally before any customer notices the degradation. As demonstrated in “You Build It You Run It,” the value can be demonstrated in financial terms by projecting the ongoing revenue protected. An estimate of the revenue protected through SRE activities is a powerful way to illustrate the SRE value in financial terms that are understandable to C-level executives. The protected revenue can be expressed on a monthly basis or cumulatively by year depending on the level of the conversation.
+
+Further, reputational damage protection is another good aspect to be used in conversations with executives about the value of SRE. It is difficult to express quantitatively, but it can be well-articulated qualitatively.
+
+> <b>Insight:</b> Conveying the value of SRE to executives is best done in financial terms; that is, expressing the amount of ongoing revenue protected and the amount of revenue lost during recovery from customer visible incidents. Investments in SRE can be justified by a growing revenue that needs to be protected and a reduction in the reve- nue projected to be lost during recovery from incidents.
+
+### 12.9 A New Role: SRE 
+Depending on the model chosen from the “who builds it, who runs it?” spectrum, a new role for the people practicing SRE may well need to be introduced in the product delivery organization. The need to create the new role needs to be clear and transparent to motivate and catalyze the introduction. Thus, the first question to answer about the new role is why it is needed. This is the subject of the next section.
+
+#### 12.9.1 Why Is a New Role Needed? 
+The answer to the question of why a new role is needed can be approached by looking at a general definition of role as a concept. According to Britannica: “A role is a comprehensive pattern of behaviour that is socially recognized, providing a means of identifying and placing an individual in a society.”
+
+Projecting this onto the SRE space, it can be said that an envisioned SRE role is a comprehensive pattern of behavior and reliability practice that is socially recognized in the product delivery organization, providing a means of identifying people who do operations. That is, the roots of the need to introduce a new SRE role lie in the identification and social recognition of the people who do operations according to the SRE principles and practices.
+
+With the “you build it, you run it” model, several options of practicing SRE exist. With option A, the developers practice SRE on rotation. With option B, dedicated people in the development teams practice SRE full time. With option C, the developers practice SRE on rotation and additionally there are dedicated people in the development teams practicing SRE.
+
+> <b>Insight:</b> It is beneficial to introduce the SRE role in any model from the “who builds it, who runs it?” spectrum in order to give SRE activities an umbrella in the organization that can be recognized on par with other activities, such as archi- tecture and development. Moreover, dedicated role definitions and dedicated people assigned to the roles may be required from the regulatory compliance point of view.
+
+The introduction of an SRE role in a conscious manner with a clear definition of responsibilities, skills, and accountability in the context of a given organization has the following benefits:
+
+- Identification and social recognition of people practicing SRE in the product delivery organization
+- Recognition of different ways SRE can be practiced: 
+    - By Developers on rotation
+    - Full-time dedicated SRE practice
+    - Full-time dedicated SRE infrastructure implementation and operations 
+- Fulfillment of regulatory compliance requirements in terms of roles and responsibilites in operations 
+- Enablement of a new SRE career path 
+
+#### 12.9.2 Role Definition 
+The graph illustrates very well that SREs need to be involved in all technical phases of the service lifecycle. Additionally, it can be said that SRE involvement is also beneficial before the technical phases begin. That is, when a service is being conceived by the product owners in the ideation and evaluation phases, SRE involvement can provide valuable insights into reliability before decisions are made to further invest in technical implementation.
+
+The design thinking phases can benefit from the involvement of an SRE:
+
+- Empathize → Define → Ideate → Prototype → Test 
+
+Specifically, input into the prototype and test phases can be augmented with reliability thinking in late iterations. The goal of late test iterations is to harden assumptions about the envisioned product being desirable, fulfilling a burning need, and confirming the conditions of product use, user thinking, behavior, and feeling. The hardening can be done in more depth if reliability aspects are explicitly included.
+
+## What Makes an SRE
+<b>SRE Responsibilities:</b>
+
+- Maintain system availability 
+- Maintain system scalability
+- Define and agree on SLIs and SLOs
+- Support SLA negotiations 
+- Define and agree on error budget policy 
+- Make error budget-based decisions
+- Set up monitoring 
+- Set up alerting
+- On call during business hours 
+- On call outside of business hours 
+- Maintain runbooks
+- Take part in postmortems
+- Enhance SRE infrastructure 
+- Take part in chaos engineering
+- Run disaster recovery drills 
+- Review service implementations
+- Review architectures and designs 
+- Improve release procedures
+- Support team onboarding onto SRE 
+- Participate in SRE CoP
+- Contribute to technical road map
+- Support first level support 
+- Support user testing
+- Support requirement engineering 
+
+<b>Skills</b>
+
+- Software engineering
+- Software operations 
+- Debugging and troubleshooting 
+- Distributed Systems 
+- Large-scale, high-traffic systems
+- Infrastructure as code
+- Being driven and self-motivated
+- Blameless continuous improvement
+- Emotional intelligence
+- Ability to perform well on call
+- Technical communication
+- Stakeholder communication
+- Technical documentation
+- Ability to work well in short-lived incident response teams
+
+
+
