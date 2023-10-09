@@ -164,3 +164,32 @@ It is important to note that in the “you build it, you run it” model, the di
 There are two distinct characteristics of the “you build it, you and SRE run it” model: the existence of an SRE team and a shared on-call rotation. The SRE team runs a shared on-call rotation for services in production with the developers of the respective development teams. The SRE team itself can organizationally be placed in the development, operations, or a dedicated SRE organization. In this section, these three alternatives are explored.
 
 #### 12.4.1 SRE Team Within the Development Organization 
+The SRE team consists of SREs who support individual development teams. One SRE supports development team 1 and another SRE supports development team 2. The support consists of running a shared on-call rotation with the developers from the respective teams.
+
+Development team 1 has a developer on rotation running the services owned by team 1 together with an SRE from the SRE team. Likewise, development team 2 has a developer on rotation running the services owned by team 2 together with another SRE from the SRE team.
+
+The SRE team decides which SRE supports which development team. Furthermore, the SRE team decides on the duration of stay of a particular SRE with a particular development team. Generally, the duration is rather long-term. The SRE learns about the services they support in a long-term engagement with the development team. They support the team in all SRE-related matters. They are, indeed, essential members of the development team’s incident response process.
+
+- Still, the SRE does not become a full member of the development team. They do not take part in all the development team’s ceremonies. 
+
+> <b>Insight:</b>A general agreement between the development teams and the SRE team needs to govern the SRE engagements.
+
+In terms of “you build it, you and SRE run it” model scalability, if the number of SREs in the SRE team is smaller than the number of development teams, some development teams will have to operate according to the “you build it, you run it” model. This poses a question of scaling the “you build it, you and SRE run it” model. In order to scale it, the number of SRE teams needs to be grown in line with growing the number of development teams in the development organization.
+
+- Example of Scaling the Number of SRE Teams 
+
+| Number of Development Teams | Number of SRE Teams |
+|----|----|
+| 1 | 1 |
+| 3 |   |
+| 5 |   |
+| 7 |   |
+| 9 | 2 |
+| 11 |   |
+| 13 |   |
+| 15 |   |
+| 17 | 3 |
+| 19 |   |
+| 21 |   |
+| 23 |   |
+
