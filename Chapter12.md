@@ -193,3 +193,86 @@ In terms of “you build it, you and SRE run it” model scalability, if the num
 | 21 |   |
 | 23 |   |
 
+With the number of SRE teams above two and growing, the development organization needs to start asking questions about its purpose. Is the purpose of the development organization to build and run products? If so, the number of SRE teams can grow within the development organization. Otherwise, the question of the right home for the SRE teams should be discussed. Would it be appropriate to host the SRE teams in the operations organization? Would it be more future-oriented to create a separate SRE organization and host the SRE teams there?
+
+#### 12.4.2 SRE Team Within the Operations Organization
+In this setup, development team 1 is supported by one SRE and development team 2 is supported by another SRE. It is important to note that hte support happens in a cross-ogranziational manner. This means that in this setup, the SRE team will have more organizational power to determine which development teams are supported. By the same token, the SRE team will have more organizational power to withdraw support from a development team. 
+
+The support agreement by the SRE team for the development teams will be more formal. THis will be reflected in the developments teams' error budget policies. In fact, the SRE team may want to put in place a new error budget policy or adapt an existing one to capture the SRE support agreement before engaging with a development team. 
+
+#### 12.4.3 SRE Team in a Dedicated SRE Organization
+The SRE infrastructuer team builds and runs the SRE infrastructure. The eingeers building the infrastructure are likley to be called SREs as they reside in the SRE organization. The SRE teams also consists of SREs. THe SREs from teh SRe team support the develpment teams from teh development organization. 
+
+Within the SRE organization, rotation between the SRE team and the SRE infrastructure team will be encouraged. THis way, the SREs gain broad and deep knowledge gboth within the SRE infrastructure and outside where it is used by develpment teams from different subdomains. 
+
+The SRE organization becomes a dedicated hub of SRE knowledge where the infrastructure, best practices, knowledge sharing, incident response, and, indeed an SRE culture are bred and cultivated. 
+
+- Services Offered by the SRE Organization
+
+| Service | Explanation |
+|----|----|
+| SRE advisory | Reliability advice for organizations and teams. Typically, this would be done without formal deliverables. |
+| SRE consulting | Concrete reliability consutlign for teams. Typically, some concrete deliverables will be negotiated. |
+| Services co-design | Designing services together with a team, with a focus on reliability. |
+| SRE Transformation | Providing SRE coaches to run the SRE trnasformation within an organization or a team. |
+| Shared on call | Providing SREs to implement the "you build it, you and SRE run it" on-call model in a team | 
+| Dedicated on call | Providing SREs to implement full produciton ownership for an organization with strictly defined entry and exit criteria expressed in terms of service reliability. |
+| SRE Infrastructure | SRE infrastructure as a service provided for use by other organizations on a subscription basis |
+
+All seven engagement models are possible. The SRE organization is the organizational unit to explore these opportunites. If the services can be offered successfully internally, they might also be offered externally. If successful, the SRE organization will generate its own external revenue and may turn a profit in its own right. THis would represent a classic example of service externalization after honing and proving the capabilities internally. 
+
+#### 12.4.4 Comparison
+The three ways of implementing the “you build it, you and SRE run it” model can be summarized and compared.
+
+- Ways of Running the "You Build It, You and SRE Run It" Model
+| Criterion | You Build It, You and SRE Run It | You Build It, You and SRE Run It | You Build It, You and SRE Run It |
+| SRE Team Placement in the Product Delivery Organization | SRE Team within development organization | SRE team within operations organization | SRE Team in a dedicated SRE Organization |
+| SRE Team Reporting Line | Development manager -> Head of Development | Operations manager -> Head of operations | Head of SRE |
+| SRE Team Incentives | Aliged with the development organization's goals | Aligned with the operations organization's goals | Aligned with the SRE organization's goals |
+| SRE Team Head Count | Part of the development organization's head count | Part of the operations organization's head count | SRE organization's own head count |
+| SRE Team Budget | Part of the development organization's budget | Part of the operation's budget | SRE organization's own budget |
+| SRE Team Cost Accounting | Cost accounting within the development organizaiton | Cost accounting within the operations organizaiton or cross-organizational cost accounting | Cost accounting within the SRE organization or cross-organizational cost accounting or by service offered |
+| SRE Team KPIs | Set by the development organization | Set by the operations organization | Set by the SRE organization |
+| Scalability | Scale the number of SRE teams | Scale the number of SRE teams | Scale the number of SRE teams |
+
+The location of the SRE team in the product delivery organization greatly influences the reporting line, team incentives, head count allowance, budget allowance, cost accounting, and team KPIs. The only constant that does not change regardless of SRE team location is the scalability aspect. “You build it, you and SRE run it” requires at least one SRE from the SRE team to be dedicated to a development team. Following this, the number of SRE teams needs to be scaled with the number of development teams supported.
+
+#### 12.4.5 SRE Team Incentives, Identity, and Pride 
+In terms of the SRE team incentives being aligned with the goals of the organizaiton the team belongs to, in the develpment organization the SRE team goals will be more product-centric and product-specific. In the operations organization, the goals will be expressed in more operational terms, such as time to recover from incidents. In the SRE organization, the goals will be expressed in SRE terms, such as error budget depletion. 
+
+Every organization has its own vernacular and, indeed, subculture. Putting the SRE team into a particular organization needs to be done with this aspect in mind. The team will have some shared mindset with other teams in the same organization.
+
+What is more, the SRE team identity will be influenced by the organization it is in. In the development organization, the SRE team identity might be related to the products they support. In the operations organization, it might be related to the efficiency of recovery from incidents and the low number of high-profile incidents. In the SRE organization, it might be related to the user experience in terms of reliability provided when the services are within their error budgets.
+
+Based on the team identity influenced by the organization the team is in, team pride will develop. In the development organization, the SRE team might take pride in the reliability of specific products being delivered. That is, given two different development organizaitons with one SRE team in each of them, each SRE team might take pride in the reliability of the specific products delivered by the respective development organization they are in. The SREs on these teams might 
+
+Based on the team identity influenced by the organization the team is in, team pride will develop. In the development organization, the SRE team might take pride in the reliability of specific products being delivered. That is, given two different development organizations with one SRE team in each of them, each SRE team might take pride in the reliability of the specific products delivered by the respective development organization they are in. The SREs on these teams might specifically care a lot about the products themselves and individual features, not only about reliability in general.
+
+In the operations organization, the SRE team might take pride in the very low number of high-profile incidents of the products they support.
+
+- SRE Team Identity and Pride 
+
+| SRE TEam Placement in the Product Delivery Organization | SRE team within the development organization | SRE team within the operations organization | SRE Team in a dedicated SRE organization |
+| Team Identify and Pride | Might be product-specific | Might be incident-specific | Might be specific to user experience in terms of reliability |
+
+On the whole, people are influenced by their environment to a great extent. This includes the organizational environment of the team the people are in, which may have an impact on people’s behavior, motivation level, mood, communication patterns, and stress levels. All these factors need to be taken into account when making a decision about SRE team placement within the product delivery organization.
+
+#### 12.4.6 SRE Team Head Count and Budget 
+In terms of the SRE head count and budget, the big question is where the funding for the SRE team would come from. Generally, it may come from a budget increase for the entire division or the product delivery organization within the division. Alternatively, the funding may come from an optimization of the division’s or product delivery organization’s existing budget.
+
+The business case for investing in the SRE team may be supported by two aspects: insurance and revenue.
+
+1. The investment in the SRE team is revenue insurance for reliability targets. The reliability targets are expressed as SLOs for different SLIs. To defend them, an SRE team needs to be funded. The funding is a premium for insurance that protects the existing company revenue from reliability damage. That is, the insurance covers a revenue impact risk from reliability damage.
+2. The investment in the SRE organization is to seize the opportunity to start a new line of business offering new SRE services. These are SRE advisory, consulting, service co-design, transformation, shared on call, dedicated on call, and SRE infrastructure as a service.
+
+It is important to note that the existing budget reallocation at any level in the organization may come at the expense of other running or planned activities. If this is the case, the respective managers might argue about budget and head count. This needs to be anticipated. The SRE coaches should attempt to smooth the waves as much as possible. A solid explanation of what the SRE team is for and a plausible business case might be able to support the rational side of the argument. War stories of past incidents that were not handled well, consequently impacting customers and the company’s reputation, might support the emotional side of the argument.
+
+The title change might lead to higher wage expectations by the operations engineers. However, it will not lead to the operations engineers supporting the development teams adequately in shared on call as part of the “you build it, you and SRE run it” model. Development and debugging skills are essential for an SRE. An operations engineer who was doing manual operations work might not possess these skills. The SRE coaches should watch this space closely and not spare any effort to prevent such a situation from happening.
+
+In “Aim for Operability, not SRE as a Cult,” Steve Smith says: “In 2020, I learned of a sysadmin team that were rebranded as an SRE team, received a small pay increase... and then carried on doing the same sysadmin work.” To counter this state of affairs, an SRE team must be staffed with engineers combining development and operations capabilities. This is the core reason and the justification for SREs commanding higher wages than operations engineers. The SRE methodology can be learned and the experience applying it can be gained. However, it only works effectively on top of sound development and operations capabilities.
+
+- SRE Team Funding Options 
+
+| SRE Team Placement in the Product Delivery Organizaiton | SRE team placement in the product delivery organization | SRE team within development organization | SRE team within operations organization | SRE Team in a dedicated SRE organization |
+| SRE Team Head Count and Budget | SRE team head count and budget | Budget increase to fully/partially cover cost or no budget increase for the development organization | Budget increase to fully/partially cover cost or no budget increase for the product delivery organization |
+
