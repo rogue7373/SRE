@@ -273,6 +273,8 @@ In “Aim for Operability, not SRE as a Cult,” Steve Smith says: “In 2020, I
 
 - SRE Team Funding Options 
 
+| Criterion | Product | Development | Operations | SRE |
+|----|----|----|----|----|
 | SRE Team Placement in the Product Delivery Organizaiton | SRE team placement in the product delivery organization | SRE team within development organization | SRE team within operations organization | SRE Team in a dedicated SRE organization |
 | SRE Team Head Count and Budget | SRE team head count and budget | Budget increase to fully/partially cover cost or no budget increase for the development organization | Budget increase to fully/partially cover cost or no budget increase for the product delivery organization |
 
