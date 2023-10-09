@@ -152,7 +152,7 @@ It is important to note that in the “you build it, you run it” model, the di
 
 - Ways of Running the "You Build It, You Run It" Model 
 
-|  | You Build It, You Run It | You Build It, You Run It | You Build It, You Run It | 
+| Questions | You Build It, You Run It | You Build It, You Run It | You Build It, You Run It | 
 |----|----|----|----|
 | Who Operates Services Within the Development Team? | Developers operate the services | SRE Operates the services | SRE and developers operate the services |
 | Are SREs full Development Team Members? | N/A | Yes | Yes |
@@ -161,4 +161,6 @@ It is important to note that in the “you build it, you run it” model, the di
 | What Is the Scalability | Scale the number of development teams | Scale the number of development teams. Each team gets a dedicated SRE | Scale the number of development teams. Each team gets a dedicated SRE |
 
 ### 12.4 You Build It, You and SRE Run It
+There are two distinct characteristics of the “you build it, you and SRE run it” model: the existence of an SRE team and a shared on-call rotation. The SRE team runs a shared on-call rotation for services in production with the developers of the respective development teams. The SRE team itself can organizationally be placed in the development, operations, or a dedicated SRE organization. In this section, these three alternatives are explored.
 
+#### 12.4.1 SRE Team Within the Development Organization 
