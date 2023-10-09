@@ -679,7 +679,92 @@ The principal SRE is held accountable for keeping the SLA error budgets for all 
 
 In terms of remuneration of the on-call duty for all the three SRE roles, an aspect of social justice needs to be taken into account in an appropriate way. For instance, single parents agreeing to be on call outside of business hours may be compensated differently than others. Likewise, people with several children of preschool age might be compensated differently than others.
 
+#### 12.10.2 SRE Role Transitions 
+The role progressions should be designed using a set of criteria. As an example, in order to transition from a junior to a senior and from a senior to a principal SRE, the following would need to apply.
+
+- The SRE has performed for more than six months osme of the work usually performed by the SRE role sought to be attained. 
+- The SRE has been able to influence pople beyond their current immediate scope of responsibility. 
+- The SRE's communication and interpersonal skills allow for connection with a wide range of people and roles on the technical topics presented appropriately case by case. 
+- The SRE's work feedback in the last six months by their line manager and others demonstrates potential for assuming more repsonsibility and accountability. 
+- The SRE is actively seeking to assume more responsibility and accountability
+- In order to attain the principal SRE role: The SRE has served as a mentor to at least one SRE who provided generally positive feedback about the mentorship. 
+
+HR needs to make these transition criteria transparent to the SREs. This way, the SREs have a clear preparation plan to drive their own promotions: The SRE role definitions and the transi- tion criteria between them are clear.
+
+- SRE Head Count by Role 
+
+| # | Junior SRE | Senior SRE | Principal SRE |
+|----|----|----|----|
+| Number of people | Roughly corresponds to the number of development teams | Roughly corresponds to the number of product domains | Roughly corresponds to the number of product lines |
+
+#### 12.10.3 Cultural Importance 
+The SRE coaches should try to sense the level of agreement within the leadership team. In case of a very weak agreement, the SRE coaches should advise the team not to proceed with further communication. Instead, the decision should be brought for further debate until a stronger agreement can be reached.
+
+Once a strong agreement on the chosen organizational SRE setup has been reached in the leadership team, further communication to the current and future line managers of the people practicing SRE should take place. This can be done in a single short meeting. Once the line managers know about the change, the current line managers of the people practicing SRE should let them know about the upcoming organizational change in short, private conversations.
+
+Next, a bigger communication to the people practicing SRE, as well as their current and future line managers, should be made in a dedicated meeting, in the form of a presentation that reveals the business goals supported by SRE, the reasons for the chosen SRE setup in the organization, what it would mean for everyone in the meeting, and how the rollout of the setup is planned to unfold.
+
+The presentation should be held by the head of the product delivery organization or a C-level executive. After the presentation, the presenter, other members of the leadership team, HR, and the SRE coaches should make themselves available to answer questions posed by the audience. People will ask questions regarding their careers, transition plans, remuneration, packages, and so on.
+
+### 12.12 Introducing the Chosen Model
+The introduction of the chosen model depends on the changes from the status quo that may have to be done in order to achieve the agreed target state for the product delivery organization. The changes can happen along four dimensions:
+
+1. Changes of the model on the "who builds it, who runs it?" spectrum
+2. Organization changes
+3. Reporting structure changes 
+4. Role changes
+
+The new SRE organization needs to be properly established. To kick off the process, the head of the SRE organization needs to run an all-employee meeting laying down the foundations.
+
+<b>Sample Agenda</b>
+
+- Introduce themselves
+- Introducce the vision for the SRE organization
+- Introduce the teams within the SRE organization
+- Introduce the working mode with other departments
+- Introduce the freedom and responsibility split for the teams 
+- Introduce the organizational KPIs for the SRE organization
+- Introduce the roles in the SRE organization
+- Introduce people in the key roles
+- Introduce the SRE career path
+- Introduce the envisioned head count of the organization
+- Introduce the open positions by team
+- Encourage everyone to suggest suitable people they know for the open positions
+- Introduce the way how the key people can be contacted by anyone
+- Introduce standing meetings
+    - All-emploee meetings
+    - SRE CoP
+- Introduce SRE publications
+    - blog
+    - Availability newsletter
+- Introduce immediate new intiatives 
+    - Set the purpose
+    - Appoint the initiative leader
+    - Define success hypotheses
+- Talk about the envisioned on-call practice 
+- Talk about docking the SRE onto the regulatory compliance
+- Introduce the employee performance review process
+- Introduce the key supporting people from other departments
+    - HR
+    - Procurement
+    - Workers council
+    - Legal
+- List open topics
+- Open the stage for questions and answer all of the thoroughly
+
+#### 12.12.2 Reporting Structure Changes 
+In terms of line management changes, in order to transition an SRE from one manager to another, the recommended approach is to use three meetings:
+
+1. Meeting between the SRE and their current line manager
+2. Meeting between the SRE and their current and future line manangers
+3. Meeting between the SRE and their new line manager
+
+#### 12.12.3 Role Changes 
+Another big area to be taken care of is that of roles and role changes. The introduction of a new SRE career path with dedicated roles such as junior, senior, and principal SREs could coincide with the organization changes for SREs. In this case, the big question when changing the organization is which role will be assigned to a particular person currently practicing SRE without bearing an official role.
 
 
+##### End of Chapter 
+
+##### Proceed to [Chapter 13](https://github.com/rogue7373/SRE/blob/main/Chapter13.md)
 
 
