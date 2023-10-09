@@ -157,4 +157,8 @@ It is important to note that in the “you build it, you run it” model, the di
 | Who Operates Services Within the Development Team? | Developers operate the services | SRE Operates the services | SRE and developers operate the services |
 | Are SREs full Development Team Members? | N/A | Yes | Yes |
 | What Is The Reporting Line of SREs? | N/A | Development manager -> Head of Development | Developement manager -> Head of Development |
+| What Are The Incentives of SREs? | N/A | Incentives are aligned with the development team goals | Incentives are aligned with the development team goals |
+| What Is the Scalability | Scale the number of development teams | Scale the number of development teams. Each team gets a dedicated SRE | Scale the number of development teams. Each team gets a dedicated SRE |
+
+### 12.4 You Build It, You and SRE Run It
 
