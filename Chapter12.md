@@ -152,7 +152,7 @@ It is important to note that in the “you build it, you run it” model, the di
 
 - Ways of Running the "You Build It, You Run It" Model 
 
-| | You Build It, You Run It |
+| | You Build It, You Run It | | | 
 |----|----|----|----|
 | Who Operates Services Within the Development Team? | Developers operate the services | SRE Operates the services | SRE and developers operate the services |
 | Are SREs full Development Team Members? | N/A | Yes | Yes |
