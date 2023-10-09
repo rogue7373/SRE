@@ -252,6 +252,8 @@ In the operations organization, the SRE team might take pride in the very low nu
 
 - SRE Team Identity and Pride 
 
+| Product | Development | Operations | SRE |
+|----|----|----|----|
 | SRE TEam Placement in the Product Delivery Organization | SRE team within the development organization | SRE team within the operations organization | SRE Team in a dedicated SRE organization |
 | Team Identify and Pride | Might be product-specific | Might be incident-specific | Might be specific to user experience in terms of reliability |
 
