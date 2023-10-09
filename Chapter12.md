@@ -584,5 +584,29 @@ Specifically, input into the prototype and test phases can be augmented with rel
 - Technical documentation
 - Ability to work well in short-lived incident response teams
 
+#### 12.9.3 Role Naming
+Several role names can be found in the industry describing people practicing SRE to an acceptable extent.
+
+- Current Industry Roles Practicing SRE 
+
+| Role Name | Explanation |
+|----|----|
+| Site Reliability Engineer (SRE) | The original role name introduced and used by Google. Most commonly used role name for people practicing SRE.|
+| DevOps Engineer | A common role name for the people doing operations, implementing deployment infrastructure, and performing deployments. The name originates from the DevOps movement.|
+| Produciton Engineer | The role name used at Facebook by the people running the services dedicatedly using the "you build it, you and SRE run it" model.|
+| Reliability Engineer | Similar to site reliability engineer (SRE)|
+| Cloud site reliability engineer | Same as site reliability engineer (SRE)|
+
+Now, if an SRE transformation has been executed in its pure sense in a given product delivery organization, it should be natural to name the new role “SRE.” However, if the transformation in operations has not been explicitly driven as “an SRE transformation,” there is more freedom to think about role naming.
+
+- SRE Role Names 
+
+| Role Name | Explanation |
+|----|----|
+| Site reliability infrastructure product owner (SRE Infrastructre PO) | The SRE infrastructure can and should be developed as a full-fledged product using product thinking. To do so, a dedicated product owner is required. |
+| Site reliability infrastructure engineer (Infrastructure SRE) | Software engineers implementing the SRE infrastructure used by the development teams can have a dedicated role name. This is justified because the work they do differes from that of an SRE using the infrastructure in a development team. |
+| Site reliability platform engineer (Platform SRE) | In a larger product delivery organization, an explicit domain platform may be developed. People working on the domain platform may face unique operational challenges. Therefore, SREs working on the platform development teams may deserve an explicit role name.| 
+| Site reliability application engineer (Application SRE) | In a larger product delivery organization, an explicit domain platform may be available that is used by cusotmer-facing applications. People doing SRE on the applicaitons development teams may be given a dedicated role name due to unique SRE challenges with the applicaitons.|
+
 
 
